@@ -35,7 +35,7 @@
 					$row_path = mysqli_fetch_array($result_path);
 								do {
 									$id_r = $row_path['id_raion'];
-										echo '<g><a href="page_mo.php?id='.$row_path['id_raion'].'"><path onmousemove="shoow(`'.$id_r.'`)" onmouseout="hide(`'.$id_r.'`)" id="r'.$row_path['id_raion'].'" class="raion" d="'.$row_path['path'].'"></path></a></g>';
+										echo '<g><a href="page_mo.php?id='.$row_path['id_raion'].'"><path onmouseenter="shoow(`'.$id_r.'`)" onmouseout="hide(`'.$id_r.'`)" id="r'.$row_path['id_raion'].'" class="raion" d="'.$row_path['path'].'"></path></a></g>';
 								}
 					while($row_path = mysqli_fetch_array($result_path));
 				?>

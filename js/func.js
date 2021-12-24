@@ -192,12 +192,17 @@
 			    	   	target.hide()
 	}
 
-	function hovermap(id) {
+    function hovermap(id) {
+        for (elem of document.getElementsByClassName('raion-hover')){
+            elem.classList.remove('raion-hover')
+        }
+
 		document.getElementById(id).classList.add("raion-hover");
-			setTimeout(function(){
-					document.getElementById(id).classList.remove('raion-hover');
-					},3000)
-			
+
+        setTimeout( () => {
+            document.getElementById(id).classList.remove('raion-hover');
+        },3000)
+        
 	}
 
 	function open_info(id) {
