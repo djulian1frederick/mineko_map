@@ -17,13 +17,14 @@
 		<ul>
 			<?php 
 				require_once('admin/connection.php');
-				$sql_select_raions = "SELECT raion, id_raion from raions";
-				$result_raions = mysqli_query($bd,$sql_select_raions);   
-				$row_raions = mysqli_fetch_array($result_raions);
-					do {
-						$id_r = "r".$row_raions['id_raion'];
-						echo '<li onmousemove="hovermap(`'.$id_r.'`)"><a href="page_mo.php?id='.$row_raions['id_raion'].'">'.$row_raions['raion'].'</a></li>';
-					}while($row_raions=mysqli_fetch_array($result_raions));
+				while($row_raions=mysqli_fetch_array(mysqli_query($bd,"SELECT raion, id_raion from raions"))){
+					$id_r = "r".$row_raions['id_raion'];
+					echo '
+					<li onmousemove="hovermap(`'.$id_r.'`)">
+						<a href="page_mo.php?id='.$row_raions['id_raion'].'"> '.$row_raions['raion'].' </a>
+					</li>';
+				}
+
 		?>
 	</ul>	
 	</div>	
