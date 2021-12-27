@@ -20,7 +20,7 @@ if ($viddey <> $null && $codeprod <> $null){
 }
 elseif ($viddey == $null  && $codeprod <> $null) {
 	$sql= "INSERT into predpriyatiya (id_size, id_code_product, name, inn, ogrn, code_tn_ved, yearstart) values ('".$sizepr."','".$codeprod."','".$nameorg."','".$inn."','".$ogrm."', '".$codetnved."', '".$year."')";
-		$viddey_sql = "INSERT into vid_deyat (vid_deyatelnosti) values ('".$viddey."')";
+		$viddey_sql = "INSERT into vid_deyat (vid_deyatelnosti) values ('".$viddeyadd."')";
 		$viddey_q = mysqli_query($bd, $viddey_sql);
 		if($viddey_q) {
 			$insert_org = mysqli_query($bd, $sql);

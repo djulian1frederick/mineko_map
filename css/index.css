@@ -244,9 +244,9 @@
 		font-style: normal;
 		text-decoration: none;
 		display: inline-flex;
-		width: 90%;
-		margin: 0 5%;
-		background: #1c75bc;
+		width: 50%;
+		margin: 0 25%;
+		background: #fff;
 		flex-flow: wrap;
 		
 }	
@@ -359,6 +359,7 @@
 		margin: 0.25% 10%;
 		display:  flex;
 		border-right: 0.5px dotted #ebebeb;
+		margin-top: 15px;
 	}
 	.up-left, .down-left  {
 		margin: 0 5%;
@@ -372,7 +373,7 @@
 		min-width: 250px;
 		height: auto;
 		padding: 1.5%;
-		margin: 0 auto;
+		margin: 0 10%;
 	}
 
 	 table td:nth-child(even) { color: #1c75bc; word-wrap: break-word;}
@@ -539,6 +540,7 @@
 	}
 
 	.main_organization img {
+		height: 150px;
 		padding:  1%;
 		margin: 1%;
 		max-width: 80%;
@@ -564,6 +566,85 @@
 	.del_butt, .edit_but {
 	border: 1px solid #1c75bc;
 	}
+
+	.descriptions {
+		    text-align: left;
+		    word-wrap: break-word;
+		    text-transform: lowercase;
+		    width: 150px;
+		    font-size: 12px;
+		    font-style: italic;
+		    margin: 1%;
+	}
+	.nice_navigation {
+		background: white;
+		border-top:  1px solid #dcdcdc;
+		list-style: none;
+		display: inline-flex;
+		flex-flow: wrap;
+		flex-direction: row;
+		width: 100%;
+	}
+	.nice_navigation li {
+		color:  #1c75bc;
+		font-weight: bold;
+		padding: 15px;
+		text-align: center;
+	}
+
+	.nice_navigation a {
+		text-decoration: none;
+		font-family: Circe Light;
+	}
+
+	.nice_navigation li:hover {
+		color:  black;
+		border-bottom:  1px solid #ed1c24;
+	}
+
+	.nice_navigation li:nth-child(6) {
+		color:  black;
+		border-bottom: none;
+	}
+
+	.nice_navigation input {
+		border-radius: 20px;
+		background: #e6e6e6;
+		width:  250px;
+		padding: 5px;
+		border:  none;
+	}
+
+	.nice_navigation button {
+		border: none;
+		margin-left: -25px;
+		border-radius: 15px;
+		padding: 5px;
+		background: inherit;
+	}
+
+	.nice_navigation button:hover {
+		cursor: pointer;
+		background: #c7c7c7;
+	}
+	.nice_navigation img {
+		width: 15px;
+		height: 15px;
+		float: right;
+	}
+
+
+	blockquote {
+	   padding: 18px 10px 18px 70px;
+	   font: 14px/20px italic Circe, serif;
+	   background: url(../img/double-quotes.png) no-repeat scroll 10px 10px rgb(255, 255, 255);
+		border-left: 7px solid #1c75bc;
+		border-top: 1px dotted #c0c0c0;
+		border-right:1px dotted #c0c0c0;
+		color:  black;
+		border-bottom: 1px dotted #c0c0c0;
+	}
+
 
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}

@@ -45,7 +45,7 @@
 
 		echo '<div class="block_organization">
 					<div class="main_organization">
-					<h2>'.$org_row['name'].'</h2>';
+					<h2><a href="organization.php?id='.$org_row['id_predpriyatiya'].'" style="text-decoration: none; cursor: pointer; color: #fff; font-size: 14px;">'.$org_row['name'].'</a></h2>';
 						if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {echo '<h3>'.$org_row['yearstart'].'</h3>';}
 								echo '<h4>'.$raion.' </h4>
 								<h3>'.$size.'</h3>

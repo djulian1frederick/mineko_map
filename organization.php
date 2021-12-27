@@ -38,7 +38,9 @@
 
 		$rukovod_sql = mysqli_query($bd, "SELECT * from rukovoditeli where id_rukovoditel='".$org_row['id_rukovoditel']."'");
 		$rukovod_predpr= mysqli_fetch_array($rukovod_sql);
-		if ($rukovod_predpr <> NULL)	{$rukovoditel = ''.$rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];}
+		if ($rukovod_predpr <> NULL)	{
+				$rukovoditel = $rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];
+			}
 		
 		$vid_sql = mysqli_query($bd, "SELECT vid_deyatelnosti from vid_deyat where id_vid_deyat='".$org_row['id_vid_deyat']."'");
 		$vid_predpr = mysqli_fetch_array($vid_sql);
@@ -60,7 +62,9 @@
 								echo '<h4>'.$raion.' </h4>
 								<h3>'.$size.'</h3>
 								</div>';
-		
+		if ($org_row['descr_organization'] <> NULL) {echo '<div class="up-main">
+				<blockquote>'.$org_row['descr_organization'].'</blockquote>
+				</div>';}
 		echo '<div class="up-main">
 				<div class="up-left">
 					<table>';
@@ -96,7 +100,7 @@
 					}while($gallrery = mysqli_fetch_array($gallery_result));
 					echo '</ul></div>'; }
 				
-					$select_production = "SELECT name_production, image_href from production where id_predpriyatia='".$id."'";
+					$select_production = "SELECT * from production where id_predpriyatia='".$id."'";
 						$production = mysqli_query($bd, $select_production);
 						$production_row = mysqli_fetch_array($production);
 					if ($production_row <> NULL) {
@@ -109,6 +113,7 @@
 							echo '<li style="height: 200px; border: 1px solid #dcdcdc; margin: 0 5px;">
 							<h6>'.$production_row['name_production'].'</h6>
 							<img  width="150px" src="'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">
+							<p class="descriptions">'.$production_row['description'].'</p>
 							</li>';
 						} while ($production_row = mysqli_fetch_array($production));
 							echo '

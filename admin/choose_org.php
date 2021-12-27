@@ -15,12 +15,14 @@
 ?>
 
 <div class="blocks_info" style="display: flex; flex-flow: row; flex-wrap: wrap; width: 80%; margin: 0 10%;">
-	<div id="updateinfo" style="width: 100%;"></div>
+	<div id="updateinfo" style="width: 50%;margin: 0 25%;text-align: center;"></div>
 		<div style="width: 50%;">
 		<div style="margin: 2.5%;background: white; border: 1px #dcdcdc solid;">
 			<div style="margin: 0 2.5%;">
 				<label for="">Название организации</label><br>
-					<?php echo "<input type='text' required id='nameorg' name='nameorg' value='".$main_row['name']."'><br>"; ?>
+					<?php echo "<input type='text' required id='nameorg' name='nameorg' value='".$main_row['name']."'><input type='hidden' name='org_id' value='".$org."'><br>"; ?>
+				<label for="">Описание</label><br>
+					<?php echo '<textarea name="descr_organization" id="descr_organization" cols="68" row="5" value="'.$main_row['descr_organization'].'">'.$main_row['descr_organization'].'</textarea><br>'; ?>
 				<label for="">ИНН</label><br>
 					<?php echo '<input type="text" required id="inn" name="inn" value="'.$main_row['inn'].'"><br>'; ?>
 				<label for="">ОГРН</label><br>
@@ -103,20 +105,24 @@
 	</div>
 		<div style="margin: 0 2.5%;">
 			<?php 
-					$select_production = "SELECT name_production, image_href from production where id_predpriyatia='".$org."'";
+					$select_production = "SELECT * from production where id_predpriyatia='".$org."'";
 						$production = mysqli_query($bd, $select_production);
 						$production_row = mysqli_fetch_array($production);
 					if ($production_row <> NULL) {
 					echo'<div><ul style="display: inline-flex; flex-flow: row; flex-wrap: wrap; background: white;  padding: 15px;"><h5 style="text-align: center;margin: 0 auto;font-size: 16px;  padding-bottom: 10px;">Продукция</h5>';
 						do {
 							echo '<li style="border: 1px solid #dcdcdc; width: 100%;">
-							<form>
+							<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="_blank">
+							<input type="hidden" name="org_id" id="org_id" value="'.$org.'">
 							<img  style="float: left;" width="150px" src="../'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">
+								<input type="hidden" name="prodid" id="prodid" value="'.$production_row['id_product'].'">
+							<input type="text" name="production_name" id="production_name" value="'.$production_row['name_production'].'" style="margin: 0 5%; margin: 5%; border: none; border-bottom: 1px solid; font-style: italic; word-break: break-word;    padding: 5px;"><br>';
+								
+								echo "<textarea cols='40' rows='3' name='descr' id='descr' value='".$production_row['description']."'>".$production_row['description']."</textarea>";
 
-							<input type="text" name="production_name" id="production_name" value="'.$production_row['name_production'].'" style="margin: 0 5%; margin: 5%; border: none; border-bottom: 1px solid; font-style: italic; word-break: break-word;    padding: 5px;"><br>
-							<input type="file" style="margin: 0 5%;background: #1c75bc;padding: 5px;color: white; border: none;">
+							echo '<input type="file" name="file" id="file" style="margin: 0 5%;background: #1c75bc;padding: 5px;color: white; border: none;">
 							
-							<button class="edit_but"><img src="../img/edit.png" width="16px" height="16px"></button><button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
+							<button class="edit_but" type="submit"><img src="../img/edit.png" width="16px" height="16px"></button><button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
 							</form>
 							</li>';
 						} while ($production_row = mysqli_fetch_array($production));
@@ -167,14 +173,15 @@
 				$rukovoditel_sql = mysqli_query($bd, $rukovoditel_select);
 				$rukovoditel = mysqli_fetch_array($rukovoditel_sql); 
 			?>
-
+				<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
+					<?php echo '<input type="hidden" name="ruk_id" id="ruk_id" value="'.$rukovoditel['id_rukovoditel'].'">';?>
 				<label>Фамилия</label><br>
-					<?php echo '<input type="text" name="o_fam" id="o_fam" value="'.$rukovoditel['first_name'].'"><br>';?>
+					<?php echo '<input type="text" name="o_fam" id="o_fam" value="'.$rukovoditel['second_name'].'"><br>';?>
 				<label>Имя</label><br>
-					<?php echo '<input type="text" name="o_name" id="o_name" value="'.$rukovoditel['second_name'].'"><br>';?>
+					<?php echo '<input type="text" name="o_name" id="o_name" value="'.$rukovoditel['first_name'].'"><br>';?>
 				<label>Отчество</label><br>
 					<?php echo '<input type="text" name="o_otch" id="o_otch" value="'.$rukovoditel['last_name'].'"><br>';?>
-		<button class="edit_but"><img src="../img/edit.png" width="16px" height="16px"></button>
+		<button class="edit_but" onclick="updaterukovod()"><img src="../img/edit.png" width="16px" height="16px"></button>
 		<button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
 			</div>
 		</div>
@@ -187,26 +194,51 @@
 						$contacts = mysqli_fetch_array($contact_sql);
 
 					?>
+						<?php echo '<input type="hidden" name="con_id" id="con_id" value="'.$contacts['id_contact'].'">';?>
+						<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
 				<label>Номер телефона</label><br>
 					<?php echo '<input type="text" name="org_phone1" id="org_phone1" maxlength="12" value="'.$contacts['phone1'].'"><br>';?>
 				<label>Адрес электронной почты</label><br>
-					<?php echo '<input type="email" name="organ_email" id="org_email" value="'.$contacts['email'].'"><br>';?>
-				<button class="edit_but"><img src="../img/edit.png" width="16px" height="16px"></button>
+					<?php echo '<input type="email" name="org_email" id="org_email" value="'.$contacts['email'].'"><br>';?>
+				<button class="edit_but" onclick="updatecontact()"><img src="../img/edit.png" width="16px" height="16px"></button>
 				<button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
 			</div>
 		</div>
 			<div style="margin: 2.5%;background: white; border: 1px #dcdcdc solid;">
 				<div style="margin: 0 2.5%;">
-					<form>
+					<form id="logo_site">
+						<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
 						<label>Логотип</label><br>
 						<?php echo'<img src="/'.$main_row['logo'].'" alt=""><br>';?>
-						<input type="file"><br>
+						<input type="file" name="file" id="file"><br>
 						<br>
 						<?php echo '<input type="text" name="site" value="'.$main_row['site'].'" placeholder="адрес сайта"><br>'; ?>
-						<button class="edit_but"><img src="../img/edit.png" width="16px" height="16px"></button>
+						<button class="edit_but" type="submit"><img src="../img/edit.png" width="16px" height="16px"></button>
 						<button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
 					</form>
 				</div>	
 			</div>
 		</div>
 	</div>
+
+
+<script>
+	$('#logo_site').submit(function(e) {
+        // создадим объект FormData и добавим в него данные из формы;
+        // обратите внимание, передаем конструктору DOM-объект формы
+        var formData = new FormData($('#logo_site')[0]); 
+         $.ajax({
+            url: '../admin/scripts/update_logo_site.php',
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            dataType: 'JSON',
+            success: function(data) {
+	              
+            }
+        });
+         e.preventDefault();
+	
+});
+</script>
