@@ -652,7 +652,8 @@
     }
 	.map-navigation {
         overflow-y: auto; 
-        height: 70vh;
+        overflow-x: hidden;
+        height: 85vh;
 		width: 300px;
 		list-style: none;
 		padding: 0;
@@ -695,20 +696,23 @@
 		background: #1c75bc;
 	}
 
-	.map-navigation input {
+	.map-navigation-div input {
 		border-radius: 20px;
 	    background: #fff;
 	    width: 270px;
 	    padding: 5px;
 	    border: none;
 	    margin: 4.5%;
+
 	}
 
-	.map-navigation img {
+	.map-navigation-div img {
 		width: 15px;
 		height: 15px;
 		margin-top: 7%;
 	}
+
+
 
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}

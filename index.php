@@ -14,9 +14,8 @@
 <div class="container">
 	<div class="main-frame">
 	<div class="navigation-div">
-	
+	<div class="map-navigation-div" style="display: inline-flex;"><input id="search" size="20" placeholder="Начните вводить название МО" /><img src="img/search.png"></div>
 		<ul class="map-navigation" id="search-items">
-			<div style="display: inline-flex;"><input id="search" size="20" placeholder="Начните вводить название МО" /><img src="img/search.png"></div>
 			<?php 
 				require_once('admin/connection.php');
 				$result_raions = mysqli_query($bd, "SELECT raion, id_raion, poryadok from raions WHERE city_mo_id IS NULL order by poryadok ASC ");
