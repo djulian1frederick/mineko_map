@@ -647,7 +647,12 @@
 		border-bottom: 1px dotted #c0c0c0;
 	}
 
+    .map-navigation::-webkit-scrollbar { 
+        display: none; 
+    }
 	.map-navigation {
+        overflow-y: auto; 
+        height: 70vh;
 		width: 300px;
 		list-style: none;
 		padding: 0;
