@@ -8,7 +8,7 @@
 <script type="text/javascript" src="js/func.js"></script>
 <link rel="stylesheet" href="css/index.css">
 </head>
-<body>
+<body style="overflow: hidden;">
 
 <?php include 'header.php'; ?>
 <div class="container">
