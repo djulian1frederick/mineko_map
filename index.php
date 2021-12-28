@@ -13,16 +13,16 @@
 <?php include 'header.php'; ?>
 <div class="container">
 	<div class="main-frame">
-	<div class="navigation-map">
-		<ul>
+	<div class="">
+		<ul class="map-navigation">
 			<?php 
 				require_once('admin/connection.php');
-				$result_raions = mysqli_query($bd, "SELECT raion, id_raion from raions WHERE city_mo_id IS NULL");
+				$result_raions = mysqli_query($bd, "SELECT raion, id_raion, true_name from raions WHERE city_mo_id IS NULL order by poryadok ASC ");
                 while($row_raions=mysqli_fetch_array($result_raions)){
 
                     $isCityListEmpty = true;
-                    $sublist_cities = '<li><ul class="inner-city-list">';
-                    $result_cities = mysqli_query($bd, "SELECT raion, id_raion FROM raions WHERE city_mo_id = '".$row_raions['id_raion']."';");
+                    $sublist_cities = '<li style="background: none; padding: 0; margin: 1px 0;"><ul class="inner-city-list">';
+                    $result_cities = mysqli_query($bd, "SELECT raion, id_raion , true_name FROM raions WHERE city_mo_id = '".$row_raions['id_raion']." ';");
                     while($row_cities=mysqli_fetch_array($result_cities)){
                         $isCityListEmpty = false;
                         $id_c = "r".$row_cities['id_raion'];
