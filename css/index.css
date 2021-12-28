@@ -644,7 +644,11 @@
 		color:  black;
 		border-bottom: 1px dotted #c0c0c0;
 	}
-
+    
+    .inner-city-list{
+        height: fit-content !important;
+        overflow: hidden !important;
+    }
 
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}
