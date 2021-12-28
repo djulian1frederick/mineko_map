@@ -13,15 +13,17 @@
 <?php include 'header.php'; ?>
 <div class="container">
 	<div class="main-frame">
-	<div class="">
-		<ul class="map-navigation">
+	<div class="navigation-div">
+	
+		<ul class="map-navigation" id="search-items">
+			<div style="display: inline-flex;"><input id="search" size="20" placeholder="Начните вводить название МО" /><img src="img/search.png"></div>
 			<?php 
 				require_once('admin/connection.php');
 				$result_raions = mysqli_query($bd, "SELECT raion, id_raion, poryadok from raions WHERE city_mo_id IS NULL order by poryadok ASC ");
                 while($row_raions=mysqli_fetch_array($result_raions)){
 
                     $isCityListEmpty = true;
-                    $sublist_cities = '<li style="background: none; padding: 0; margin: 1px 0;"><ul class="inner-city-list">';
+                    $sublist_cities = '<li style="background: none; padding: 0; margin: 1px 0;"><ul id="search-items" class="inner-city-list">';
                     $result_cities = mysqli_query($bd, "SELECT raion, id_raion , poryadok FROM raions WHERE city_mo_id = '".$row_raions['id_raion']." ';");
                     while($row_cities=mysqli_fetch_array($result_cities)){
                         $isCityListEmpty = false;

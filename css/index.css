@@ -689,6 +689,26 @@
 		margin: 0 5px;
 	}
 
+	.navigation-div {
+		margin-top: -4.5%;
+		padding-top: 25px;
+		background: #1c75bc;
+	}
+
+	.map-navigation input {
+		border-radius: 20px;
+	    background: #fff;
+	    width: 270px;
+	    padding: 5px;
+	    border: none;
+	    margin: 4.5%;
+	}
+
+	.map-navigation img {
+		width: 15px;
+		height: 15px;
+		margin-top: 7%;
+	}
 
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}
