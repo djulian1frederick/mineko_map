@@ -245,3 +245,19 @@
     document.getElementById(sid).style.display = "block";
   }
 }
+
+$(function(){
+  $('input#search').on('input', function(){
+    var str = $(this).val().toLowerCase();
+    if (str.length <= 1){
+      $('ul#search-items li').show();
+    }
+    else {
+      $('ul#search-items li').each(function(){
+        if ($(this).text().toLowerCase().indexOf(str) < 0){
+          $(this).hide();
+        }
+      });  
+    }    
+  });
+});
