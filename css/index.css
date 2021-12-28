@@ -646,11 +646,44 @@
 		color:  black;
 		border-bottom: 1px dotted #c0c0c0;
 	}
-    
-    .inner-city-list{
-        height: fit-content !important;
-        overflow: hidden !important;
-    }
+
+	.map-navigation {
+		width: 300px;
+		list-style: none;
+		padding: 0;
+		margin:  0;
+	}
+	.map-navigation li {
+		font-family: Circe Light;
+		padding: 5px 7px;
+		margin: 2px 0;
+		background: #fff;
+		color:  black;
+	}
+	.map-navigation a {
+		text-decoration: none;
+		сolor:  black;
+	}
+	.map-navigation a:hover {
+		color:  white;	
+	}
+
+	.map-navigation li:hover {
+		background: #1c75bc;
+	}
+
+	.inner-city-list {
+		list-style: disclosure-closed;
+		margin: 0;
+		background: #fff;
+		padding: 0 15px;
+	}
+	.inner-city-list li {
+		color: #1c75bc;
+		font-size: 15px;
+		margin: 0 5px;
+	}
+
 
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}
