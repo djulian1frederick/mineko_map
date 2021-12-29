@@ -344,18 +344,6 @@
 		padding: 5px;
 	}
 
-	.block_organization {
-		width: 80%;
-		margin: 0 auto;
-		padding: 0;
-		font-family: Circe;
-		background: #fff;
-		display: block;
-		border-right: 30px solid transparent;
-		border-left: 30px solid transparent;
-		border-bottom: 60px solid #ed1c24;
-		border-top: 20px solid #1c75bc;
-	}
 	.up-main, .down-main {
 		width: 80%;
 		margin: 0.25% 10%;
@@ -712,6 +700,130 @@
 		margin-top: 7%;
 	}
 
+	body {
+		margin: 0;
+		padding: 0;
+		background: #000;
+	}
+	.block_organization {
+		background: #fff;
+		width: 70%;
+		padding: 5px 0;
+		box-shadow: 0 5px 0 #EF0E19;
+		margin: 15px 15%;
+	}
+	.block_organization img, .organization_info_logo_img {
+		width: 16px;
+		height: 16px;
+	}
+	.organization_info_logo {
+		background: #fff;
+		width: 100%;
+		padding: 5px 0;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.block_organization h2, h4, h5 {
+		padding: 0;
+		margin: 0;
+		text-align: center;
+		width: auto;
+		font-size: 18px;
+	}
+
+	.organization_info_logo img {
+		height: 90px;
+		width: auto;
+		padding: 0;
+		margin: 0 auto;
+	}
+
+	.organization_info_logo h4{
+		font-family: Circe ExtraLight;
+		color: #114975;
+		border-bottom: 1px solid #dcdcdc;
+		width: 50%;
+		margin: 0 25%;
+	}
+
+	.logoblock {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		margin: 2px auto;
+		overflow: hidden;
+		background: #2f58d2;
+	}
+
+	.organization_info_logo h2 {
+		color: #1c75bc;
+		font-family: Circe Light;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.block_organization a{
+		text-decoration: none;
+	}
+
+	.organization_info_logo h5 {
+		color: #0d4f84;
+		font-size: 14px;
+		font-style: italic;
+	}
+
+	.main-info-organization {
+		width: 50%;
+		margin: 0.5% 25%;
+		background: #fff;
+		padding: 0;
+		display: flex;
+		flex-flow: column;
+	}
+
+	.main-info-organization img {
+		padding: 0 15px;
+		margin: 0;
+	}
+	.block-with-image {
+		display: inline-flex;
+		text-align: left;
+	}
+
+	.block-with-image p {
+		padding: 0;
+		margin: 0;
+		color: #1c75bc;
+		font-family: Circe Bold;
+		border-bottom: 1px dotted;	
+	}
+
+	.info_about {
+		text-align: center;
+		display: inline-flex;
+		flex-flow: wrap;
+		margin: 0 5%;
+		padding-bottom: 10px;
+	}
+
+	.info_about span {
+		font-family: Circe Light;
+		border-bottom: 2px double #ef0e19;
+		text-align: center;
+		background: #1c75bc;
+		color: white;
+		padding: 5px 10px;
+		margin: 2px;
+		height: 100%;
+		word-wrap: break-word;
+	} 
+	.info_about span p {
+		font-family: Circe ExtraLight;
+		text-align: center;
+		padding: 0;
+		margin: 2px 0;
+	} 
 
 
 

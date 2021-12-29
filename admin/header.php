@@ -2,7 +2,7 @@
 ?>
 
 <div class="container">
-<ul class="navigation">
+<ul class="nice_navigation">
 	<a href="../index.php"><li>Главная страница</li></a>
 	<a href="mo.php"><li>Муниципальные образования</li></a>
 	<a href="organization.php"><li>Организации</li></a>

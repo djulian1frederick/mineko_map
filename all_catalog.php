@@ -7,7 +7,8 @@
 </head>
 <body>
 <?php include 'header.php'; ?>
-<div class="container"><div class="content">
+<div class="container">
+		<div class="content">
 	<?php 
 		#подключение к бд
 		require_once('admin/connection.php');
@@ -44,36 +45,63 @@
 		$contact = mysqli_fetch_array($contact_sql);
 
 		echo '<div class="block_organization">
-					<div class="main_organization">
-					<h2><a href="organization.php?id='.$org_row['id_predpriyatiya'].'" style="text-decoration: none; cursor: pointer; color: #fff; font-size: 14px;">'.$org_row['name'].'</a></h2>';
-						if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {echo '<h3>'.$org_row['yearstart'].'</h3>';}
-								echo '<h4>'.$raion.' </h4>
-								<h3>'.$size.'</h3>
-								</div>';
-		
-		echo '<div class="up-main">
-				<div class="up-left">
-					<table>';
-						if(isset($vid) && $vid <> NULL) {echo '<tr><td>Вид деятельности</td><td>'.$vid.'</td></tr>';}
-						echo '<tr><td>ИНН</td><td>'.$org_row['inn'].'</td></tr>
-						<tr><td>ОГРН</td><td>'.$org_row['ogrn'].'</td></tr>';
-						if(isset($code) && $code <> NULL) {echo '<tr><td>ОКВЭД</td><td>'.$code.'</td></tr>';}
-						if(isset($org_row['code_tn_ved']) && $org_row['code_tn_ved'] <> NULL) {echo '<tr><td>Код ТН ВЭД</td><td>'.$org_row['code_tn_ved'].'</td></tr>';}
-					echo '</table>
-				</div></div>';
-		
-		echo '<div class="down-main">
-					<div class="down-left">
-						<table>';
-							if(isset($address) && $address<>NULL) { echo '<tr><td>Адрес</td><td>'.$address.'</td></tr>';}
-							if(isset($contact) && $contact <> NULL) {echo '<tr><td>Контакты</td><td>тел. '.$contact['phone1'].', email: '.$contact['email'].'</td></tr>';}
-							if(isset($rukovoditel) && $rukovoditel <> NULL) { echo '<tr><td>Руководитель</td><td>'.$rukovoditel.'</td></tr>';}
-					echo '</table>
-					</div>
-				</div></div>';	}
-				while($org_row = mysqli_fetch_array($this_org));	
+				<div>
+					<div class="organization_info_logo">
+						<div class="logoblock">
+							<img src="/'.$org_row['logo'].'">
+						</div>
+					<a href="organization.php?id='.$org_row['id_predpriyatiya'].'"><h2>'.$org_row['name'].'</h2></a>
+					<h4>'.$size.'</h4>
+		</div>';
 
-?>
+
+		echo '<div style="width: 80%; margin: 0 10%; border-bottom: 1px solid #dcdcdc;"><div class="info_about">';
+		echo '<span><b>ИНН</b> <p>'.$org_row['inn'].'</p></span>';
+		echo '<span><b>ОГРН</b> <p>'.$org_row['ogrn'].'</p></span>';
+		if(isset($org_row['code_tn_ved']) && $org_row['code_tn_ved'] <> NULL) {echo '<span><b>Код ТН ВЭД</b> <p>'.$org_row['code_tn_ved'].'</p></span>';}
+		if(isset($code) && $code <> NULL) {echo '<span><b>ОКВЭД</b> <p>'.$code.'</p></span>';}
+		echo '</div></div>';
+
+		echo '<div class="main-info-organization">
+				<div class="block-with-image">
+					<img src="img/calendar.png" class="organization_info_logo_img">';
+					if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {echo '<p>'.$org_row['yearstart'].'</p>';}
+				echo '</div>
+				<div class="block-with-image">
+					<img src="img/location.png" class="organization_info_logo_img">';
+					echo '<p>'.$raion.'</p>';
+				echo '</div>
+				<div class="block-with-image">
+					<img src="img/team.png">';
+					if(isset($vid) && $vid <> NULL) {echo '<p>'.$vid.'</p>';}
+				echo '</div>
+				</div>
+			</div>';
+				
+		echo '<div class="main-info-organization" style="width: 75%; margin-left: 25%;">';
+					if(isset($address) && $address<>NULL) { echo '<div class="block-with-image">
+						<img src="img/address.png">
+						<p>Адрес 462353, обл. Оренбургская, г. Новотроицк, ул. Промышленная, 51</p>
+					</div>';}
+		if(isset($contact) && $contact <> NULL) {echo '<div class="block-with-image">
+						<img src="img/phone1.png">
+						<p>'.$contact['phone1'].'</p>
+					</div>
+					<div class="block-with-image">
+						<img src="img/email1.png">
+						<p>'.$contact['email'].'</p>
+					</div>';}
+
+		if(isset($rukovoditel) && $rukovoditel <> NULL) { echo '<div class="block-with-image">
+						<img src="img/manager.png">
+						<p>Руководитель '.$rukovoditel.'</p>
+					</div>
+				</div>
+			</div>';}
+
+		}
+		while($org_row = mysqli_fetch_array($this_org));	
+	?>
 		</div>
 </div>
 </body>
