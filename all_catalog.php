@@ -9,6 +9,8 @@
 <?php include 'header.php'; ?>
 <div class="container">
 		<div class="content">
+			<input id="search" size="20" placeholder="Начните вводить название" />
+			<ul id="search-items">
 	<?php 
 		#подключение к бд
 		require_once('admin/connection.php');
@@ -51,6 +53,7 @@
 							<img src="/'.$org_row['logo'].'">
 						</div>
 					<a href="organization.php?id='.$org_row['id_predpriyatiya'].'"><h2>'.$org_row['name'].'</h2></a>
+					<li style="display: none;">'.$org_row['name'].'</li>
 					<h4>'.$size.'</h4>
 		</div>';
 
@@ -62,12 +65,11 @@
 		if(isset($code) && $code <> NULL) {echo '<span><b>ОКВЭД</b> <p>'.$code.'</p></span>';}
 		echo '</div></div>';
 
-		echo '<div class="main-info-organization">
-				<div class="block-with-image">
-					<img src="img/calendar.png" class="organization_info_logo_img">';
-					if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {echo '<p>'.$org_row['yearstart'].'</p>';}
-				echo '</div>
-				<div class="block-with-image">
+		echo '<div class="main-info-organization">';
+				if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {echo '<div class="block-with-image">
+					<img src="img/calendar.png" class="organization_info_logo_img">
+					<p>'.$org_row['yearstart'].'</p></div>';}
+				echo '<div class="block-with-image">
 					<img src="img/location.png" class="organization_info_logo_img">';
 					echo '<p>'.$raion.'</p>';
 				echo '</div>
@@ -102,7 +104,7 @@
 		}
 		while($org_row = mysqli_fetch_array($this_org));	
 	?>
-		</div>
+		</ul></div>
 </div>
 </body>
 </html>

@@ -12,7 +12,6 @@
 
 	$codeprod = $_POST['codeprod'];
 	$codeprodadd = $_POST['codeprodadd'];
-
 if ($viddey <> $null && $codeprod <> $null){
 	$sql= "INSERT into predpriyatiya (id_size, id_vid_deyat, id_code_product, name, inn, ogrn, code_tn_ved, yearstart) values ('".$sizepr."','".$viddey."','".$codeprod."','".$nameorg."','".$inn."','".$ogrm."', '".$codetnved."', '".$year."')";
 

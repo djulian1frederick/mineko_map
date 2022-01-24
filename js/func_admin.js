@@ -38,7 +38,7 @@ function addorganization(){
     var $codeprodadd = $('#codeprodadd').val();
     var $codetnved = $('#codetnved').val();
     var $year = $('#year').val();
-
+    if ($nameorg != '' && $inn != '' && $ogrn != ''){
     jQuery.ajax({
         type: "POST",
         url: '../admin/add_organization.php',
@@ -61,7 +61,12 @@ function addorganization(){
                 alert(thrownError); //выводим ошибку
         }
         
-    })
+        });
+    }
+    else {
+        alert('Не все обязательные поля заполнены!');
+    }
+
 }
 
 function add_address() {

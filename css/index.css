@@ -311,37 +311,62 @@
 
 	.blocks_info {
 		margin-top: 10px;
-		padding: 5px;
-		background: #fbfbfb;
+		background: #fefefe;
+		padding: 15px;
 	}
 	.blocks_info div {
 		padding: 10px;
-	}
-
-	.blocks_info input[type="text"]{
-		    width: 90%;
-		    height: 20px;
-		    margin: 2px;
-		    padding: 2px;
-		    border: #0e0e73 1px solid;
-	}
-
-	.blocks_info button, input[type="submit"] {
-	width: fit-content;
-    margin: 7.5px;
-    padding: 4px 7.5px;
-    color: black;
-    background: white;
-    border: 1px solid white;
-    cursor: pointer;
-    border-radius: 15px;
-    box-shadow: 1px 0.5px 1px -0.5px #2c2ca9;
 	}
 
 	.checkbox_label {
 		font-size: 10px;
 		margin: 5px;
 		padding: 5px;
+	}
+
+	.blocks_info label {
+		color:  #1c75bc;
+		font-size: 18px;
+		word-wrap: break-word;
+		max-width: 300px;
+	}
+
+	.blocks_info h3 {
+		 	background: #1c75bc;
+			width: 500px;
+			margin: 0;
+			font-size: 18px;
+			font-family: Circe ExtraLight;
+			padding: 10px 0;
+			color: #fff;
+	}
+
+	.blocks_info input[type="text"], input[type="email"]{
+		    width: 450px;
+		    background: none;
+		    height: 30px;
+		    margin: 2px;
+		    padding: 2px;
+		    border:  none;
+		    border-bottom: #0e0e73 1px solid;
+			font-family: Circe;
+			font-size: 16px;
+	}
+
+	.blocks_info button, input[type="submit"] {
+			width: fit-content;
+		    margin: 7.5px;
+		    padding: 4px 7.5px;
+		    color: black;
+		    background: white;
+		    border: 1px solid white;
+		    cursor: pointer;
+		    border-radius: 15px;
+		    box-shadow: 1px 0.5px 1px -0.5px #2c2ca9;
+		    margin-left:  340px;
+		    font-family: Circe Light;
+			font-size: 16px;
+			text-transform: lowercase;
 	}
 
 	.up-main, .down-main {
@@ -515,6 +540,7 @@
 	.down-right ul img {
 		padding: 2px;
 		width: 150px;
+		height: auto;
 	}
 
 	.down-right ul {
@@ -552,9 +578,16 @@
 		color: #fff;
 	}
 
+	label {
+		word-wrap: break-word;
+	}
 
-	.del_butt, .edit_but {
+	.del_butt, .edit_but, .add_but {
 	border: 1px solid #1c75bc;
+	}
+
+	.del_butt, .edit_but, .add_but img {
+		margin: -2px 4px;
 	}
 
 	.descriptions {
@@ -700,11 +733,6 @@
 		margin-top: 7%;
 	}
 
-	body {
-		margin: 0;
-		padding: 0;
-		background: #000;
-	}
 	.block_organization {
 		background: #fff;
 		width: 70%;
@@ -733,10 +761,10 @@
 	}
 
 	.organization_info_logo img {
-		height: 90px;
+		height: 80px;
 		width: auto;
 		padding: 0;
-		margin: 0 auto;
+		margin: 5px auto;
 	}
 
 	.organization_info_logo h4{
@@ -753,7 +781,7 @@
 		border-radius: 50%;
 		margin: 2px auto;
 		overflow: hidden;
-		background: #2f58d2;
+		background: #1c75bc;
 	}
 
 	.organization_info_logo h2 {
@@ -824,6 +852,28 @@
 		padding: 0;
 		margin: 2px 0;
 	} 
+	.edit-navigation::-webkit-scrollbar { 
+        display: none; 
+    }
+	.edit-navigation {
+		padding: 0;
+		margin:  0;
+		list-style: none;
+	}
+	.edit-navigation li {
+		font-family: Circe Light;
+		padding: 5px 7px;
+		margin: 2px 0;
+		background: #1c75bc;
+		color: white;
+		cursor: pointer;
+		border-bottom: 2px solid #cfceff;
+		border-left: 2px #585ae1 solid;
+	}
+	.edit-navigation a {
+		text-decoration: none;
+		сolor:  black;
+	}
 
 
 

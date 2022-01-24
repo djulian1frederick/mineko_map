@@ -218,6 +218,11 @@
 					</form>
 				</div>	
 			</div>
+			<div>
+				<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
+				<textarea name="name_service" id="name_service" cols="80" rows="10"></textarea>
+				<button class="edit_but" onclick="editexportservice()"><img src="../img/edit.png" width="16px" height="16px"></button>
+			</div>
 		</div>
 	</div>
 
