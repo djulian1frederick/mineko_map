@@ -1,0 +1,3 @@
+[submodule "mineko_excel_loader"]
+	path = mineko_excel_loader
+	url = https://github.com/ArsenalNox/mineko_excel_loader.git
