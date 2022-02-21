@@ -5,8 +5,7 @@
 		$pages = '<a href="status_check"><li>Отслеживание изменения статуса регистрации организации</li></a>';
 		break;
 	case 1:
-		$pages = '<a href="production_add"><li>Продукция</li></a>
-		<a href="organization_updating"><li>Личный кабинет организации</li></a>';
+		$pages = '<a href="organization_updating"><li>Личный кабинет организации</li></a>';
 		break;
 	case 2:
 		$pages = '<a href="my_cabinet"><li>Личный кабинет</li></a>

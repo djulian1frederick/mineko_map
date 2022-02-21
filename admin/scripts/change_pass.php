@@ -8,8 +8,8 @@
 		$query = mysqli_query($bd, "SELECT user_email from users where id_user='".$_SESSION['user_id']."'");
 		$row = mysqli_fetch_array($query);
 		$email = $row['user_email'];
-
-		$update_pass = mysqli_query($bd, "UPDATE users set password='".$pass_repeat."' where id_user='".$_SESSION['user_id']."'");
+		$pass_true = password_hash($pass_repeat, PASSWORD_DEFAULT);
+		$update_pass = mysqli_query($bd, "UPDATE users set password='".$pass_true."' where id_user='".$_SESSION['user_id']."'");
 		if($update_pass) {
 			$msg = "Пароль успешно изменен";
 			$title = "Сброс пароля учетной записи";
