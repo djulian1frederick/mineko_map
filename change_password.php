@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 ?>
-<?php if(isset($_SESSION['this_email'])) {$email = $_SESSION['this_email'];} else { $msg .= 'ладно';} ?>
+<?php if(isset($_SESSION['this_email'])) {$email = $_SESSION['this_email'];} else { $msg .= 'ошибка';} ?>
 <?php if(isset($_GET['failed']) and $_GET['failed'] == 1) { $msg = '!!! Код сброса пароля является недействительным. Сброс пароля не был произведен.'; } ?>
 <!DOCTYPE html5>
 <html>

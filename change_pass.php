@@ -11,7 +11,8 @@
 		$sql_update = mysqli_query($bd, "UPDATE users set password='".$truepassword."' where user_email='".$email."'");
 		if($sql_update) {
 			$msg = "Вы успешно изменили пароль.";
-			$msg .= '<br>Нажмите <a href="login">сюда</a> для перехода к авторизации';
+			if(!isset($_SESSION['user_id']))
+			{$msg .= '<br>Нажмите <a href="login">сюда</a> для перехода к авторизации';}
 			$title = "Сброс пароля учетной записи";
 			$body = "<div style='font-family: Circe;'><h2>Уважаемый пользователь!</h2>
 			<b>Вами был изменен пароль вашей учетной записи на портале 'Экспортного каталога Оренбургской области' ".$today."<br> Если это были не Вы, сообщите нам.</b><br><br><br><br><br></div>";
