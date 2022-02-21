@@ -6,19 +6,18 @@
 	$sizepr = $_POST['sizepr'];
 	$viddey = $_POST['viddey'];
 	$year = $_POST['year'];
-	$codetnved = $_POST['codetnved'];
 	$null="";
 	$viddeyadd = $_POST['viddeyadd'];
 
 	$codeprod = $_POST['codeprod'];
 	$codeprodadd = $_POST['codeprodadd'];
 if ($viddey <> $null && $codeprod <> $null){
-	$sql= "INSERT into predpriyatiya (id_size, id_vid_deyat, id_code_product, name, inn, ogrn, code_tn_ved, yearstart) values ('".$sizepr."','".$viddey."','".$codeprod."','".$nameorg."','".$inn."','".$ogrm."', '".$codetnved."', '".$year."')";
+	$sql= "INSERT into predpriyatiya (id_size, id_vid_deyat, id_code_product, name, inn, ogrn, yearstart) values ('".$sizepr."','".$viddey."','".$codeprod."','".$nameorg."','".$inn."','".$ogrm."', '".$year."')";
 
 	$insert_org = mysqli_query($bd, $sql);
 }
 elseif ($viddey == $null  && $codeprod <> $null) {
-	$sql= "INSERT into predpriyatiya (id_size, id_code_product, name, inn, ogrn, code_tn_ved, yearstart) values ('".$sizepr."','".$codeprod."','".$nameorg."','".$inn."','".$ogrm."', '".$codetnved."', '".$year."')";
+	$sql= "INSERT into predpriyatiya (id_size, id_code_product, name, inn, ogrn, yearstart) values ('".$sizepr."','".$codeprod."','".$nameorg."','".$inn."','".$ogrm."',  '".$year."')";
 		$viddey_sql = "INSERT into vid_deyat (vid_deyatelnosti) values ('".$viddeyadd."')";
 		$viddey_q = mysqli_query($bd, $viddey_sql);
 		if($viddey_q) {
@@ -38,7 +37,7 @@ elseif ($viddey == $null  && $codeprod <> $null) {
 		}
 }
 elseif ($viddey <> $null && $codeprod == $null) {
-	$sql= "INSERT into predpriyatiya (id_size, id_vid_deyat, name, inn, ogrn, code_tn_ved, yearstart) values ('".$sizepr."','".$viddey."','".$nameorg."','".$inn."','".$ogrm."', '".$codetnved."', '".$year."')";
+	$sql= "INSERT into predpriyatiya (id_size, id_vid_deyat, name, inn, ogrn, yearstart) values ('".$sizepr."','".$viddey."','".$nameorg."','".$inn."','".$ogrm."', '".$year."')";
 		$codeprod_sql = "INSERT into code_product(code) values ('".$codeprodadd."')";
 		$codeprod_q = mysqli_query($bd, $codeprod_sql);
 		if($codeprod_q) {
@@ -58,7 +57,7 @@ elseif ($viddey <> $null && $codeprod == $null) {
 		}
 }
 elseif ($viddey == $null  && $codeprod == $null) {
-	$sql= "INSERT into predpriyatiya (id_size, name, inn, ogrn, code_tn_ved, yearstart) values ('".$sizepr."','".$nameorg."','".$inn."','".$ogrm."', '".$codetnved."', '".$year."')";
+	$sql= "INSERT into predpriyatiya (id_size, name, inn, ogrn, yearstart) values ('".$sizepr."','".$nameorg."','".$inn."','".$ogrm."', '".$year."')";
 			$viddey_sql = "INSERT into vid_deyat (vid_deyatelnosti) values ('".$viddey."')";
 			$viddey_q = mysqli_query($bd, $viddey_sql);
 			if($viddey_q) {

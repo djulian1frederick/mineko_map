@@ -9,14 +9,13 @@ function editmaininfo(){
 	var codeprod = $('#codeprod').val();
 	var codeprodadd = $('#codeprodadd').val();
 	var year = $('#year').val();
-	var codetnved = $('#codetnved').val();
 	var descr_organization = $('#descr_organization').val();
 
 	jQuery.ajax({
 		type: "POST",
-		url: '../admin/scripts/update_main.php',
+		url: '../editor/scripts/update_main.php',
 		dataType: "text",
-		data: {"orgid" : orgid, "nameorg" : nameorg, "descr_organization" : descr_organization, "inn": inn, "ogrn" : ogrn, "sizepr" : sizepr, "viddey" : viddey, "viddeyadd" : viddeyadd, "codeprodadd": codeprodadd, "codeprod" : codeprod, "year" : year, "codetnved" : codetnved},
+		data: {"orgid" : orgid, "nameorg" : nameorg, "descr_organization" : descr_organization, "inn": inn, "ogrn" : ogrn, "sizepr" : sizepr, "viddey" : viddey, "viddeyadd" : viddeyadd, "codeprodadd": codeprodadd, "codeprod" : codeprod, "year" : year},
 		success:function(html){
 			$('#updateinfo').html(html);
 		}
@@ -31,7 +30,7 @@ function editexports() {
 
 	jQuery.ajax({
 		type: "POST",
-		url: '../admin/scripts/update_exports.php',
+		url: '../editor/scripts/update_exports.php',
 		dataType: "text",
 		data: {"orgid" : orgid, "country" : country},
 		success:function(html){
@@ -49,7 +48,7 @@ function updaterukovod(){
 
 	jQuery.ajax({
 		type: "POST",
-		url: '../admin/scripts/update_rukovoditel.php',
+		url: '../editor/scripts/update_rukovoditel.php',
 		dataType: "text",
 		data: {"ruk_id" : ruk_id, "org_id" : org_id , "o_name" : o_name, "o_otch" : o_otch, "o_fam" : o_fam},
 		success:function(html){
@@ -66,11 +65,110 @@ function updatecontact() {
 
 	jQuery.ajax({
 		type: "POST",
-		url: '../admin/scripts/update_contacts.php',
+		url: '../editor/scripts/update_contacts.php',
 		dataType: 'text',
 		data: {"con_id" : con_id , "org_id" : org_id, "org_phone1" : org_phone1, "org_email" : org_email},
 		success:function(html) {
 			$('#updateinfo').html(html);
 		}
 	})
+}
+
+function updatetnved() {
+			var codetnnved = $('#codetnnved').val();
+			var codetnved_descr = $('#codetnved_descr').val();
+			var idcode = $('#idcode').val();
+			$.ajax({
+				url: 'scripts/update_codetn.php',
+				type: "POST",
+		      dataType: "text",
+		      data: {"codetnnved" : codetnnved, "idcode" : idcode, "codetnved_descr" : codetnved_descr},
+		      success: function(html) {
+		            $('#result').html(html);
+				}
+			})
+
+	}
+
+function update_personal_info() {
+	var firstname = $('#name').val();
+	var second = $('#second').val();
+	var last = $('#last').val();
+	var id_check = $('#id_check').val();
+	var id_con = $('#id_con_people').val();
+	var null_var = undefined;
+	if (id_check != null_var) {
+		$.ajax({
+			url: 'scripts/update_personal.php',
+			type: "POST",
+		    dataType: "text",
+		    data: {"firstname" : firstname, "second" : second, "last" : last, "id_check" : id_check},
+		    success: function(html) {
+		        $('#result').html(html);
+			}
+		})
+	}
+	else if(id_con != null_var && id_con != '') {
+		$.ajax({
+			url: 'scripts/update_personal.php',
+			type: "POST",
+		    dataType: "text",
+		    data: {"firstname" : firstname, "second" : second, "last" : last, "id_con" : id_con},
+		    success: function(html) {
+		        $('#result').html(html);
+			}
+		})
+	}
+	else if(id_con == '') {
+		$.ajax({
+			url: 'scripts/update_personal.php',
+			type: "POST",
+		    dataType: "text",
+		    data: {"firstname" : firstname, "second" : second, "last" : last},
+		    success: function(html) {
+		        $('#result').html(html);
+			}
+		})
+	}
+}
+
+function update_personal_contacts(){
+	var phone = $('#phone').val();
+	var email = $('#email').val();
+	var id_check = $('#id_check').val();
+	var id_con = $('#id_con_people').val();
+	var null_var = undefined;
+	if (id_check != null_var) {
+		$.ajax({
+			url: 'scripts/update_personal_contacts.php',
+			type: "POST",
+		    dataType: "text",
+		    data: {"phone" : phone, "email" : email, "id_check" : id_check},
+		    success: function(html) {
+		        $('#result').html(html);
+			}
+		})
+	}
+	else if(id_con != null_var && id_con != '') {
+		$.ajax({
+			url: 'scripts/update_personal_contacts.php',
+			type: "POST",
+		    dataType: "text",
+		    data: {"phone" : phone, "email" : email, "id_con" : id_con},
+		    success: function(html) {
+		        $('#result').html(html);
+			}
+		})
+	}
+	else if(id_con == '') {
+		$.ajax({
+			url: 'scripts/update_personal_contacts.php',
+			type: "POST",
+		    dataType: "text",
+		    data: {"phone" : phone, "email" : email},
+		    success: function(html) {
+		        $('#result').html(html);
+			}
+		})
+	}
 }

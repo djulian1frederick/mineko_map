@@ -1,10 +1,11 @@
+<?php session_start();?>
 <!DOCTYPE html5>
 <html>
 <head>
-	<title>Министерству экономики посвещается</title>
+	<title>Главная страница</title>
 <meta charset="utf-8">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.tinyTips.js"></script>
+
 <script type="text/javascript" src="js/func.js"></script>
 <link rel="stylesheet" href="css/index.css">
 </head>
@@ -29,7 +30,7 @@
                         $id_c = "r".$row_cities['id_raion'];
                         $sublist_cities = $sublist_cities.'
                             <li onmousemove="hovermap(`'.$id_c.'`)">
-                                <a href="page_mo.php?id='.$row_cities['id_raion'].'">'.$row_cities['raion'].'</a>
+                                <a href="page_mo?id='.$row_cities['id_raion'].'">'.$row_cities['raion'].'</a>
                             </li>';
                     }
                     $sublist_cities = $sublist_cities.'</ul></li>';
@@ -37,7 +38,7 @@
 
                     
 				 	$id_r = "r".$row_raions['id_raion'];
-				 	echo '<li onmousemove="hovermap(`'.$id_r.'`)"><a href="page_mo.php?id='.$row_raions['id_raion'].'">'.$row_raions['raion'].'</a></li>'.$sublist_cities.'';
+				 	echo '<li onmousemove="hovermap(`'.$id_r.'`)"><a href="page_mo?id='.$row_raions['id_raion'].'">'.$row_raions['raion'].'</a></li>'.$sublist_cities.'';
 				}
 
 
@@ -52,20 +53,20 @@
 					$row_path = mysqli_fetch_array($result_path);
 								do {
 									$id_r = $row_path['id_raion'];
-										echo '<g><a href="page_mo.php?id='.$row_path['id_raion'].'"><path onmouseenter="shoow(`'.$id_r.'`)" onmouseout="hide(`'.$id_r.'`)" id="r'.$row_path['id_raion'].'" class="raion" d="'.$row_path['path'].'"></path></a></g>';
+										echo '<g><a href="page_mo?id='.$row_path['id_raion'].'"><path onmouseenter="shoow(`'.$id_r.'`)" onmouseout="hide(`'.$id_r.'`)" id="r'.$row_path['id_raion'].'" class="raion" d="'.$row_path['path'].'"></path></a></g>';
 								}
 					while($row_path = mysqli_fetch_array($result_path));
 				?>
-				 <g><a href="page_mo.php?id=39">
+				 <g><a href="page_mo?id=39">
 				 	<circle stroke="black" r="7" cy="270" cx="330" id="r39" fill="black" onmousemove="shoow('39')" onmouseout="hide('39')"></circle>
 				 </a></g>
-				 <g><a href="page_mo.php?id=40">
+				 <g><a href="page_mo?id=40">
 				 	<circle stroke="black" r="7" cy="400" cx="300" id="r40" fill="black" onmousemove="shoow('40')" onmouseout="hide('40')"></circle>
 				 </a></g>
-				 <g><a href="page_mo.php?id=41">
+				 <g><a href="page_mo?id=41">
 				 	<circle stroke="black" r="7" cy="620" cx="1165" id="r41" fill="black" onmousemove="shoow('41')" onmouseout="hide('41')"></circle>
 				 </a></g>
-			     <g><a href="page_mo.php?id=42">
+			     <g><a href="page_mo?id=42">
 				 	<circle stroke="black" r="7" cy="695" cx="1485" id="r42" fill="black" onmousemove="shoow('42')" onmouseout="hide('42')"></circle>
 				 </a></g>
 		</svg>

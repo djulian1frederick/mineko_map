@@ -25,7 +25,7 @@
 	$image_href = "production_img/".$ornanization."/".$newname;
 
 
-	$sql =  "INSERT into production (name_production, id_predpriyatia, image_href) values('".$alt_name."','".$ornanization."', '".$image_href."')";
+	$sql =  "INSERT into production (name_production, id_predpriyatiya, image_href) values('".$alt_name."','".$ornanization."', '".$image_href."')";
 
 	$result = mysqli_query($bd, $sql);
 

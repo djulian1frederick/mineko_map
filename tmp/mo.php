@@ -34,12 +34,7 @@
 		}while ($raion_list=mysqli_fetch_array($raion_list_q));
 	?>
 </select><br>
-<span>Контактные данные:</span><br>
-<label>Номер телефона</label><br>
-<input type="text" name="phone" id="phone1" maxlength="12"><br>
-<label>Адрес электронной почты</label><br>
-<input type="email" name="email" id="email"><br>
-<button onclick="addto()">Добавить контакт</button><br>
+<button onclick="addto()">Добавить</button><br>
 </div></div>
 
 <div class="blocks_info">
@@ -61,6 +56,26 @@
 <input type="submit" value="Прикрепить фото руководителю">
 </form></div>
 </div>
+
+<div class="blocks_info"><div>
+	<span>Добавление контактов руководителям МО</span><br>
+<label>Номер телефона</label><br>
+<input type="text" name="phone" id="phone1" maxlength="12"><br>
+<label>Адрес электронной почты</label><br>
+<input type="email" name="email" id="email"><br>
+<select name="rukovoditel" id="rukids" class="js-example-basic-single">
+	<option value="">Не выбрано</option>
+	<?php 
+		$sql = "SELECT * from rukovoditeli join mo join raions where mo.id_rukovod=rukovoditeli.id_rukovoditel and mo.id_raion = raions.id_raion";
+		$ruk_list_q = mysqli_query($bd, $sql);
+		$ruk_list = mysqli_fetch_array($ruk_list_q);
+		do {
+			echo '<option value="'.$ruk_list['id_rukovoditel'].'">'.$ruk_list['second_name'].' '.$ruk_list['first_name'].' ('.$ruk_list['raion'].')</option>';
+		}while ($ruk_list=mysqli_fetch_array($ruk_list_q));
+	?>
+</select><br>
+<button onclick="addcontact()">Добавить контакт</button><br>
+</div></div>
 
 <div id="result">
 	

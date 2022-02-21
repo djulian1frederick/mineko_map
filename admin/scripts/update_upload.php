@@ -4,6 +4,12 @@
 	$alt_name = $_POST['production_name'];
 	$descript = $_POST['descr'];
 	$ornanization = $_POST['org_id'];
+	$codetnved_id = $_POST['codetnved_id'];
+
+	if (isset($codetnved_id) && $codetnved_id <> '' || $codetnved_id <> NULL) {
+		$update_code = "UPDATE code_tn_veds set id_product='".$prod_id."' where id_code_tn_ved='".$codetnved_id."'";
+		$query = mysqli_query($bd, $update_code);
+	}
 
 	
 	require_once("../translit.php");

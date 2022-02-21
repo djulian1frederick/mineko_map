@@ -1,11 +1,15 @@
+<?php session_start();?>
 <?php 
 	$id = $_GET['id'];
 		require_once('admin/connection.php');
 		$sql_info_org = "SELECT * from predpriyatiya where id_predpriyatiya='".$id."'";
 		$this_org = mysqli_query($bd, $sql_info_org);
 		$org_row = mysqli_fetch_array($this_org);
+		if($org_row == NULL) {
+			header('Location: 404.html');
+		}
 ?>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,39 +50,48 @@
 		$contact_sql = mysqli_query($bd, "SELECT * from contacts where id_contact='".$org_row['id_contact']."'");
 		$contact = mysqli_fetch_array($contact_sql);
 
+		$code_tn_ved_sql = mysqli_query($bd, "SELECT * from code_tn_veds where id_predpriyatiya='".$org_row['id_predpriyatiya']."'");
+		$code_tn_ved_list = mysqli_fetch_array($code_tn_ved_sql);
+
+
 		echo '<div class="block_organization">
 				<div>
 					<div class="organization_info_logo">
 						<div>
 							<img src="/'.$org_row['logo'].'" style="height: 100px; margin: 5px auto;">
 						</div>
-					<a href="organization.php?id='.$org_row['id_predpriyatiya'].'"><h2>'.$org_row['name'].'</h2></a>
+					<h2>'.$org_row['name'].'</h2>
 					<li style="display: none;">'.$org_row['name'].'</li>
 					<h4>'.$size.'</h4>
 		</div>';
+		$descr_org = $org_row['descr_organization'];
+		if ($descr_org <> NULL) {
+			echo '<blockquote>'.$descr_org.'</blockquote>';
+		}
 
 		if(isset($code) && $code <> NULL) {echo '<span style="text-align: center;
-		font-size: 18px; margin: auto;"><p><b>ОКВЭД</b> '.$code.'</p></span>';}
-		echo '<div style="width: 80%; margin: 0 10%; border-bottom: 1px solid #dcdcdc;">
-			<div class="info_about" style="display: block ruby;">';
+		font-size: 18px; margin: auto; padding: 2px 7px; word-break: break-all; display: flex; width: 60%;"><p><b>ОКВЭД</b> '.$code.'</p></span>';}
+		echo '<div style="width: 80%; margin: 0 10%; text-align:center; border-bottom: 1px solid #dcdcdc;">
+			<div class="info_about">';
 		echo '<span><b>ИНН</b> <p>'.$org_row['inn'].'</p></span>';
 		echo '<span><b>ОГРН</b> <p>'.$org_row['ogrn'].'</p></span>';
-		if(isset($org_row['code_tn_ved']) && $org_row['code_tn_ved'] <> NULL) {echo '<span><b>Код ТН ВЭД</b> <p>'.$org_row['code_tn_ved'].'</p></span>';}
-		
 		echo '</div></div>';
 
 		echo '<div class="main-info-organization">';
 				if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {echo '<div class="block-with-image">
 					<img src="img/calendar.png" class="organization_info_logo_img">
-					<p>'.$org_row['yearstart'].'</p></div>';}
-				echo '<div class="block-with-image">
+					<p><i style="color: #848484; font-family: Circe ExtraLight; font-style: normal;">Экспортер с</i>
+					 '.$org_row['yearstart'].' 
+					 <i style="color: #848484; font-family: Circe ExtraLight; font-style: normal;">года</i></p></div>';}
+				if(isset($raion) && $raion <> NULL){echo '<div class="block-with-image">
 					<img src="img/location.png" class="organization_info_logo_img">';
 					echo '<p>'.$raion.'</p>';
-				echo '</div>
-				<div class="block-with-image">
+				echo '</div>';}
+				if(isset($vid) && $vid <> NULL) {
+					echo '<div class="block-with-image">
 					<img src="img/team.png">';
-					if(isset($vid) && $vid <> NULL) {echo '<p>'.$vid.'</p>';}
-				echo '</div>
+					echo '<p>'.$vid.'</p></div>';}
+				echo '
 				</div>
 			</div>';
 				
@@ -99,13 +112,23 @@
 						<p>'.$contact['email'].'</p>
 					</div>';}
 			}
+			if ($org_row['site'] <> NULL) {
+					echo '<div class="block-with-image">
+						<img src="img/internet.png">
+						<p><a href="'.$org_row['site'].'">'.$org_row['site'].'</a></p>
+					</div>';}
 
 		if(isset($rukovoditel) && $rukovoditel <> NULL) { echo '<div class="block-with-image">
 						<img src="img/manager.png">
-						<p>Руководитель '.$rukovoditel.'</p>
+						<p><i>Руководитель:</i> '.$rukovoditel.'</p>
 					</div>
 				</div>';}
 
+		if($code_tn_ved_list <> NULL) {
+			if (count($code_tn_ved_list) > 1) { $word = "Коды"; } else { $word = "Код";}
+			echo '<div class="down-right"><h5>'.$word.' ТН ВЭД ЕАЭС</h5><ul class="export_list">';
+			do { echo '<li>'.$code_tn_ved_list['code_tn_ved'].'</li>'; }while($code_tn_ved_list=mysqli_fetch_array($code_tn_ved_sql)); }
+			echo '</ul>';
 		}
 		while($org_row = mysqli_fetch_array($this_org));			
 	
@@ -120,7 +143,7 @@
 					}while($gallrery = mysqli_fetch_array($gallery_result));
 					echo '</ul></div>'; }
 				
-					$select_production = "SELECT * from production where id_predpriyatia='".$id."'";
+					$select_production = "SELECT * from production where id_predpriyatiya='".$id."'";
 						$production = mysqli_query($bd, $select_production);
 						$production_row = mysqli_fetch_array($production);
 					if ($production_row <> NULL) {
@@ -130,8 +153,8 @@
 						';
 						
 						do {
-							echo '<li style="height: 200px; border: 1px solid #dcdcdc; margin: 0 5px;">
-							<h6>'.$production_row['name_production'].'</h6>
+							echo '<li style="height: 250px; border: 1px solid #dcdcdc; margin: 0 5px;">
+							<h6><a href="production?id='.$production_row['id_product'].'">'.$production_row['name_production'].'</a></h6>
 							<img  width="150px" src="'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">
 							<p class="descriptions">'.$production_row['description'].'</p>
 							</li>';
@@ -153,7 +176,6 @@
 								
 				}while ($export_r=mysqli_fetch_array($export_sql));
 			echo '</ul>
-					</div>
 					</div>';
 			}
 
@@ -170,7 +192,8 @@
 								echo '<li>'.$export_serv_r['name_service'].'</li>';
 								
 				}while ($export_serv_r=mysqli_fetch_array($export_serv_sql));
-			echo '</ul>
+			echo '</ul></div>
+					</div>
 					</div>
 					</div>';
 			}

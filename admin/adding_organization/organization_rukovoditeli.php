@@ -4,10 +4,12 @@
     $('.js-example-basic-single').select2();
 });
 </script>
+<div id="result">
+			
+</div>
 <div class="blocks_info">
 	<h3>Добавление руководителей</h3>
 		<div>
-		<form>
 		<label for="org_con">Выберите организацию</label><br>
 		<select name="org_con" id="org_con" class="js-example-basic-single" style="width: 450px;">
 			<option value="">Не выбрано</option>
@@ -31,10 +33,7 @@
 		<input type="text" name="org_phone1" id="org_phone1" maxlength="12" placeholder="Введите номер контактного телефона"><br>
 		<label>Адрес электронной почты</label><br>
 		<input type="email" name="organ_email" id="org_email" placeholder="Введите адрес электронной почты"><br>
-		<button onclick="addcontacts_to_organization()" type="submit"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br></form>
 		<p style="margin: 5px 0; padding: 2px; border-top: 3px solid #000; font-family: Circe; width: 450px; color: #1c75bc; font-weight: bold;">* - Обязательное поле</p>
-		<div id="result">
-			
-		</div>
+		<button onclick="addcontacts_to_organization()" type="submit"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 	</div>
 </div>

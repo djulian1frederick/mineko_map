@@ -12,12 +12,11 @@
 		$viddeyadd = $_POST['viddeyadd'];
 		$codeprodadd = $_POST['codeprodadd'];
 	$year = $_POST['year'];
-	$codetnved = $_POST['codetnved'];
 
 		if($viddeyadd <> "" || $viddeyadd <> NULL) {
 			$viddey_sql = "INSERT into vid_deyat (vid_deyatelnosti) values ('".$viddeyadd."')";
 			$viddey_q = mysqli_query($bd, $viddey_sql);
-				$vidd_select = "SELECT id_vid_deyat from vid_deyat where vid_deyatelnosti='".$viddey."'";
+				$vidd_select = "SELECT id_vid_deyat from vid_deyat where vid_deyatelnosti='".$viddeyadd."'";
 				$vidd_sel_q=mysqli_query($bd, $vidd_select);
 				$vidd_sel_r = mysqli_fetch_array($vidd_sel_q);
 				$viddey = $vidd_sel_r['id_vid_deyat'];
@@ -32,7 +31,7 @@
 				$codeprod = $code_prod_r['id_code_product'];
 		}
 
-	$update_sql = "UPDATE predpriyatiya set predpriyatiya.name = '".$nameorg."', predpriyatiya.descr_organization = '".$descr_organization."', predpriyatiya.inn = '".$inn."', predpriyatiya.ogrn='".$ogrn."', predpriyatiya.id_size = '".$sizepr."', predpriyatiya.id_vid_deyat = '".$viddey."', predpriyatiya.id_code_product = '".$codeprod."', predpriyatiya.yearstart = '".$year."', predpriyatiya.code_tn_ved = '".$codetnved."' where id_predpriyatiya='".$orgid."'";
+	$update_sql = "UPDATE predpriyatiya set predpriyatiya.name = '".$nameorg."', predpriyatiya.descr_organization = '".$descr_organization."', predpriyatiya.inn = '".$inn."', predpriyatiya.ogrn='".$ogrn."', predpriyatiya.id_size = '".$sizepr."', predpriyatiya.id_vid_deyat = '".$viddey."', predpriyatiya.id_code_product = '".$codeprod."', predpriyatiya.yearstart = '".$year."' where id_predpriyatiya='".$orgid."'";
 
 	$update_query = mysqli_query($bd, $update_sql);
 		echo "<span><center>Обновлено.</center></span>";

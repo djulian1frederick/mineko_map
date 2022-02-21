@@ -16,11 +16,14 @@
 		if ($_FILES['file']['size'] > $size) 
 			{die('Слишком большой размер файла');}
 		move_uploaded_file($_FILES['file']['tmp_name'], "../../logo_organizations/".$newname);	
+		
+		$image_href = "logo_organizations/".$newname;
+		$sql_update = "UPDATE predpriyatiya set predpriyatiya.site='".$site."',predpriyatiya.logo='".$image_href."' where id_predpriyatiya='".$organization."'";
+	}
+	else {
+		$sql_update = "UPDATE predpriyatiya set predpriyatiya.site='".$site."' where id_predpriyatiya='".$organization."'";
 	}
 
-	$image_href = "logo_organizations/".$newname;
-
-	$sql_update = "UPDATE predpriyatiya set predpriyatiya.site='".$site."',predpriyatiya.logo='".$image_href."' where id_predpriyatiya='".$organization."'";
 	$updating = mysqli_query($bd, $sql_update);
 
 		if($updating) {

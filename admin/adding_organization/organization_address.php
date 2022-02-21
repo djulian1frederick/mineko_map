@@ -1,10 +1,19 @@
 <?php require_once('../connection.php'); ?>
+<script src="../../js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="../../js/jquery.fias.min.js" type="text/javascript"></script>
+<script src="../../js/script.js" type="text/javascript"></script>
+<script src="../../js/select2.min.js"></script>
 <script>
 	$(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 </script>
+<link href="../../js/jquery.fias.min.css" rel="stylesheet">
+
 <div class="blocks_info">
+	<div id="result">
+		
+	</div>
 	<h3>Добавление адресов организациям</h3>
 			<label for="org">Выберите организацию</label><br>
 			<select name="org" id="org" class="js-example-basic-single"  style="width: 450px;">

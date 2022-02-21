@@ -4,9 +4,9 @@
     $('.js-example-basic-single').select2();
 });
 </script>
+<div id="result"></div>
 <div class="blocks_info">
 	<h3>Добавление организаций</h3>
-	<form>
 		<label for="">Название организации*</label><br>
 		<input type="text" required id="nameorg" name="nameorg" placeholder="Введите название организации" required><br>
 		<label for="">ИНН*</label><br>
@@ -76,9 +76,6 @@
 		<br>
 		<label>Год начала экспортной деятельности</label><br>
 		<input type="text" name="year" id="year" placeholder="Введите год"><br>
-		<label>Код ТН ВЭД</label><br>
-		<input type="text" name="codetnved" id="codetnved" placeholder="Введите код ТН ВЭД"><br>
-		<button onclick="addorganization()" type="submit" class="add_but"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 		<p style="margin: 5px 0; padding: 2px; border-top: 3px solid #000; font-family: Circe; width: 450px; color: #1c75bc; font-weight: bold;">* - Обязательное поле</p>
-	</form>
+		<button onclick="addorganization()" type="submit" class="add_but"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 </div>

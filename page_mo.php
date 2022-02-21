@@ -1,8 +1,15 @@
+<?php session_start();?>
+<?php 
+	#подключение к бд
+		require_once('admin/connection.php');
+		#полученый номер района с карты
+		$id = $_GET['id'];
+?>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Мунициапальное образование ""</title>
+	<title>Страница мунициапальное образование</title>
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -10,10 +17,6 @@
 <div class="container">
 	<div class="content">
 	<?php 
-		#подключение к бд
-		require_once('admin/connection.php');
-		#полученый номер района с карты
-		$id = $_GET['id'];
 		if ($id < 43) {
 
 		#запрос на выборку фио руководителя, герб, название МО, контактной информации
@@ -45,22 +48,27 @@
 					';
 			}while($row_info_mo=mysqli_fetch_array($result_info_mo));
 		} 
+			$id_mo_sql = "SELECT id_mo from mo where id_raion='".$id."'";
+	  				$id_mo_query= mysqli_query($bd, $id_mo_sql);
+	  				$id_mo_list =  mysqli_fetch_array($id_mo_query);
+	  				$id_mo = $id_mo_list['id_mo'];
+			$sql = "SELECT count(*) from predpriyatiya where id_mo='".$id_mo."'";
+					$select_count=mysqli_query($bd,$sql);
+					$count = mysqli_fetch_array($select_count);
 		echo '<div class="blockinfo" style="min-width: 60%; max-width: 100%;">
 			<h3 style="font-size: 18px;">Предприятия:</h3>
+			<span style="expo_count">Количество экспортеров: '.$count['count(*)'].'</span>
 			<ol class="rectangle">';
 	?>
 		
 	  			<?php
-	  				$id_mo_sql = "SELECT id_mo from mo where id_raion='".$id."'";
-	  				$id_mo_query= mysqli_query($bd, $id_mo_sql);
-	  				$id_mo_list =  mysqli_fetch_array($id_mo_query);
-	  				$id_mo = $id_mo_list['id_mo'];
+	  				
 					$sql = "SELECT * from predpriyatiya where id_mo='".$id_mo."'";
 					$select_predpriyatiya=mysqli_query($bd,$sql);
 					$list_predpr = mysqli_fetch_array($select_predpriyatiya);
 						if($list_predpr <> NULL) {
 							do {
-								echo '<li><a href="organization.php?id='.$list_predpr['id_predpriyatiya'].'">'.$list_predpr['name'].'</a></li>';
+								echo '<li><a href="organization?id='.$list_predpr['id_predpriyatiya'].'">'.$list_predpr['name'].'</a></li>';
 							} while($list_predpr=mysqli_fetch_array($select_predpriyatiya));
 						}
 					echo '</ol>

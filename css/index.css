@@ -3,8 +3,10 @@
 		font-family: Circe, OpenSans, Ubuntu, Arial, sans-serif;
 		width: 100%;
 		margin: 0; padding: 0;
+		color: #1f1f1f;
 		/*background: #e6e6e6;*/
 		background: #F1F3F5;
+		word-break: break-word
 	}
 	.raion {
 		fill: Skyblue;
@@ -34,7 +36,7 @@
 		
 	}
 	a, text, body {
-		color: #0f1b99;
+		color: #124873;
 	}
 	iframe {
 		width: 550px;
@@ -213,7 +215,6 @@
 	.blockinfo {
 		padding: 1.5%;
 		margin: 0.5%;
-		text-align: center;
 		background: #ffffff;
 	}
 
@@ -329,6 +330,7 @@
 		font-size: 18px;
 		word-wrap: break-word;
 		max-width: 300px;
+		font-family: Circe Light;
 	}
 
 	.blocks_info h3 {
@@ -341,7 +343,7 @@
 			color: #fff;
 	}
 
-	.blocks_info input[type="text"], input[type="email"]{
+	.blocks_info input[type="text"], input[type="email"], input[type="date"]{
 		    width: 450px;
 		    background: none;
 		    height: 30px;
@@ -363,10 +365,17 @@
 		    cursor: pointer;
 		    border-radius: 15px;
 		    box-shadow: 1px 0.5px 1px -0.5px #2c2ca9;
-		    margin-left:  340px;
 		    font-family: Circe Light;
 			font-size: 16px;
 			text-transform: lowercase;
+	}
+	.blocks_info textarea {
+		border: none;
+		border-bottom: 1px solid #0f1b99;
+		height: 150px;
+		font-family: Circe Light;
+		width: 450px;
+		background: none;
 	}
 
 	.up-main, .down-main {
@@ -571,11 +580,11 @@
 	}
 
 	.export_list li {
-		background: #1c75bc;
-		padding: 5px 15px;
-		width: auto;
-		margin: 1px 2px;
-		color: #fff;
+		border: 1px solid #1c75bc;
+    	padding: 5px 15px;
+    	width: auto;
+        margin: 1px 2px;
+    	color: #0f1b99;
 	}
 
 	label {
@@ -583,7 +592,8 @@
 	}
 
 	.del_butt, .edit_but, .add_but {
-	border: 1px solid #1c75bc;
+		border: 1px solid #1c75bc;
+	 	margin-left: 7.5px;
 	}
 
 	.del_butt, .edit_but, .add_but img {
@@ -837,14 +847,14 @@
 
 	.info_about span {
 		font-family: Circe Light;
-		border-bottom: 2px double #ef0e19;
 		text-align: center;
-		background: #1c75bc;
-		color: white;
+		color: #1c75bc;
 		padding: 5px 10px;
 		margin: 2px;
 		height: 100%;
 		word-wrap: break-word;
+		border: 1px solid #dcdcdc;
+		border-bottom: 2px double #ef0e19;
 	} 
 	.info_about span p {
 		font-family: Circe ExtraLight;
@@ -860,7 +870,7 @@
 		margin:  0;
 		list-style: none;
 	}
-	.edit-navigation li {
+	.edit-navigation, .navigation-horizontal li {
 		font-family: Circe Light;
 		padding: 5px 7px;
 		margin: 2px 0;
@@ -875,7 +885,380 @@
 		сolor:  black;
 	}
 
+	.navigation-horizontal {
+		display: inline-flex;
+	}
+	.navigation-horizontal ul {
+		list-style: none;
+		display: inline-block;
+	}
 
+	.news_block {
+		min-height: 250px;
+		overflow: hidden;
+		border-bottom: 1px solid #dcdcdc;
+		padding: 2%;
+		display: flex;
+		width: 90%;
+		margin: 0 5%;
+	}
+	.new_image {
+		width: 300px;
+		height: 250px;
+    	overflow: hidden;
+   		float: left;
+	}
+	.new_image img {
+		width: 100%;
+    	height: auto;
+	}
+	.new_text {
+		text-align: justify;
+		width: 70%;
+		min-height: 250px;
+		margin-top: -10px;
+		font-family: Circe Light;
+	}
+	.new_title {
+		font-family: Circe Bold;
+		color: #181e28;
+		font-size: 20px;
+		margin: 5px 10px;
+		border-bottom: 1px solid #56b0ff;
+		width: fit-content;
+	}
+	.next_button {
+    	font-style: italic;
+	    margin-top: 10px;
+	    color: #28293a;
+	    font-family: 'CIRCE LIGHT';
+	    cursor: pointer;
+	    text-decoration: none;
+	    border-bottom: 1px dotted #000;
+	    float: right;
+	}
+	.prev_button {
+		font-style: italic;
+	    margin-top: 10px;
+	    color: #bfbfc4;
+	    font-family: 'CIRCE LIGHT';
+	    float: left;
+	    font-size:  12px;
+	    padding: 0 15px;
+	}
+
+	.login {
+		width: 650px;
+		margin: auto;
+		text-align: center;
+	}
+
+	.login input{
+		width: 450px;
+		border:  none;
+		border-bottom: 1px solid black;
+		background: none;
+	}
+	.login_form {
+		padding: 20px;
+		min-height: 150px;
+		margin: 50px 0;
+	}
+	.login {
+		width: 650px;
+		margin: auto;
+		text-align: center;
+		background: #fff;
+		padding: 25px;
+		min-height: 250px;
+		border: 1px solid #dcdcdc;
+	}
+	.login_form span {
+		  font-size: 20px;
+		  font-family: Circe Light;
+		  font-weight: bold;
+		  padding: 2px;
+		  margin: 2px 0;
+	}
+	.login_form p {
+		padding: 2px;
+		margin: 2px;
+		font-size: 14px;
+		color: #59a5e1;
+		cursor: pointer;
+	}
+
+	.login_form label {
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	.login_form p a {
+		font-size: 16px;
+	}
+
+	.pass_login {
+		text-decoration: underline;
+		font-style: italic;
+		
+	}
+
+	.login input {
+		margin: 20px 0;
+		font-family: Circe Light;
+		padding: 10px;
+		font-size: 16px;
+	}
+	.login_form button {
+		margin-left: 50%;
+		background: none;
+		border: none;
+		font-weight: bold;
+		border-bottom: 0.25px dotted;
+		padding-bottom: 7px;
+		cursor: pointer;
+	}
+	.login_form button img {
+		float: left;
+		margin: -2.5px 5px;
+	}
+	
+	.product {
+		margin: auto;
+		background: #fff;
+		text-align: center;
+		padding: 10px;
+		display: inline-flex;
+		flex-flow: row;
+		flex-wrap: wrap;
+	}
+	.product-span {
+		font-family: Circe Light;
+		font-size: 18px;
+		text-align: center;
+		padding: 10px;
+		border: 1px solid #dcdcdc;
+		margin: auto;
+		background: #1c75bc;
+		color: white;
+		display: block;
+		width: 97.5%;
+	}
+
+	.img-product {
+		margin: 0 2.5%;
+		text-align: left;
+		padding: 10px;
+		width: 25%;
+	}
+
+	.img-product img {
+		width: 100%;
+	}
+	.info-product {
+		width:  60%;
+		margin: 2.5%;
+		border-bottom: 1px solid #dcdcdc;
+	}
+
+	.img-product img {
+		padding: 10px;
+		margin: 10px;
+		border: 1px dotted #dcdcdc;
+	}
+
+	.codetnved-span {
+		width: fit-content;
+		margin: auto;
+		font-family: Circe ExtraLight;
+		padding: 15px;
+		color: #1c75bc;
+		font-size: 18px;
+		text-transform: lowercase;
+	}
+
+	.code {
+		padding: 5px 15px;
+		width: auto;
+		margin: 1px 2px;
+		color: #0f1b99;
+		float: right;
+		margin-top: 0;
+		padding-top: 0;
+		color: #2d3c5a;
+		font-family: Circe Light;
+		
+	}
+
+	.hrefs {
+		text-decoration: none;
+	}
+
+	.back {
+		background-color: #000; /* Чёрный фон */
+		  height: 100%; /* Высота максимальна */
+		  left: 0; /* Нулевой отступ слева */
+		  opacity: 0.50; /* Степень прозрачности */
+		  position: fixed; /* Фиксированное положение */
+		  top: 0; /* Нулевой отступ сверху */
+		  width: 100%; /* Ширина максимальна */
+		  z-index: 100; /* Заведомо быть НАД другими элементами */
+		}
+	.popup {
+		position: fixed;
+		top: 35%;
+		left: 35%;
+		text-align: center;
+		width: 30%;
+		height: 100px;
+		background: #f7f7f7;
+		border-radius: 5px;
+		color:  white;
+		border:  1px solid #dfdede;
+		z-index: 150;
+	}
+	.popup p {
+		margin: 7.5px;
+		padding: 1px;
+		font-size: 20px;
+	}
+	.popup-yes, .popup-no {
+		width: 50%; 
+		margin: -1px;
+		padding: 0 7.5px;
+		font-size: 16px;
+		border-bottom: 1px solid #dfdede;
+		cursor: pointer;
+	}
+	.popup-yes {
+		background: #58a2dd;
+		border-bottom-left-radius: 5px;
+		border-left: 1px solid #dfdede;
+	}
+	.popup-no {
+		background: #f43038;
+		border-bottom-right-radius: 5px;
+		border-right: 1px solid #dfdede;
+	}
+	#form_reg {
+		display: flex;
+		flex-flow: row;
+		width: 100%;
+	}
+
+	#org_info_form_reg {
+		width: 450px;
+		margin: 0 10px 0 0;
+		padding: 10px;
+	}
+
+	#org_info_form_reg input {
+		width: 400px;
+		margin: 2.5px 10px;
+		padding: 5px;
+		font-family: Circe Light;
+		font-size: 16px;
+	}
+
+	#org_info_form_reg select {
+		width: 400px;
+		margin: 2.5px 10px;
+		padding: 5px;
+		font-family: Circe Light;
+		font-size: 16px;
+		background: none;
+		border: none;
+		border-bottom: 1px solid;
+	}
+
+	#man_info_form_reg {
+		width: 400px;
+		margin: 2.5px 10px;
+		padding: 10px;
+	}
+
+	#man_info_form_reg input {
+		width: 350px;
+		margin: 5px 10px;
+		font-family: Circe Light;
+		font-size: 16px;
+
+	}
+
+	.registrate {
+		background: white;
+		width: 950px;
+		min-height: 500px;
+		margin: auto;
+		text-align: center;
+		border: 1px solid #c7c7c7;
+	}
+	.registrate input {
+		background: none;
+		border: none;
+		border-bottom: 1px solid;
+	}
+	.name-otch {
+		display: inline-flex;
+		width: 100%;
+		margin: 0 10px;
+	}
+	.name-otch input {
+		width: fit-content;
+		margin: 0 2.5%;
+	}
+
+	.password {
+	position: relative;
+	}
+
+	.password-control {
+		position: absolute;
+		top: 5px;
+		right: 25px;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+	}
+
+	.block_info_load {
+		background: #fff;
+		width: 80%;
+		margin: 2.5% auto;
+		padding: 1.5%;
+		text-align: center;
+		font-family: Circe Light;
+	}
+
+	.additional {
+		color: #fff;
+		font-family: Circe ExtraLight;
+		margin: 2.5px 0;
+		padding: 1px 5px;
+		font-size: 20px;
+		width: fit-content;
+		background: #ec0f1970;
+		border-top-left-radius: 10px;
+		margin-left: auto;
+	}
+	#adding-production, .update-block {
+		background: #fff;
+		border: 1px dotted #1c75bc;
+		padding: 1px 5px;
+		margin: -5px 0 15px 0;
+	}
+	.fit-blocks {
+		width: fit-content;
+		text-align: center;
+		background: #dbdbdb12;
+		border-radius: 15px;
+		margin: 5px auto;
+		border: 1px dotted #1c75bc;
+	}
+
+	#add_production {
+		margin: 25px;
+	}
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}
 	.select2-container .select2-selection--single{box-sizing:border-box;cursor:pointer;display:block;height:28px;user-select:none;-webkit-user-select:none}
