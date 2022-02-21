@@ -113,7 +113,7 @@
 			e.preventDefault();
 			 var form_data = new FormData($('#changepwd')[0]); 
 	$.ajax({
-			url: '../scripts/change_pass.php', // point to server-side PHP script
+			url: '../scripts/change_pass', // point to server-side PHP script
 			dataType: 'text',
 			cache: false,
 			contentType: false,
