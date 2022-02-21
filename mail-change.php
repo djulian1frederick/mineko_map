@@ -18,6 +18,8 @@ if (strcmp($d1, $d2) == 0) {
 	$query = mysqli_query($bd, $sql);
 	$row_activate = mysqli_fetch_array($query);
 	$active_hash_check = $row_activate['activate_hash'];
+	var_dump($active_hash_check);
+	var_dump($active_hash);
 	if($active_hash_check == $active_hash) {
 		$sql = "UPDATE users set user_email = '".$new_email."' where user_email='".$email_old."' and activate_hash='".$active_hash_check."'";
 		$update = mysqli_query($bd, $sql);
