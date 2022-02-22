@@ -1,8 +1,8 @@
 <?php
 // Файлы phpmailer
-require '/libs/phpmailer/PHPMailer.php';
-require '/libs/phpmailer/SMTP.php';
-require '/libs/phpmailer/Exception.php';
+require '../libs/phpmailer/PHPMailer.php';
+require '../libs/phpmailer/SMTP.php';
+require '../libs/phpmailer/Exception.php';
 
 
 // Настройки PHPMailer
