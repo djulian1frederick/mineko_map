@@ -9,6 +9,8 @@
 	$fulladdress = $address.', '.$house;
 	$msg = "<span>Успешно обновлено</span>";
 
+	echo $fulladdress;
+
 	if($address <> NULL && $addr <> NULL) {
 		$sql = "UPDATE addresses set full_address='".$fulladdress."' where id_addr='".$addr."'";
 		$sql_upd = mysqli_query($bd, $sql);
