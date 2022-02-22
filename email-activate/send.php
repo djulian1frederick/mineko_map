@@ -42,5 +42,6 @@ else {$result = "error";}
 }
 
 // Отображение результата
-
+echo $result;
+echo $status;
 ?>
