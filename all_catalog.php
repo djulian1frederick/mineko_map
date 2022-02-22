@@ -24,9 +24,10 @@
 			$size_predpr = mysqli_fetch_array($size_sql);
 			$size = $size_predpr['name_size'];
 
-			$raion_sql = mysqli_query($bd, "SELECT raion from raions join mo where raions.id_raion=mo.id_raion and mo.id_mo='".$org_row['id_mo']."'");
+			$raion_sql = mysqli_query($bd, "SELECT raion,raions.id_raion from raions join mo where raions.id_raion=mo.id_raion and mo.id_mo='".$org_row['id_mo']."'");
 			$raion_predpr = mysqli_fetch_array($raion_sql);
 			$raion = $raion_predpr['raion'];
+			$id_raion = $raion_predpr['id_raion'];
 
 			$code_sql = mysqli_query($bd, "SELECT code from code_product where id_code_product='".$org_row['id_code_product']."'");
 			$code_predp = mysqli_fetch_array($code_sql);
@@ -81,7 +82,7 @@
 						</div>';}
 					if(isset($raion) && $raion <> NULL){echo '<div class="block-with-image">
 					<img src="img/location.png" class="organization_info_logo_img">';
-					echo '<p>'.$raion.'</p>';
+					echo '<p><a href="page_mo?id='.$id_raion.'">'.$raion.'</a></p>';
 				echo '</div>';}
 				if(isset($vid) && $vid <> NULL) {
 					echo '<div class="block-with-image">

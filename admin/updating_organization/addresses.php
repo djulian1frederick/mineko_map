@@ -1,10 +1,7 @@
 <?php require_once('../connection.php'); ?>
-<script>
-	$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-</script>
-<?php require_once('../connection.php'); ?>
+<script src="../../js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="../../js/jquery.fias.min.js" type="text/javascript"></script>
+<script src="../../js/script.js" type="text/javascript"></script>
 	<?php
 		$org = $_POST['org_ident'];
 		$sql_select_main = "SELECT id_address from predpriyatiya where id_predpriyatiya='".$org."'";
@@ -23,7 +20,7 @@
 	</div>
 	<div class="update-block">
 		<h3>Обновление адреса организации</h3>
-			
+			<?php echo '<input type="hidden" id="addr" value="'.$id_address.'">'; ?>
 			<label>Полный адрес</label><br>
 			<?php echo '<input name="address" type="text" value="'.$address['full_address'].'" id="address" placeholder="Начните вводить адрес"><br>';?>
 			<label>Номер здания</label><br>

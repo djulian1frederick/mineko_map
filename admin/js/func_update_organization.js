@@ -172,3 +172,20 @@ function update_personal_contacts(){
 		})
 	}
 }
+
+function update_address(){
+	var address = $('#address').val();
+	var numberhouse = $('#numberhouse').val();
+	var addr = $('#addr').val();
+	var organization = $('#organization').val();
+	$.ajax({
+		url: 'scripts/update_address.php',
+		type: "POST",
+		dataType: "text",
+		data: {"address" : address,"numberhouse":numberhouse,"addr":addr, "organization" : organization},
+		success: function(html){
+			$('#result').html(html);
+		}
+	})
+
+}
