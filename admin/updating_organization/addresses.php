@@ -21,6 +21,7 @@
 	<div class="update-block">
 		<h3>Обновление адреса организации</h3>
 			<?php echo '<input type="hidden" id="addr" value="'.$id_address.'">'; ?>
+			<?php echo '<input type="hidden" id="organization" value="'.$org.'">'; ?>
 			<label>Полный адрес</label><br>
 			<?php echo '<input name="address" type="text" value="'.$address['full_address'].'" id="address" placeholder="Начните вводить адрес"><br>';?>
 			<label>Номер здания</label><br>
