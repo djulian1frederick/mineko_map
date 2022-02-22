@@ -3,6 +3,12 @@
 		header('Location: ../index');
 	}
 ?>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Режим редактирования организации</title>
+	<link rel="stylesheet" href="../css/index.css">
 <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/func_update.js"></script>
@@ -14,14 +20,14 @@
 <script src="js/menu.js"></script>
 <script src="js/func_update_organization.js"></script>
 <link rel="stylesheet" href="../css/index.css">
-<?php include('header.php');?>	
-		
 <script>
 	$(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 </script>
-
+</head>
+<body>
+<?php include('header.php');?>	
 <?php require_once("connection.php");?>
 <div class="container">
 
@@ -47,3 +53,5 @@
 ?>
 	
 </div>
+</body>
+</html>

@@ -74,7 +74,7 @@
 		echo '<div style="width: 80%; margin: 0 10%; text-align:center; border-bottom: 1px solid #dcdcdc;">
 			<div class="info_about">';
 		echo '<span><b>ИНН</b> <p>'.$org_row['inn'].'</p></span>';
-		if(isset($org_row['ogrn']) {echo '<span><b>ОГРН</b> <p>'.$org_row['ogrn'].'</p></span>';}
+		if($org_row['ogrn'] <> NULL && $org_row['ogrn'] <> '') {echo '<span><b>ОГРН</b> <p>'.$org_row['ogrn'].'</p></span>';}
 		echo '</div></div>';
 
 		echo '<div class="main-info-organization">';

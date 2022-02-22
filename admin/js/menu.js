@@ -78,7 +78,7 @@ function openservices() {
 	var orga_mo = $('#orga_mo').val();
 	jQuery.ajax({
 		type: "POST",
-		url: '../admin/updating_organization/services_list.php',
+		url: '../editor/updating_organization/services_list.php',
 		dataType: 'text',
 		data: {"orga_mo" : orga_mo },
 		success:function(html) {

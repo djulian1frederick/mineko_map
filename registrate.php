@@ -57,7 +57,7 @@
 					$body = "<h2>Уважаемый пользователь!</h2>
 					<b>Для того, чтобы активировать учетную запись на портале 'Экспортного каталога Оренбургской области' необходимо перейти по следующей ссылке:</b><br>
 					<b><a href='".$root_dir."/email-activate/activate_email?l=".$activation."'>".$root_dir."/email-activate/activate_email</a><br><br><br><br><br><br><br><br>";
-					include($_SERVER['DOCUMENT_ROOT'].'/email-activate/send.php');
+					include('/email-activate/send.php');
 
 					$checking_insert = "INSERT into checking_registration (id_user, name_org,  mo, inn, first_name_reg, second_name_reg, phone) values ('".$id_u."','".$nameorg."','".$mo."','".$inn_org."','".$firstname."','".$secname."', '".$phone."')";
 					$checking_query = mysqli_query($bd, $checking_insert);

@@ -3,18 +3,32 @@
 		header('Location: ../index');
 	}
 ?>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Режим редактирования муниципального образования</title>
+	<link rel="stylesheet" href="../css/index.css">
+<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../js/func_update.js"></script>
 <script type="text/javascript" src="../js/func_admin.js"></script>
 <link href="../js/jquery.fias.min.css" rel="stylesheet">
-<script src="../js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="../js/jquery.fias.min.js" type="text/javascript"></script>
 <script src="../js/script.js" type="text/javascript"></script>
+<script src="../js/func.js" type="text/javascript"></script>
 <script src="../js/select2.min.js"></script>
-<link rel="stylesheet" href="../css/index.css">
 <script src="js/menu.js"></script>
-<script src="../js/func.js"></script>
+<script src="js/func_update_organization.js"></script>
+<link rel="stylesheet" href="../css/index.css">
+<script>
+	$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+</head>
+<body>
 <?php include('header.php');?>	
-
 <?php require_once("connection.php");?>
 <div class="container">
 
@@ -27,3 +41,5 @@
 			
 		</div>
 </div>
+</body>
+</html>

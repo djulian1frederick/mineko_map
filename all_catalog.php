@@ -67,10 +67,16 @@
 					echo '<div style="width: 80%; margin: 0 10%; text-align: center; border-bottom: 1px solid #dcdcdc;">
 							<div class="info_about">';
 							echo '<span><b>ИНН</b> <p>'.$org_row['inn'].'</p></span>';
-							echo '<span><b>ОГРН</b> <p>'.$org_row['ogrn'].'</p></span>';
-							if($code_tn_ved_list <> NULL) { do { echo '<span><b>Код ТН ВЭД</b> <p>'.$code_tn_ved_list['code_tn_ved'].'</p></span>'; }while($code_tn_ved_list=mysqli_fetch_array($code_tn_ved_sql)); }
-					echo '</div>
-						</div>';
+							if($org_row['ogrn'] <> NULL && $org_row['ogrn'] <> '') {echo '<span><b>ОГРН</b> <p>'.$org_row['ogrn'].'</p></span>';}
+					echo '</div>';
+						if($code_tn_ved_list <> NULL) {
+							if (count($code_tn_ved_list) > 1) { $word = "Коды"; } else { $word = "Код";}
+							echo '<br><br><h5>'.$word.' ТН ВЭД ЕАЭС</h5><ul class="export_list">';
+							do { echo '<li>'.$code_tn_ved_list['code_tn_ved'].'</li>'; }
+							while($code_tn_ved_list=mysqli_fetch_array($code_tn_ved_sql)); }
+							echo '</ul><br>';
+						echo '</div>';
+						
 
 			echo '<div class="main-info-organization">';
 				if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {

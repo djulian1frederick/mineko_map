@@ -9,7 +9,7 @@ function addto()
 	 //post variables
 	        jQuery.ajax({
             type: "POST", // HTTP метод  POST или GET
-            url: "../admin/scripts/add_rukovoditeli_mo.php", //url-адрес, по которому будет отправлен запрос
+            url: "../editor/scripts/add_rukovoditeli_mo.php", //url-адрес, по которому будет отправлен запрос
             dataType:"text", // Тип данных,  которые пришлет сервер в ответ на запрос ,например, HTML, json
             data:{"phone" : phone, "email" : email, "r_name": rname, "r_fam": rfam, "r_otch": rotch, "rraion": raion}, //данные, которые будут отправлены на сервер (post переменные)
             success:function(html){
@@ -40,7 +40,7 @@ function addorganization(){
     if (nameorg != '' && inn != '' && ogrn != ''){
     jQuery.ajax({
         type: "POST",
-        url: '../admin/scripts/add_organization.php',
+        url: '../editor/scripts/add_organization.php',
         dataType: "text",
         data: {"nameorg" : nameorg ,"inn" : inn ,"ogrn" : ogrn ,"sizepr" : sizepr ,"viddey" : viddey , "viddeyadd" : viddeyadd ,"codeprod" : codeprod, "codeprodadd" : codeprodadd, "year" : year},
         success: function(html) {
@@ -73,7 +73,7 @@ function add_address() {
     var org=$('#org').val();
      jQuery.ajax({
         type: "POST",
-        url: '../admin/scripts/add_organization_address.php',
+        url: '../editor/scripts/add_organization_address.php',
         dataType: "text",
         data: {"organization" : org , "address" : address, "numberhouse" : numberhouse},
         success: function(html) {
@@ -98,7 +98,7 @@ function addcontacts_to_organization(){
     var org_con = $('#org_con').val();
     jQuery.ajax({
             type: "POST",
-            url: '../admin/scripts/add_rukovoditel_to_organization_with_contacts.php',
+            url: '../editor/scripts/add_rukovoditel_to_organization_with_contacts.php',
             dataType: "text",
             data: {"org_con" : org_con, "organ_email" : organ_email, "phone" : phone, "fam" : fam, "name" : name, "otch" : otch}, 
             success: function(html) {
@@ -123,7 +123,7 @@ function addmo_to_org() {
     var organization =$('#orga_mo').val();
     jQuery.ajax({
         type: "POST",
-        url: '../admin/scripts/add_mo_organization.php',
+        url: '../editor/scripts/add_mo_organization.php',
         dataType: "text",
         data: {"ra_mo" : ra_mo, "organization" : organization},
         success: function(html) {
@@ -142,7 +142,7 @@ function addservices_to_org() {
     var exp_service =$('#exp_service').val();
     jQuery.ajax({
         type: "POST",
-        url: '../admin/scripts/add_services_organization.php',
+        url: '../editor/scripts/add_services_organization.php',
         dataType: "text",
         data: {"orga_mo" : orga_mo, "exp_service" : exp_service},
         success: function(html) {
@@ -161,7 +161,7 @@ function addcodetn() {
             var orgid = $('#orgid').val();
             var codetnved_descr=$('#codetnved_descr').val();
             $.ajax({
-                url: '../admin/scripts/organization_addcodetn.php',
+                url: '../editor/scripts/organization_addcodetn.php',
                 type: "POST",
               dataType: "text",
               data: {"codetnved" : codetnved, "orgid" : orgid, "codetnved_descr" : codetnved_descr},

@@ -1,9 +1,5 @@
 <?php require_once('../connection.php'); ?>
-<script>
-	$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-</script>
 <div class="blocks_info">
-	отмена регистрации
+	<button>Я хочу удалить свою учетную запись</button>
+	<button>Я хочу удалить заявку на регистрацию организации в системе и свою учетную запись</button>
 </div>
