@@ -28,7 +28,7 @@
         // обратите внимание, передаем конструктору DOM-объект формы
         var formData = new FormData($('#logo_site')[0]); 
          $.ajax({
-            url: '../admin/scripts/update_logo_site.php',
+            url: '../editor/scripts/update_logo_site.php',
             data: formData,
             processData: false,
             contentType: false,
