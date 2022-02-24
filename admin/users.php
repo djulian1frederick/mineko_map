@@ -22,7 +22,7 @@
 <div class="container">
 	<?php 
 		// количество записей, выводимых на странице
-		$per_page=2
+		$per_page=2;
 		// получаем номер страницы
 		if (isset($_GET['page'])) $page=($_GET['page']-1); else $page=0;
 		// вычисляем первый оператор для LIMIT
