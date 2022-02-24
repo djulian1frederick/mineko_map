@@ -4,6 +4,16 @@
 		$sql_info_org = "SELECT * from predpriyatiya";
 		$this_org = mysqli_query($bd, $sql_info_org);
 		$org_row = mysqli_fetch_array($this_org);
+		// количество записей, выводимых на странице
+		$per_page=15;
+		// получаем номер страницы
+		if (isset($_GET['page'])) $page=($_GET['page']-1); else $page=0;
+		// вычисляем первый оператор для LIMIT
+		$start=abs($page*$per_page);
+		// составляем запрос и выводим записи
+		// переменную $start используем, как нумератор записей.
+		$q="SELECT * FROM `predpriyatiya` ORDER BY id_predpriyatiya LIMIT $start,$per_page";
+		$res=mysqli_query($bd,$q);
 ?>
 <html lang="en">
 <head>
@@ -18,7 +28,10 @@
 	<div class="content">
 		<?php 
 			#подключение к бд
-			#полученый номер района с карты
+		while($row=mysqli_fetch_array($res)) {
+		
+
+		
 			do {
 			$size_sql = mysqli_query($bd, "SELECT name_size from size_predpr where id_size='".$org_row['id_size']."'");
 			$size_predpr = mysqli_fetch_array($size_sql);
@@ -124,7 +137,22 @@
 			echo '</div>';
 		}
 		while($org_row = mysqli_fetch_array($this_org));			
-		
+		}
+		// дальше выводим ссылки на страницы:
+		$q="SELECT count(*) FROM predpriyatiya";
+		$res=mysqli_query($bd,$q);
+		$row=mysqli_fetch_row($res);
+		$total_rows=$row[0];
+
+		$num_pages=ceil($total_rows/$per_page);
+
+		for($i=1;$i<=$num_pages;$i++) {
+		  if ($i-1 == $page) {
+		    echo $i." ";
+		  } else {
+		    echo '<a href="all_catalog?page='.$i.'">'.$i."</a> ";
+		  }
+		}
 		?>
 	</div>
 </div>
