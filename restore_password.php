@@ -22,7 +22,7 @@
 		<b><a href='".$root_dir."/check_restore?i=".$activation."&e=".$email."'>".$root_dir."/restore_password</a><br>
 		<b>Данная ссылка действует сутки.</b><br><br>
 		<b>Если вы проигнорируете это сообщение, ваш пароль не будет изменен. Если вы не запрашивали сброс пароля, сообщите нам.</b><br><br><br><br><br></div>";
-		include("/email-activate/send.php");
+		include("email-activate/send.php");
 		if($result == "success") {echo '<span style="color: #753b3b;margin: 1.5% auto;border-bottom: #df1919 1px solid;">Инструкция по дальнейшим действиям отправлена на указанный адрес</span>';} 
 
 	}

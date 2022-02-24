@@ -42,7 +42,7 @@
 							<span>Читайте также:</span>
 								<ul>
 									<?php
-										$all_news = mysqli_query($bd, "SELECT * from news where id_news != '".$id."'");
+										$all_news = mysqli_query($bd, "SELECT * from news where id_news != '".$id."' order by id_news desc limit 3");
 										$news_row = mysqli_fetch_array($all_news);
 											do {
 												echo '<li style="list-style: inside;"><a class="hrefs" href="success_history?history='.$news_row['id_news'].'">'.$news_row['news_title'].'</a></li>';

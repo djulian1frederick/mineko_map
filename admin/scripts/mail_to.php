@@ -1,9 +1,8 @@
 <?php
 // Файлы phpmailer
-require $_SERVER['DOCUMENT_ROOT'].'/libs/phpmailer/PHPMailer.php';
-require $_SERVER['DOCUMENT_ROOT'].'/libs/phpmailer/SMTP.php';
-require $_SERVER['DOCUMENT_ROOT'].'/libs/phpmailer/Exception.php';
-
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+require 'phpmailer/Exception.php';
 
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -11,16 +10,24 @@ try {
     $mail->isSMTP();   
     $mail->CharSet = "UTF-8";
     $mail->SMTPAuth   = true;
-    //$mail->SMTPDebug = 2;
+    #$mail->SMTPDebug = 4;
     $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
     // Настройки вашей почты
-    $mail->Host       = 'smtp.mail.ru'; // SMTP сервера вашей почты
-    $mail->Username   = 'ecat56@inbox.ru'; // Логин на почте
-    $mail->Password   = 'FXm4ELCP5rJmgDmSX4ti'; // Пароль на почте
+      $mail->Host       = 'smtp.yandex.ru'; // SMTP сервера вашей почты
+    $mail->Username   = 'export.catalog56@yandex.ru'; // Логин на почте
+    $mail->Password   = 'tulgcyelfttardja'; // Пароль на почте
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
-    $mail->setFrom('ecat56@inbox.ru', 'Учетная запись'); // Адрес самой почты и имя отправителя
+    $mail->SMTPOptions = array (
+    'ssl' => array(
+    'verify_peer' => false,
+    'verify_peer_name' => false,
+    'allow_self_signed' => true)
+);
+    $mail->setFrom('export.catalog56@yandex.ru', 'Учетная запись'); // Адрес самой почты и имя отправителя
+
+
 
     // Получатель письма
    # var_dump($email_to);

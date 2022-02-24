@@ -16,8 +16,6 @@
 		if(isset($_SESSION['user_id'])) {
 			$sql = "UPDATE checking_registration set phone='".$phone."' where id_check='".$id_check."'";
 			$query_update_check = mysqli_query($bd, $sql);
-			
-			include('../../email-activate/send.php');
 			if($query_update_check) {echo "<span>".$success."</span>";}
 			else {	echo "<span>".$unsuccess."</span>";	}		
 		}
@@ -40,8 +38,10 @@
 		if($check_emails == NULL) {
 			$activation=md5($email.time()); // email + timestamp
 			$active_hash_update = mysqli_query($bd, "UPDATE users set active_hash='".$activation."' where id_user='".$_SESSION['user_id']."'");
-			#тут поменять
-				$root_dir = "https://mineko.okeit.edu";
+			
+			$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
+					$root_dir = $url;
+
 						$date = date('dm');
 						// отправка письма
 						// Формирование самого письма
@@ -76,8 +76,9 @@
 				$activation=md5($email.time()); // email + timestamp
 				$active_hash_update = mysqli_query($bd, "UPDATE users set active_hash='".$activation."' where id_user='".$_SESSION['user_id']."'");
 				
-							#тут поменять
-							$root_dir = "https://mineko.okeit.edu";
+							$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
+							$root_dir = $url;
+
 							$date = date('dm');
 							// отправка письма
 							// Формирование самого письма
@@ -92,6 +93,6 @@
 					}
 		}
 	}
-	include('mail_to.php');
+	include 'mail_to.php';
 	echo '<br>'.$msg;
 ?>

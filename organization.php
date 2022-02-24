@@ -181,6 +181,7 @@
 
 		?>
 		<?php
+			if(isset($_SESSION['level']) && $_SESSION['level'] > 0) {
 			$export_serv_select = "SELECT * from expoc_services where id_predpriyatiya='".$id."'";
 			$export_serv_sql = mysqli_query($bd, $export_serv_select);
 			$export_serv_r = mysqli_fetch_array($export_serv_sql);
@@ -196,7 +197,7 @@
 					</div>
 					</div>
 					</div>';
-			}
+			}}
 
 		?>
 	</div>

@@ -1,6 +1,5 @@
 <?php 
 session_start();
-$user_id = $_SESSION['user_id'];
 
 $active_hash = $_GET['l'];
 $email_old = $_GET['e'];
@@ -14,7 +13,7 @@ $d2 = strval($date_to_check);
 if (strcmp($d1, $d2) == 0) {
 
 	require_once('admin/connection.php');
-	$sql = "SELECT active_hash from users where user_email='".$email_old."' and id_user='".$user_id."'";
+	$sql = "SELECT active_hash from users where user_email='".$email_old."'";
 	$query = mysqli_query($bd, $sql);
 	$row_activate = mysqli_fetch_array($query);
 	$active_hash_check = $row_activate['active_hash'];

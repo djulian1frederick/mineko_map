@@ -39,7 +39,7 @@
 
 			$rukovod_sql = mysqli_query($bd, "SELECT * from rukovoditeli where id_rukovoditel='".$org_row['id_rukovoditel']."'");
 			$rukovod_predpr= mysqli_fetch_array($rukovod_sql);
-			if ($rukovod_predpr <> NULL)	{$rukovoditel = ''.$rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];}
+			if ($rukovod_predpr <> NULL && $rukovod_predpr <> '')	{$rukovoditel = ''.$rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];}
 			
 			$vid_sql = mysqli_query($bd, "SELECT vid_deyatelnosti from vid_deyat where id_vid_deyat='".$org_row['id_vid_deyat']."'");
 			$vid_predpr = mysqli_fetch_array($vid_sql);

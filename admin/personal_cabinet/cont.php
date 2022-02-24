@@ -4,13 +4,13 @@
 	<div class="update-blocks">
 	
 	<?php  if(isset($_SESSION['user_id']) && $_SESSION['level'] == '0') 
-		{ $query=mysqli_query($bd, "SELECT phone from checking_registration where id_user='".$_SESSION['user_id']."'"); 
+		{ $query=mysqli_query($bd, "SELECT phone,id_check from checking_registration where id_user='".$_SESSION['user_id']."'"); 
 			$row = mysqli_fetch_array($query); 
 			$phone = $row['phone'];
 			echo '<input type="hidden" id="id_check" value="'.$row['id_check'].'">'; 
 		} 
 		elseif(isset($_SESSION['user_id']) && $_SESSION['level'] >= '1') 
-		{ $query=mysqli_query($bd, "SELECT phone1 from contacts join contacts_people on contacts_people.id_contact = contacts.id_contact where id_user='".$_SESSION['user_id']."'");
+		{ $query=mysqli_query($bd, "SELECT phone1,id_con_people from contacts join contacts_people on contacts_people.id_contact = contacts.id_contact where id_user='".$_SESSION['user_id']."'");
 			$row = mysqli_fetch_array($query); 
 			$phone = $row['phone1'];
 			echo '<input type="hidden" id="id_con_people" value="'.$row['id_con_people'].'">'; 

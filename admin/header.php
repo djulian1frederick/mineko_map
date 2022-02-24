@@ -19,6 +19,7 @@
 			<a href="export_catalog"><li>Экспортный каталог</li></a>
 			<a href="history_success"><li>Истории успеха</li></a>
 			<a href="search"><li>Поиск</li></a>
+			<a href="users"><li>Пользователи системы</li></a>
 			<a href="status_check"><li>Отслеживание изменения статуса регистрации организации</li></a>
 			<a href="organization_updating"><li>Личный кабинет организации</li></a>';
 		break;
