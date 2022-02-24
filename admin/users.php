@@ -32,7 +32,7 @@
 		$q="SELECT * FROM `users` ORDER BY id_user LIMIT $start,$per_page";
 		$res=mysqli_query($bd,$q);
 		while($row=mysqli_fetch_array($res)) {
-		  echo ++$start.". ".$row['id_user']."<br>\n";
+		  echo ++$start.". ".$row['user_login']."<br>\n";
 		}
 
 		// дальше выводим ссылки на страницы:
