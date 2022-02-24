@@ -47,7 +47,7 @@
 		  if ($i-1 == $page) {
 		    echo $i." ";
 		  } else {
-		    echo '<a href="'.$_SERVER['PHP_SELF'].'?page='.$i.'">'.$i."</a> ";
+		    echo '<a href="users?page='.$i.'">'.$i."</a> ";
 		  }
 		}
 
