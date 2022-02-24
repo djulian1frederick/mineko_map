@@ -1,19 +1,8 @@
 <?php session_start();?>
 <?php 
+		#подключение к бд
 		require_once('admin/connection.php');
 		$sql_info_org = "SELECT * from predpriyatiya";
-		$this_org = mysqli_query($bd, $sql_info_org);
-		$org_row = mysqli_fetch_array($this_org);
-		// количество записей, выводимых на странице
-		$per_page=15;
-		// получаем номер страницы
-		if (isset($_GET['page'])) $page=($_GET['page']-1); else $page=0;
-		// вычисляем первый оператор для LIMIT
-		$start=abs($page*$per_page);
-		// составляем запрос и выводим записи
-		// переменную $start используем, как нумератор записей.
-		$q="SELECT * FROM `predpriyatiya` ORDER BY id_predpriyatiya LIMIT $start,$per_page";
-		$res=mysqli_query($bd,$q);
 ?>
 <html lang="en">
 <head>
@@ -27,10 +16,19 @@
 <div class="container">
 	<div class="content">
 		<?php 
-			#подключение к бд
-		while($row=mysqli_fetch_array($res)) {
 		
-
+		
+		// количество записей, выводимых на странице
+		$per_page=15;
+		// получаем номер страницы
+		if (isset($_GET['page'])) $page=($_GET['page']-1); else $page=0;
+		// вычисляем первый оператор для LIMIT
+		$start=abs($page*$per_page);
+		// составляем запрос и выводим записи
+		// переменную $start используем, как нумератор записей.
+		$q="SELECT * FROM `predpriyatiya` ORDER BY id_predpriyatiya LIMIT $start,$per_page";
+		$this_org=mysqli_query($bd,$q);
+		while($org_row=mysqli_fetch_array($this_org)) {
 		
 			do {
 			$size_sql = mysqli_query($bd, "SELECT name_size from size_predpr where id_size='".$org_row['id_size']."'");
@@ -53,6 +51,7 @@
 			$rukovod_sql = mysqli_query($bd, "SELECT * from rukovoditeli where id_rukovoditel='".$org_row['id_rukovoditel']."'");
 			$rukovod_predpr= mysqli_fetch_array($rukovod_sql);
 			if ($rukovod_predpr <> NULL && $rukovod_predpr <> '')	{$rukovoditel = ''.$rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];}
+			else { $rukovoditel == '';}
 			
 			$vid_sql = mysqli_query($bd, "SELECT vid_deyatelnosti from vid_deyat where id_vid_deyat='".$org_row['id_vid_deyat']."'");
 			$vid_predpr = mysqli_fetch_array($vid_sql);
@@ -145,14 +144,15 @@
 		$total_rows=$row[0];
 
 		$num_pages=ceil($total_rows/$per_page);
-
+		echo '<div class="pagination-block">';
 		for($i=1;$i<=$num_pages;$i++) {
 		  if ($i-1 == $page) {
 		    echo $i." ";
 		  } else {
-		    echo '<a href="all_catalog?page='.$i.'">'.$i."</a> ";
+		    echo '<a href="all_catalog?page='.$i.'">'.$i."</a>";
 		  }
 		}
+		echo '</div>';
 		?>
 	</div>
 </div>
