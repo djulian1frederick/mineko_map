@@ -87,7 +87,7 @@
 									echo '</select>';
 									echo '</div>';
 									}
-								echo '</div><div style="margin-top: -20px; float: left"><button class="edit_but" type="submit" value="e" name="button" style="margin-left: 7.5px;">
+								echo '</div><div style="margin-top: -20px; float: left"><button class="edit_but" type="submit" value="e" name="button" onclick="reloadform()" style="margin-left: 7.5px;">
 										<img src="../img/edit.png" width="20px" height="20px">
 									</button>
 									<button class="del_butt" style="margin-left: 7.5px;" type="submit" id="delbut" value="d" name="button" onclick="confirm_delete()">
@@ -116,12 +116,16 @@
 
       });
  }	
+ 
+ function reloadform()	{
+ 			setTimeout(function(){$('#page_production').load('updating_organization/production.php');},2000);
+ }
+
  function confirm_delete() {
  			if(confirm('Вы уверены в удалении ЭТОЙ продукции?'))
  			{
- 				setTimeout(function(){$('#page_production').load('updating_organization/production.php');}, 5000);
+ 				reloadform();
  			}
-
  }
  
 </script>
