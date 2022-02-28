@@ -16,16 +16,17 @@
 				<br>		
 				<input type="checkbox" id="checkbox1" onclick="toggle('checkbox1','exists_code','code_new')">
 				<label for="checkbox1" class="checkbox_label">Нажмите, чтобы появился список</label><br>
-				<br>
+				<div id="exists_code">
 				<?php 
 					require_once('../connection.php');
 					$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds");
 					$code_tn_row = mysqli_fetch_array($current_code);
-					echo '<select name="codetnved_id" class="js-example-basic-single" id="exists_code" style="width: 450px; display: none;">';
+					echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px; display: none;">';
 						do {
 			 				echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
 						}while ($code_tn_row=mysqli_fetch_array($current_code));
-				?>
+				?>	
+				</div>
 				<button type="submit"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 </form>
 <div id="result_production">
