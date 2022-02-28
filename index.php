@@ -29,16 +29,17 @@
                         $isCityListEmpty = false;
                         $id_c = "r".$row_cities['id_raion'];
                         $sublist_cities = $sublist_cities.'
-                            <li onmousemove="hovermap(`'.$id_c.'`)">
-                                <a href="page_mo?id='.$row_cities['id_raion'].'">'.$row_cities['raion'].'</a>
-                            </li>';
-                    }
+                           <a href="page_mo?id='.$row_cities['id_raion'].'">
+                           	<li onmousemove="hovermap(`'.$id_c.'`)">
+                                '.$row_cities['raion'].'
+                            </li></a>';      
+                        }
                     $sublist_cities = $sublist_cities.'</ul></li>';
                     if($isCityListEmpty) $sublist_cities = '';
 
                     
 				 	$id_r = "r".$row_raions['id_raion'];
-				 	echo '<li onmousemove="hovermap(`'.$id_r.'`)"><a href="page_mo?id='.$row_raions['id_raion'].'">'.$row_raions['raion'].'</a></li>'.$sublist_cities.'';
+				 	echo '<a href="page_mo?id='.$row_raions['id_raion'].'"><li onmousemove="hovermap(`'.$id_r.'`)">'.$row_raions['raion'].'</li></a>'.$sublist_cities.'';
 				}
 
 
