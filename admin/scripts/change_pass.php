@@ -5,7 +5,7 @@
 	$pass_once = $_POST['password_once'];
 	$pass_repeat = $_POST['password_repeat'];
 
-	$user = mysqli_query($bd, "SELECT password from userse where id_user='".$_SESSION['user_id']."'");
+	$user = mysqli_query($bd, "SELECT password from users where id_user='".$_SESSION['user_id']."'");
 	$user = mysqli_fetch_array($user);
 	$password = $user['password'];
 	if(password_verify($password_cur, $password)){
