@@ -6,7 +6,7 @@
 	$addr = $_POST['addr'];
 	$organization = $_POST['organization'];
 
-	$fulladdress = $address.' '.$numberhouse;
+	$fulladdress = $address.', '.$numberhouse;
 	$msg = "<span>Успешно обновлено</span>";
 
 	explode(' ', $fulladdress);

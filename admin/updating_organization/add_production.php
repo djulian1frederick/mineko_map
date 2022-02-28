@@ -29,7 +29,7 @@
             contentType: false,
             type: 'POST',
             dataType: 'JSON',
-            success: function(data) {
+            complete: function(data) {
 	              $('#result').html(data);
             }
         });

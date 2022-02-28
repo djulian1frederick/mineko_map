@@ -96,7 +96,7 @@
 				if($main_row['yearstart'] == NULL) {
 					$placeholder_year = 'placeholder="здесь может быть указан год начала экспорта Вашей организации"';
 				}
-				echo '<input type="number" name="year" maxlength="4" value="'.$main_row['yearstart'].'" id="year" '.$placeholder_year.'><br>';?>
+				echo '<input type="number" name="year" maxlength="4" minlength="4" value="'.$main_row['yearstart'].'" id="year" '.$placeholder_year.'><br>';?>
 			<button class="edit_but" onclick="editmaininfo()"><img src="../img/edit.png" width="16px" height="16px"></button>
 		</div>
 	</div>
