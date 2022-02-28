@@ -84,7 +84,7 @@
 		display: block;
 		margin-bottom: 0;
 	}
-	.form_block p, a {
+	.form_block p, .form_block a {
 		color:  #1c75bc;
 		margin: 0;
 		padding: 15px;
