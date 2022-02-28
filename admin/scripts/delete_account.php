@@ -30,3 +30,5 @@
 	
 	if ($query_1 && $query_2 && $query_3) { header('Location: ../../index'); session_destroy();}
 ?>
+
+<img src="../../img/loading.png" alt="Загрузка результата">
