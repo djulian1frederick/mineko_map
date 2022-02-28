@@ -44,5 +44,8 @@ if ($button == 'e') {
 		}
 		elseif ($button == 'd') {
 			$query = mysqli_query($bd, "DELETE from production where id_product='".$prod_id."'");
+			if($query) {
+				echo '<span>Данная продукция будет удалена</span>';
+			}
 		}
 	?>

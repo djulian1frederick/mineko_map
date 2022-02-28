@@ -1,17 +1,16 @@
 <?php require_once("../connection.php");?>
 <?php 
-	$codetnnved = $_POST['codetnved'];
+	$codetnnved = $_POST['codetnnved'];
 	$idcode = $_POST['idcode'];
 	$codetnved_descr = $_POST['codetnved_descr'];
 
-	$action= $_POST['action'];
-	if(isset($action) && $action == 'delete') {
-		$query = mysqli_query($bd, "delete from code_tn_ved where id_code_tnved='".$idcode."'");
+	$button= $_POST['button'];
+	if($button == "del") {
+		$query = mysqli_query($bd, "delete from code_tn_veds where id_code_tnved='".$idcode."'");
 		if($query) {
-			echo '<span>Удалено</span>';
+			echo '<span>Запись будет удалена</span>';
 		}
 	}
-
 	else {
 		$sql = "update code_tn_veds set code_tn_ved ='".$codetnnved."', description_code = '".$codetnved_descr."' where id_code_tnved = '".$idcode."' ";
 		$update_query = mysqli_query($bd, $sql);

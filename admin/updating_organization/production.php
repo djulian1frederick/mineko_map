@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <script src="../js/select2.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -5,14 +6,20 @@
 });
 </script>
 <?php require_once('../connection.php'); ?>
-	<?php
-		$org = $_POST['org_ident'];
+	<?php	
+		if($_POST['org_ident'] <> NULL) {
+			$org = $_POST['org_ident'];
+			$_SESSION['org_id_tmp'] = $org;
+		}
+		elseif(isset($_SESSION['org_id_tmp'])){
+			$org = $_SESSION['org_id_tmp'];
+		}
 		$sql_select_main = "SELECT * from predpriyatiya where id_predpriyatiya='".$org."'";
 		$sql_main = mysqli_query($bd, $sql_select_main);
 		$main_row = mysqli_fetch_array($sql_main);
 		echo '<input type="hidden" id="org" value="'.$org.'">';
 	?>
-<div class="blocks_info">
+<div class="blocks_info" id="page_production">
 	<div id="result">
 		
 	</div>
@@ -24,22 +31,24 @@
 		 				<div class="update-block" style="display: flex; flex-flow: wrap;">';
 	 		do {
 	 				echo '<div class="fit-blocks">
+	 						<form method="post" target="result_code'.$code_tn_row['id_code_tn_ved'].'" action="/editor/scripts/update_codetn.php">
 	 						<div>
-		 						<button class="edit_but" onclick="updatetnved()" style="margin-left: 7.5px;">
+		 						<button class="edit_but" name="button" value="ed" style="margin-left: 7.5px;">
 								<img src="../img/edit.png" width="20px" height="20px">
 							  	</button>
-								<button class="del_butt" onclick=deletetnved() style="margin-left: 7.5px;">
+								<button class="del_butt" name="button" onclick="confirm_delete()" value="del" style="margin-left: 7.5px;">
 								<img src="../img/delete.png" width="20px" height="20px">
 						  		</button>
 						  	</div>';
-						echo '<input type="hidden" id="idcode" value="'.$code_tn_row['id_code_tn_ved'].'">';
-	 					echo '<input type="text" id="codetnnved" value="'.$code_tn_row['code_tn_ved'].'"><br>';
-	 					echo '<textarea id="codetnved_descr" value="'.$code_tn_row['description_code'].'" style="height: 50px;">'.$code_tn_row['description_code'].'</textarea></div>';
+						echo '<input type="hidden" name="idcode" value="'.$code_tn_row['id_code_tn_ved'].'">';
+	 					echo '<input type="text" name="codetnnved" value="'.$code_tn_row['code_tn_ved'].'"><br>';
+	 					echo '<textarea name="codetnved_descr" value="'.$code_tn_row['description_code'].'" style="height: 50px;">'.$code_tn_row['description_code'].'</textarea>';
+	 					echo '</form>';
+	 					echo '<iframe name="result_code'.$code_tn_row['id_code_tn_ved'].'" borderless style="height: 40px; width:auto;"></iframe></div>';
 	 		}while ($code_tn_row=mysqli_fetch_array($code_tn));
 	 		echo '</div>';
 	 	}
 	 ?> 
-<iframe name="preview" style="display: none;"></iframe>
 	<?php 
 		$select_production = "SELECT * from production where id_predpriyatiya='".$org."'";
 		$production = mysqli_query($bd, $select_production);
@@ -52,7 +61,7 @@
 						<ul style="display: flex; flex-flow: row; flex-wrap: wrap; background: white;  padding: 15px;">';
 					do {
 						echo '<li style="border: 1px solid #dcdcdc; width: 100%;">
-								<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="result_production">
+								<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="result_production'.$production_row['id_product'].'">
 									<input type="hidden" name="org_id" id="org_id" value="'.$org.'">
 									<input type="file" name="file" id="file" style="margin: 0 75px;background: #1c75bc;padding: 5px;color: white; border: none;">
 									<img  style="float: left;border: 1px solid #cecece;" width="150px" src="../'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">';
@@ -78,10 +87,11 @@
 								echo '</div><div style="margin-top: -20px; float: left"><button class="edit_but" type="submit" value="e" name="button" style="margin-left: 7.5px;">
 										<img src="../img/edit.png" width="20px" height="20px">
 									</button>
-									<button class="del_butt" style="margin-left: 7.5px;" type="submit" value="d" name="button">
+									<button class="del_butt" style="margin-left: 7.5px;" type="submit" id="delbut" value="d" name="button" onclick="confirm_delete()">
 										<img src="../img/delete.png" width="20px" height="20px">
 									</button></div>
 								</form>
+								<iframe name="result_production'.$production_row['id_product'].'" style="height: 45px; width: 100%;" borderless></iframe>
 							</li>';
 					} while ($production_row = mysqli_fetch_array($production));
 				echo '</ul></div>';	}
@@ -103,6 +113,15 @@
 
       });
  }	
+ function confirm_delete() {
+ 			if(confirm('Вы уверены в удалении ЭТОЙ продукции?'))
+ 			{
+ 				setTimeout(function(){$('#page_production').load('updating_organization/production.php');}, 5000);
+ 			}
+
+ }
+ 
 </script>
+
 
 
