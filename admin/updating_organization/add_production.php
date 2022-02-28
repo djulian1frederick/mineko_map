@@ -7,7 +7,7 @@
 				<label for="file">Выберите изображение для продукции продукции</label><br>
 				<input type="file" name="file" id="js-file" accept="image/*"><br><br>
 				<label for="codetnved">КОД ТН ВЭД</label><br>
-				<input type="text" name="codetnved" id="codetnved" placeholder="Введите КОД ТН ВЭД" required>
+				<input type="number" name="codetnved" id="codetnved" placeholder="Введите КОД ТН ВЭД" required>
 				<br>
 				<label for="codetnved_descr">Описание КОДа ТН ВЭД</label><br>
 				<textarea name="codetnved_descr" id="codetnved_descr" placeholder="Описание кода"></textarea>
