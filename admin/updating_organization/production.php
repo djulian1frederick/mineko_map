@@ -82,7 +82,6 @@
 			 									else {$thiscode = 'отсутствует';}
 			 									echo '<option value="'.$current_code['id_code_tn_ved'].'">Текущий - '.$thiscode.'</option>'; } 
 			 									while($current_code = mysqli_fetch_array($current_code));
-				 								}
 			 								do {
 			 									echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
 											}while ($code_tn_row=mysqli_fetch_array($code_tn));
