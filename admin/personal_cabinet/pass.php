@@ -43,6 +43,16 @@
 		}
 		return false;
 	});
+	$('body').on('click', '.password-control', function(){
+		if ($('#password-cur').attr('type') == 'password'){	
+			$('#password-cur').attr('type', 'text');
+			$('.img-pwd').attr("src", "../../img/hide.png");
+		} else {
+			$('#password-cur').attr('type', 'password');
+			$('.img-pwd').attr("src", "../../img/show.png");
+		}
+		return false;
+	});
 </script>
 <script>
 	$('#submit_change').on('click', function(e) {
