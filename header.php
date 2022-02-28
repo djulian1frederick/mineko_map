@@ -49,7 +49,7 @@
 				<img src="img/search.png">
 			</button>
 		</li>	
-		<?php if(!isset($_SESSION['user_id'])) {  echo '<a href="registration" style="position: relative; right: 40;"><li>Вступить в каталог</li></a>';
+		<?php if(!isset($_SESSION['user_id'])) {  echo '<a href="registration" style="position: relative;"><li>Вступить в каталог</li></a>';
 												  echo '<a href="login" style="position: relative; right: 0;"><li>Авторизация</li></a>'; } 
 		else { echo '<a href="editor/" style="position: relative; right: 0;"><li>Личный кабинет</li></a>';} ?>
 		
