@@ -5,7 +5,7 @@
 	<div class="popup" style="height: 250px;">
 		<div style="height: 200px;">
 			<h6 class="exit" onclick="abort_operation()">x</h6>
-			<p style="color: #f43038; font-size: 16px; font-family: Circe Light; width: 90%; margin: 15px auto;">Для того, чтобы сбросить пароль, введите в поле ниже e-mail, который был использован для регистрации</p>
+			<p class="notice">Для того, чтобы сбросить пароль, введите в поле ниже e-mail, который был использован для регистрации</p>
 			<br><input type="email" id="email" required placeholder="введите адрес электронной почты" style="width: 90%;">
 			<div id="result" style="margin-top: 10px;"></div>
 		</div>
