@@ -22,6 +22,6 @@
 	else {
 		$msg = "Введенные вами пароли не совпадают, попробуйте снова.";
 	}
-	echo '<span>'.$msg.'</span>';
+	echo '<span class="message">'.$msg.'</span>';
 
 ?>

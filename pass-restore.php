@@ -6,7 +6,7 @@
 		<div style="height: 200px;">
 			<h6 class="exit" onclick="abort_operation()">x</h6>
 			<p class="notice">Для того, чтобы сбросить пароль, введите в поле ниже e-mail, который был использован для регистрации</p>
-			<br><input type="email" id="email" required placeholder="введите адрес электронной почты" style="width: 90%;">
+			<br><input type="email" id="email" required placeholder="введите адрес электронной почты" style="width: 80%;">
 			<div id="result" style="margin-top: 10px;"></div>
 		</div>
 		<div style="display: flex; flex-flow: row; margin-top: 10px;">
