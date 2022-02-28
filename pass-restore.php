@@ -2,8 +2,8 @@
 	<div class="back">
 		
 	</div>
-	<div class="popup" style="height: 250px;">
-		<div style="height: 200px;">
+	<div class="popup">
+		<div style="height: fit-content;">
 			<h6 class="exit" onclick="abort_operation()">x</h6>
 			<p class="notice">Для того, чтобы сбросить пароль, введите в поле ниже e-mail, который был использован для регистрации</p>
 			<br><input type="email" id="email" required placeholder="введите адрес электронной почты" style="width: 90%;">

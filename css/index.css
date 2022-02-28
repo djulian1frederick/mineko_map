@@ -1139,7 +1139,7 @@
 		left: 35%;
 		text-align: center;
 		width: 30%;
-		height: 100px;
+		height: fit-content;
 		background: #f7f7f7;
 		border-radius: 5px;
 		color:  white;
