@@ -22,11 +22,11 @@
 				}
 				echo '<textarea name="descr_organization" id="descr_organization" cols="68" row="5" style="width: 450px;" value="'.$main_row['descr_organization'].'" '.$placeholder.'>'.$main_row['descr_organization'].'</textarea><br>'; ?>
 			<label for="">ИНН</label><br>
-				<?php echo '<input type="number" required id="inn" name="inn" maxlength="10" value="'.$main_row['inn'].'"><br>'; ?>
+				<?php echo '<input type="text" pattern="\d*" required id="inn" name="inn" maxlength="10" value="'.$main_row['inn'].'"><br>'; ?>
 			<label for="">ОГРН</label><br>
 				<?php 
 				if($main_row['ogrm'] == NULL) {$placeholder_ogrn = 'placeholder="здесь мог быть указан ОГРН Вашей организации"';}
-				echo '<input type="number" required id="ogrn" name="ogrn" maxlength="15" value="'.$main_row['ogrn'].'" '.$placeholder_ogrn.'><br>'; ?>
+				echo '<input type="text" pattern="\d*" required id="ogrn" name="ogrn" maxlength="15" value="'.$main_row['ogrn'].'" '.$placeholder_ogrn.'><br>'; ?>
 			<label>Размер предприятия</label><br>
 				<?php 
 						$sql="select * from size_predpr";
@@ -96,7 +96,7 @@
 				if($main_row['yearstart'] == NULL) {
 					$placeholder_year = 'placeholder="здесь может быть указан год начала экспорта Вашей организации"';
 				}
-				echo '<input type="number" name="year" maxlength="4" minlength="4" value="'.$main_row['yearstart'].'" id="year" '.$placeholder_year.'><br>';?>
+				echo '<input type="text" pattern="\d*" name="year" maxlength="4" minlength="4" value="'.$main_row['yearstart'].'" id="year" '.$placeholder_year.'><br>';?>
 			<button class="edit_but" onclick="editmaininfo()"><img src="../img/edit.png" width="16px" height="16px"></button>
 		</div>
 	</div>
