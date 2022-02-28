@@ -1314,7 +1314,7 @@
 	    cursor: pointer;
 	}
 	.notice {
-		color: #f43038; font-size: 16px; font-family: Circe Light; width: 90%; margin: 15px auto;
+		color: #f43038; font-size: 16px; font-family: Circe Light; width: 80%; margin: 15px auto;
 	}
 	.message {
 		font-family: Circe Light; font-size: 18px; color: #11436a;
