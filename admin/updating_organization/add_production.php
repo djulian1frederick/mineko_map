@@ -14,7 +14,7 @@
 				<br>
 				<button type="submit"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 </form>
-<div id="result">
+<div id="result_production">
 	
 </div>
 <script>
@@ -30,7 +30,7 @@
             type: 'POST',
             dataType: 'JSON',
             complete: function(data) {
-	              $('#result').html(data);
+	              $('#result_production').html(data);
             }
         });
          e.preventDefault();
