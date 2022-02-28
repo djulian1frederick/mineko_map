@@ -17,7 +17,7 @@
 				$row = mysqli_fetch_array($sql);
 				if ($row <> NULL) {
 				do { 
-					echo '<div style="border: 1px solid #c7c7c7; padding: 5px; margin: 5px; width: fit-content;">
+					echo '<div style="border: 1px solid #c7c7c7; padding: 5px; margin: 5px; width: 350px; word-break: break-word;">
 			   				<input type="hidden" id="id'.$row['id_news'].'" value="'.$row['id_news'].'">
 			   				<span onclick="choose_new(`id'.$row['id_news'].'`)">'.$row['news_title'].'</span>
 			  			 	<span onclick="delete_new(`id'.$row['id_news'].'`)"><img src="../img/delete.png" width="24px"></span>

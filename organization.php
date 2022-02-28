@@ -153,10 +153,10 @@
 						';
 						
 						do {
-							echo '<li style="height: 250px; border: 1px solid #dcdcdc; margin: 0 5px;">
+							echo '<li style="height: 250px;border: 1px solid #dcdcdc;margin: 0 auto;width: 170px;overflow: hidden;text-align: center; padding: 10px;">
 							<h6><a href="production?id='.$production_row['id_product'].'">'.$production_row['name_production'].'</a></h6>
-							<img  width="150px" src="'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">
-							<p class="descriptions">'.$production_row['description'].'</p>
+							<div class="prod-img"><img  width="150px" src="'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'"></div>
+							<p class="descriptions">'.substr($production_row['description'], 0, 50).'...</p>
 							</li>';
 						} while ($production_row = mysqli_fetch_array($production));
 							echo '
@@ -204,3 +204,10 @@
 </div>
 </body>
 </html>
+
+<style>
+	.prod-img {
+		height: 100px;
+overflow: hidden;
+	}
+</style>

@@ -601,13 +601,13 @@
 	}
 
 	.descriptions {
-		    text-align: left;
+		    text-align: center;
 		    word-wrap: break-word;
 		    text-transform: lowercase;
 		    width: 150px;
 		    font-size: 12px;
 		    font-style: italic;
-		    margin: 1%;
+		    margin: 1% auto;
 	}
 	.nice_navigation {
 		background: white;
@@ -1274,6 +1274,17 @@
 	.pagination-block a {
 		padding: 2.5px;
 		color: #1c75bc;
+	}
+
+	input[type="number"] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	}
+ 
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button {
+		display: none;
 	}
 
 	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}

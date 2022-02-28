@@ -30,7 +30,6 @@
 		$this_org=mysqli_query($bd,$q);
 		while($org_row=mysqli_fetch_array($this_org)) {
 		
-			do {
 			$size_sql = mysqli_query($bd, "SELECT name_size from size_predpr where id_size='".$org_row['id_size']."'");
 			$size_predpr = mysqli_fetch_array($size_sql);
 			$size = $size_predpr['name_size'];
@@ -50,9 +49,10 @@
 
 			$rukovod_sql = mysqli_query($bd, "SELECT * from rukovoditeli where id_rukovoditel='".$org_row['id_rukovoditel']."'");
 			$rukovod_predpr= mysqli_fetch_array($rukovod_sql);
-			if ($rukovod_predpr <> NULL && $rukovod_predpr <> '')	{$rukovoditel = ''.$rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];}
+			$rukovoditel = '';
+			if ($rukovod_predpr <> NULL || $rukovod_predpr <> '')	{$rukovoditel = ''.$rukovod_predpr['second_name'].' '.$rukovod_predpr['first_name'].' '.$rukovod_predpr['last_name'];}
 			else { $rukovoditel == '';}
-			
+
 			$vid_sql = mysqli_query($bd, "SELECT vid_deyatelnosti from vid_deyat where id_vid_deyat='".$org_row['id_vid_deyat']."'");
 			$vid_predpr = mysqli_fetch_array($vid_sql);
 			$vid = $vid_predpr['vid_deyatelnosti'];
@@ -131,11 +131,9 @@
 					{ echo '<div class="block-with-image">
 								<img src="img/manager.png">
 								<p><i>Руководитель:</i> '.$rukovoditel.'</p>
-							</div>
-					</div>';}
-			echo '</div>';
-		}
-		while($org_row = mysqli_fetch_array($this_org));			
+							</div>';}
+					
+			echo '</div></div>';			
 		}
 		// дальше выводим ссылки на страницы:
 		$q="SELECT count(*) FROM predpriyatiya";

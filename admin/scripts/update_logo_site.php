@@ -3,7 +3,8 @@
 	require_once("../translit.php");
 
 	$organization = $_POST['org_id'];
-	if(isset($organization) && $organization <> ""){
+	if(isset($organization) && $organization <> "")
+	{
 	$newname = translit($_FILES['file']['name']);
 	$site = $_POST['site'];
 
@@ -26,8 +27,13 @@
 
 	$updating = mysqli_query($bd, $sql_update);
 
-		if($updating) {
+		if($updating && !isset($image_href)) {
 			echo '<span>Обновлено</span>';
 		}
-}
+		if($updating && isset($image_href)) {
+			header('Content-Type: application/json');
+            $src = '/'.$image_href;
+            echo $src;
+		}
+	}
 ?>

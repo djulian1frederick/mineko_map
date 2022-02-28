@@ -10,9 +10,9 @@
 		<label for="">Название организации*</label><br>
 		<input type="text" required id="nameorg" name="nameorg" placeholder="Введите название организации" required><br>
 		<label for="">ИНН*</label><br>
-		<input type="text" required id="inn" name="inn" placeholder="Введите ИНН" required><br>
+		<input type="number" required id="inn" name="inn" maxlength="10" placeholder="Введите ИНН" required><br>
 		<label for="">ОГРН*</label><br>
-		<input type="text" required id="ogrn" name="ogrn" placeholder="Введите ОГРН" required><br>
+		<input type="number" required id="ogrn" name="ogrn" maxlength="15" placeholder="Введите ОГРН" required><br>
 		<label>Размер предприятия</label><br>
 			<?php 
 				$sql="select * from size_predpr";
@@ -75,7 +75,7 @@
 
 		<br>
 		<label>Год начала экспортной деятельности</label><br>
-		<input type="text" name="year" id="year" placeholder="Введите год"><br>
+		<input type="number" name="year" id="year" placeholder="Введите год"><br>
 		<p style="margin: 5px 0; padding: 2px; border-top: 3px solid #000; font-family: Circe; width: 450px; color: #1c75bc; font-weight: bold;">* - Обязательное поле</p>
 		<button onclick="addorganization()" type="submit" class="add_but"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 </div>

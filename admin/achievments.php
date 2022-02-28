@@ -10,14 +10,7 @@
 	<div id="resultative"></div>
 	<div class="content">
 		<div class="blocks_info">
-			<div style="border: 1px solid #c7c7c7;">
-			   	 <form method="post" enctype="multipart/form-data" action="scripts/upload_preview_img.php" target="preview" >
-					   <label for="upload">Выберите изображение для создания превью</label><br>
-					   <input type="file" name="upload" id="upload"><br>	
-						<button type="submit">Добавить изображение</button>
-					</form><br><br>
-						<iframe name="preview" style="display: none;"></iframe>
-				</div><br>
+			<br>
 				<div>
 					<label>Название для публикации в категории "Истории успеха"</label><br>
 					<input type="text" id="news_title" placeholder="Введите название публикации"><br>
@@ -29,14 +22,21 @@
 						<script>
 			                CKEDITOR.replace('editor1');
 			            </script>
-			    	<input type="hidden" value="0" id="user_id"><br><br>
-				<button onclick="add_new()">Добавить публикацию</button>
+			    	<input type="hidden" value="0" id="user_id"><br>
+				<div style="border: 1px solid #c7c7c7;">
+			   	 	<form method="post" enctype="multipart/form-data" action="scripts/upload_preview_img.php" target="preview" >
+					   	<label for="upload">Выберите изображение для создания превью</label><br><br>
+					  	<input type="file" name="upload" id="upload"><br>	
+						<div><button type="submit">Добавить изображение</button><button onclick="add_new()">Добавить публикацию</button></div>
+					</form>
+						<iframe name="preview" style="display: none;height: 50px;"></iframe>
+				
+				</div>
 			</div>
 		</div>
 	</div>
 
 <script>
-	
 	function add_new() {
 		var title = $('#news_title').val();
 		var daten = $('#news_date').val();

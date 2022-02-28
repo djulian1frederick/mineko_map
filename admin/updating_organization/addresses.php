@@ -22,11 +22,12 @@
 		<h3>Обновление адреса организации</h3>
 			<?php echo '<input type="hidden" id="addr" value="'.$id_address.'">'; ?>
 			<?php echo '<input type="hidden" id="organization" value="'.$org.'">'; ?>
-			<label>Полный адрес</label><br>
+			<label>Полный адрес*</label><br>
 			<?php echo '<input name="address" type="text" value="'.$address['full_address'].'" id="address" placeholder="Начните вводить адрес"><br>';?>
-			<label>Номер здания</label><br>
-			<input type="text" name="numberhouse" id="numberhouse" placeholder="Введите номер здания"><br>
+			<label>Номер здания, если есть</label><br>
+			<input type="text" name="numberhouse" id="numberhouse" placeholder="Введите номер здания" maxlength="5"><br>
 			<button onclick="update_address()"><img src="../img/edit.png" width="16px" height="16px"></button>
 			<button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
+			<p>* - при вводе адреса не может быть указан номер дома</p>
 	</div>
 </div>

@@ -39,7 +39,7 @@
 	 		echo '</div>';
 	 	}
 	 ?> 
-
+<iframe name="preview" style="display: none;"></iframe>
 	<?php 
 		$select_production = "SELECT * from production where id_predpriyatiya='".$org."'";
 		$production = mysqli_query($bd, $select_production);
@@ -52,7 +52,7 @@
 						<ul style="display: flex; flex-flow: row; flex-wrap: wrap; background: white;  padding: 15px;">';
 					do {
 						echo '<li style="border: 1px solid #dcdcdc; width: 100%;">
-								<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="_blank">
+								<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="result_production">
 									<input type="hidden" name="org_id" id="org_id" value="'.$org.'">
 									<input type="file" name="file" id="file" style="margin: 0 75px;background: #1c75bc;padding: 5px;color: white; border: none;">
 									<img  style="float: left;border: 1px solid #cecece;" width="150px" src="../'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">';
@@ -62,20 +62,23 @@
 								$code_tn= mysqli_query($bd, "SELECT * from code_tn_veds where id_predpriyatiya='".$org."'");
 									$code_tn_row = mysqli_fetch_array($code_tn);
 									if ($code_tn_row <> NULL) {
+										$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds where code_tn_veds.id_product = '".$production_row['id_product']."'");
+										$current_code = mysqli_fetch_array($current_code);
+
 										echo '<div>';
 										echo '<label>КОД ТН ВЭД продукции</label><br>';
 										echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px;">';
-			 								echo '<option value="">Не выбрано</option>';
+			 								do { echo '<option value="'.$current_code['id_code_tn_ved'].'">Текущий - '.$current_code['code_tn_ved'].'</option>'; } while($current_code = mysqli_fetch_array($current_code));
 			 								do {
 			 									echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
 											}while ($code_tn_row=mysqli_fetch_array($code_tn));
 									echo '</select>';
 									echo '</div>';
 									}
-								echo '</div><div style="margin-top: -20px; float: left"><button class="edit_but" type="submit" style="margin-left: 7.5px;">
+								echo '</div><div style="margin-top: -20px; float: left"><button class="edit_but" type="submit" value="e" name="button" style="margin-left: 7.5px;">
 										<img src="../img/edit.png" width="20px" height="20px">
 									</button>
-									<button class="del_butt" style="margin-left: 7.5px;">
+									<button class="del_butt" style="margin-left: 7.5px;" type="submit" value="d" name="button">
 										<img src="../img/delete.png" width="20px" height="20px">
 									</button></div>
 								</form>

@@ -13,5 +13,3 @@ mysqli_query('SET names "utf8"');
 
 
 ?>
-
-<meta charset="utf8">

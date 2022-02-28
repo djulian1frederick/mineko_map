@@ -9,6 +9,8 @@
 	$fulladdress = $address.' '.$numberhouse;
 	$msg = "<span>Успешно обновлено</span>";
 
+	explode(' ', $fulladdress);
+	$fulladdress[count($fulladdress)];
 
 	if($address <> NULL && $addr <> NULL) {
 		$sql = "UPDATE addresses set full_address='".$fulladdress."' where id_addr='".$addr."'";

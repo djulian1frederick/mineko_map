@@ -89,6 +89,19 @@ function updatetnved() {
 			})
 
 	}
+	function deletetnved() {
+			var idcode = $('#idcode').val();
+			var action = "delete";
+		$.ajax({
+				url: '../editor/scripts/update_codetn.php',
+				type: "POST",
+		      dataType: "text",
+		      data: {"idcode" : idcode},
+		      success: function(html) {
+		            $('#result_').html(html);
+				}
+			})
+	}
 
 function update_personal_info() {
 	var firstname = $('#name').val();

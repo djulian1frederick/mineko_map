@@ -5,6 +5,9 @@
 	$descript = $_POST['descr'];
 	$ornanization = $_POST['org_id'];
 	$codetnved_id = $_POST['codetnved_id'];
+	$button = $_POST['button'];
+
+if ($button == 'e') {
 
 	if (isset($codetnved_id) && $codetnved_id <> '' || $codetnved_id <> NULL) {
 		$update_code = "UPDATE code_tn_veds set id_product='".$prod_id."' where id_code_tn_ved='".$codetnved_id."'";
@@ -37,5 +40,9 @@
 		$result = mysqli_query($bd, $sql);
 		if($result) {
 			echo '<span>Информация о продукции обновлена</span>';
+		}
+		}
+		elseif ($button == 'd') {
+			$query = mysqli_query($bd, "DELETE from production where id_product='".$prod_id."'");
 		}
 	?>

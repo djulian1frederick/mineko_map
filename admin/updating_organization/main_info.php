@@ -22,11 +22,11 @@
 				}
 				echo '<textarea name="descr_organization" id="descr_organization" cols="68" row="5" style="width: 450px;" value="'.$main_row['descr_organization'].'" '.$placeholder.'>'.$main_row['descr_organization'].'</textarea><br>'; ?>
 			<label for="">ИНН</label><br>
-				<?php echo '<input type="text" required id="inn" name="inn" max="10" value="'.$main_row['inn'].'"><br>'; ?>
+				<?php echo '<input type="number" required id="inn" name="inn" maxlength="10" value="'.$main_row['inn'].'"><br>'; ?>
 			<label for="">ОГРН</label><br>
 				<?php 
 				if($main_row['ogrm'] == NULL) {$placeholder_ogrn = 'placeholder="здесь мог быть указан ОГРН Вашей организации"';}
-				echo '<input type="text" required id="ogrn" name="ogrn" max="15" value="'.$main_row['ogrn'].'" '.$placeholder_ogrn.'><br>'; ?>
+				echo '<input type="number" required id="ogrn" name="ogrn" maxlength="15" value="'.$main_row['ogrn'].'" '.$placeholder_ogrn.'><br>'; ?>
 			<label>Размер предприятия</label><br>
 				<?php 
 						$sql="select * from size_predpr";
@@ -51,7 +51,7 @@
 					$viddey_q=mysqli_query($bd, $sql);
 					$viddey_list=mysqli_fetch_array($viddey_q);
 						if ($viddey_list == NULL) {
-							echo "<input type='text' name='viddeyadd' id='viddeyadd' style='display: none;'>";
+							echo "<input type='text' name='viddeyadd' id='viddeyadd' maxlength='150' style='display: none;'>";
 						}
 						else {
 								echo "<input type='text' name='viddeyadd' id='viddeyadd' style='display: none;'>";
@@ -75,7 +75,7 @@
 					$code_q=mysqli_query($bd, $sql);
 					$code_list=mysqli_fetch_array($code_q);
 						if ($code_list == NULL){
-							echo '<input type="text" id="codeprodadd" name="codeprodadd" style="display: none;">';
+							echo '<input type="text" id="codeprodadd" name="codeprodadd" maxlength="150" style="display: none;">';
 						}
 						else {		
 							echo '<input type="text" id="codeprodadd" name="codeprodadd" style="display: none;">';
@@ -96,7 +96,7 @@
 				if($main_row['yearstart'] == NULL) {
 					$placeholder_year = 'placeholder="здесь может быть указан год начала экспорта Вашей организации"';
 				}
-				echo '<input type="text" name="year" max="4" value="'.$main_row['yearstart'].'" id="year" '.$placeholder_year.'><br>';?>
+				echo '<input type="number" name="year" maxlength="4" value="'.$main_row['yearstart'].'" id="year" '.$placeholder_year.'><br>';?>
 			<button class="edit_but" onclick="editmaininfo()"><img src="../img/edit.png" width="16px" height="16px"></button>
 		</div>
 	</div>
