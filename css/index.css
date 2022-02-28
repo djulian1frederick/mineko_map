@@ -1147,7 +1147,7 @@
 		z-index: 150;
 	}
 	.popup p {
-		margin: 7.5px;
+		/*margin: 7.5px;*/
 		padding: 1px;
 		font-size: 20px;
 	}
