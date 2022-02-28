@@ -598,7 +598,7 @@
 		display: inline-flex;
 		flex-flow: wrap;
 		width: 80%;
-		margin: 0 auto;
+		margin: 5px auto;
 		list-style: none;
 	}
 
