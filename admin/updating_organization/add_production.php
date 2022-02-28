@@ -7,7 +7,7 @@
 				<label for="file">Выберите изображение для продукции продукции</label><br>
 				<input type="file" name="file" id="js-file" accept="image/*"><br><br><br>
 				<label for="production_descr">Описание продукции</label><br>
-				<textarea name="production_descr" id="production_descr" placeholder="Описание кода"></textarea>
+				<textarea name="production_descr" id="production_descr" placeholder="Описание продукции"></textarea>
 				<div id="code_new">
 				<label for="codetnved">КОД ТН ВЭД</label><br>
 				<input type="number" name="codetnved" id="codetnved" maxlength="14" placeholder="Введите КОД ТН ВЭД">
@@ -29,7 +29,7 @@
 			 				echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
 						}while ($code_tn_row=mysqli_fetch_array($current_code));
 				?>	
-				</div>
+				</div><br>
 				<button type="submit"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 </form>
 <div id="result_production">
