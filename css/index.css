@@ -729,7 +729,8 @@
 	}
 
 	.map-navigation li:hover {
-		background: #fff;
+		background: #1c75bc;
+		color: white;
 	}
 
 	.inner-city-list {
