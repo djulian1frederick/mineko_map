@@ -77,10 +77,12 @@
 										echo '<div>';
 										echo '<label>КОД ТН ВЭД продукции</label><br>';
 										echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px;">';
-			 								do { 	if($current_code['code_tn_ved'] <> NULL) { $thiscode = $current_code['code_tn_ved'];} else {$thiscode = 'отсутствует';}
-			 									echo '<option value="'.$current_code['id_code_tn_ved'].'">Текущий - '.$thiscode.'</option>'; } while($current_code = mysqli_fetch_array($current_code));
-			 								}
-			 								}
+			 								do { 	
+			 									if($current_code['code_tn_ved'] <> NULL) { $thiscode = $current_code['code_tn_ved'];} 
+			 									else {$thiscode = 'отсутствует';}
+			 									echo '<option value="'.$current_code['id_code_tn_ved'].'">Текущий - '.$thiscode.'</option>'; } 
+			 									while($current_code = mysqli_fetch_array($current_code));
+				 								}
 			 								do {
 			 									echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
 											}while ($code_tn_row=mysqli_fetch_array($code_tn));
