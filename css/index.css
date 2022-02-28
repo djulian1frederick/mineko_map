@@ -718,18 +718,18 @@
 		padding: 5px 7px;
 		margin: 2px 0;
 		background: #fff;
-		color:  black;
+		color:  #11436a;
 	}
 	.map-navigation a {
 		text-decoration: none;
 		сolor:  #11436a;
 	}
-	.map-navigation a, li:hover {
+	.map-navigation a:hover {
 		color: white;	
 	}
 
 	.map-navigation li:hover {
-		background: #1c75bc;
+		background: #fff;
 	}
 
 	.inner-city-list {
@@ -738,13 +738,15 @@
 		background: #fff;
 		padding: 0 15px;
 	}
-	.inner-city-list li,a {
+	.inner-city-list li {
 		color: #11436a;
 		font-size: 15px;
 		margin: 0 5px;
 	}
-	.inner-city-list a,li:hover {
-		background: #fff;
+
+	.inner-city-list li:hover {
+		background: #11436a;
+		color:  #fff;
 	}
 
 	.navigation-div {
