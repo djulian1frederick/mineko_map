@@ -153,7 +153,7 @@
 						';
 						
 						do {
-							echo '<li style="height: 250px;border: 1px solid #dcdcdc;margin: 0 auto;width: 170px;overflow: hidden;text-align: center; padding: 10px;">
+							echo '<li class="prod-elem">
 							<h6><a href="production?id='.$production_row['id_product'].'">'.$production_row['name_production'].'</a></h6>
 							<div class="prod-img"><img  width="150px" src="'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'"></div>
 							<p class="descriptions">'.substr($production_row['description'], 0, 50).'...</p>

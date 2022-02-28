@@ -527,7 +527,20 @@
 		width: 150px;
 		font-size: 12px;
 		font-weight: lighter;
+		min-height: 100px;
+		max-height: 100px;
 	}
+
+	.prod-elem {
+		height: 250px;
+		border: 1px solid #dcdcdc;
+		margin: 0 auto;
+		width: 170px;
+		overflow: hidden;
+		text-align: center;
+		padding: 10px;
+	}
+
 	.up-org {
 		display: flex;
 	}
