@@ -6,14 +6,15 @@
 				<br><br>
 				<label for="file">Выберите изображение для продукции продукции</label><br>
 				<input type="file" name="file" id="js-file" accept="image/*"><br><br>
+				<div id="code_new">
 				<label for="codetnved">КОД ТН ВЭД</label><br>
 				<input type="number" name="codetnved" id="codetnved" maxlength="14" placeholder="Введите КОД ТН ВЭД">
 				<br>
 				<label for="codetnved_descr">Описание КОДа ТН ВЭД</label><br>
 				<textarea name="codetnved_descr" id="codetnved_descr" placeholder="Описание кода"></textarea>
-				<br>
-				<label>Существующие КОДы ТН ВЭД</label><br>			
-				<input type="checkbox" id="checkbox1" onclick="toggle('checkbox1','exists_code','codetnved')">
+				</div>
+				<br>		
+				<input type="checkbox" id="checkbox1" onclick="toggle('checkbox1','exists_code','code_new')">
 				<label for="checkbox1" class="checkbox_label">Нажмите, чтобы появился список</label><br>
 				<br>
 				<?php 
@@ -48,5 +49,12 @@
         });
          e.preventDefault();
 	
+});
+</script>
+
+<script src="../js/select2.min.js"></script>
+<script>
+	$(document).ready(function() {
+    $('.js-example-basic-single').select2();
 });
 </script>
