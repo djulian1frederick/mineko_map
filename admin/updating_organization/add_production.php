@@ -7,11 +7,24 @@
 				<label for="file">Выберите изображение для продукции продукции</label><br>
 				<input type="file" name="file" id="js-file" accept="image/*"><br><br>
 				<label for="codetnved">КОД ТН ВЭД</label><br>
-				<input type="number" name="codetnved" id="codetnved" maxlength="14" placeholder="Введите КОД ТН ВЭД" required>
+				<input type="number" name="codetnved" id="codetnved" maxlength="14" placeholder="Введите КОД ТН ВЭД">
 				<br>
 				<label for="codetnved_descr">Описание КОДа ТН ВЭД</label><br>
 				<textarea name="codetnved_descr" id="codetnved_descr" placeholder="Описание кода"></textarea>
 				<br>
+				<label>Существующие КОДы ТН ВЭД</label><br>			
+				<input type="checkbox" id="checkbox1" onclick="toggle('checkbox1','exists_code','codetnved')">
+				<label for="checkbox1" class="checkbox_label">Нажмите, чтобы появился список</label><br>
+				<br>
+				<?php 
+					require_once('../connection.php');
+					$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds");
+					$code_tn_row = mysqli_fetch_array($current_code);
+					echo '<select name="codetnved_id" class="js-example-basic-single" id="exists_code" style="width: 450px; display: none;">';
+						do {
+			 				echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
+						}while ($code_tn_row=mysqli_fetch_array($current_code));
+				?>
 				<button type="submit"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 </form>
 <div id="result_production">
