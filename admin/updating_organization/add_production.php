@@ -5,7 +5,9 @@
 				<input type="text" name="alt_name" id="alt_name" placeholder="Введите название продукции" required>
 				<br><br>
 				<label for="file">Выберите изображение для продукции продукции</label><br>
-				<input type="file" name="file" id="js-file" accept="image/*"><br><br>
+				<input type="file" name="file" id="js-file" accept="image/*"><br><br><br>
+				<label for="production_descr">Описание продукции</label><br>
+				<textarea name="production_descr" id="production_descr" placeholder="Описание кода"></textarea>
 				<div id="code_new">
 				<label for="codetnved">КОД ТН ВЭД</label><br>
 				<input type="number" name="codetnved" id="codetnved" maxlength="14" placeholder="Введите КОД ТН ВЭД">
@@ -15,14 +17,14 @@
 				</div>
 				<br>		
 				<input type="checkbox" id="checkbox1" onclick="toggle('checkbox1','exists_code','code_new')">
-				<label for="checkbox1" class="checkbox_label">Нажмите, чтобы появился список</label><br>
+				<label for="checkbox1" class="checkbox_label">Нажмите, чтобы появился список уже существующих в системе КОД ТН ВЭД</label><br>
 				<div id="exists_code" style="display: none;">
 				<?php 
 					require_once('../connection.php');
 					$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds");
 					$code_tn_row = mysqli_fetch_array($current_code);
-					echo '<label>Выбор из уже существующих КОД ТН ВД</label>';
 					echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px;">';
+						echo '<option value="0">Не выбрано</option>';
 						do {
 			 				echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';
 						}while ($code_tn_row=mysqli_fetch_array($current_code));

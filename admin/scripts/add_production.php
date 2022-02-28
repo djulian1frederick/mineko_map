@@ -6,6 +6,7 @@
 	$ornanization = $_POST['organization'];
 
 	$codetnved_descr = $_POST['codetnved_descr'];
+	$production_descr = $_POST['production_descr'];
 	$name = mt_rand(0, 10000);
 	$types = array('image/gif', 'image/png', 'image/jpeg');
 	$size = 1024000;
@@ -27,7 +28,7 @@
 	$image_href = "production_img/".$ornanization."/".$newname;
 
 
-	$sql =  "INSERT into production (name_production, id_predpriyatiya, image_href, description) values('".$alt_name."','".$ornanization."', '".$image_href."', '".$codetnved_descr."')";
+	$sql =  "INSERT into production (name_production, id_predpriyatiya, image_href, description) values('".$alt_name."','".$ornanization."', '".$image_href."', '".$production_descr."')";
 
 	$result = mysqli_query($bd, $sql);
 	if($result) {
@@ -35,10 +36,15 @@
 			$select_id_production = mysqli_fetch_array($select_id_production);
 			$select_id_production = $select_id_production['id_product'];
 
-			$codetnnved = $_POST['codetnved'];
-			$codetnved_descr = $_POST['codetnved_descr'];
-
-			$sql = "INSERT into code_tn_veds (code_tn_ved, id_predpriyatiya, description_code, id_product) values ('".$codetnnved."','".$ornanization."', '".$codetnved_descr."','".$select_id_production."')";
+			$codetnved_id = $_POST['codetnved_id'];
+			if ($codetnved_id == '0') {
+				$codetnnved = $_POST['codetnved'];
+				$codetnved_descr = $_POST['codetnved_descr'];
+				$sql = "INSERT into code_tn_veds (code_tn_ved, id_predpriyatiya, description_code, id_product) values ('".$codetnnved."','".$ornanization."', '".$codetnved_descr."','".$select_id_production."')";
+			}
+			else {
+				$sql = "UPDATE code_tn_veds set id_product='".$select_id_production."' where id_code_tn_ved='".$codetnved_id."'";
+			}
 			$insert_query = mysqli_query($bd, $sql);
 
 		if ($insert_query) {
