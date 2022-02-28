@@ -1,8 +1,14 @@
 <?php session_start(); ?>
 <?php require_once('../connection.php'); ?>
 <?php 
+	$password_cur = $_POST['password_cur'];
 	$pass_once = $_POST['password_once'];
 	$pass_repeat = $_POST['password_repeat'];
+
+	$user = mysqli_query($bd, "SELECT password from userse where id_user='".$_SESSION['user_id']."'");
+	$user = mysqli_fetch_array($user);
+	$password = $user['password'];
+	if(password_verify($password_cur, $password)){
 
 	if($pass_once == $pass_repeat) {
 		$query = mysqli_query($bd, "SELECT user_email from users where id_user='".$_SESSION['user_id']."'");
@@ -24,5 +30,9 @@
 	else{
 		$msg = "Введенные пароли не совпадают";
 	}
-	echo $msg;
+}
+	else {
+		$msg = "Текущий пароль введен неверно";
+	}
+	echo '<span class="message">'.$msg.'</span>';
 ?>

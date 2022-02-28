@@ -6,6 +6,10 @@
 			echo '<div class="restoring">
 			<form id="changepwd">';	
 			echo '<div class="password">
+				<input type="password" name="password_cur" id="password-cur" required placeholder="текущий пароль*">
+				<a href="#" class="password-control"><img src="../../img/show.svg" class="img-pwd" width="20px"></a>
+			</div>';
+			echo '<div class="password">
 				<input type="password" name="password_once" id="password-input" required placeholder="придумайте пароль*">
 				<a href="#" class="password-control"><img src="../../img/show.svg" class="img-pwd" width="20px"></a>
 			</div>';
