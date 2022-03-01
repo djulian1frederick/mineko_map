@@ -128,7 +128,7 @@
 			if (count($code_tn_ved_list) > 1) { $word = "Коды"; } else { $word = "Код";}
 			echo '<div class="down-right"><h5>'.$word.' ТН ВЭД ЕАЭС</h5><ul class="export_list">';
 			do { echo '<li>'.$code_tn_ved_list['code_tn_ved'].'</li>'; }while($code_tn_ved_list=mysqli_fetch_array($code_tn_ved_sql)); }
-			echo '</ul>';
+			echo '</ul></div>';
 		}
 		while($org_row = mysqli_fetch_array($this_org));			
 	
