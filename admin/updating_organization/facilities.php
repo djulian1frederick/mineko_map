@@ -14,13 +14,15 @@
 						do { 
 								echo '<form method="POST" enctype="multipart/form-data" action="scripts/update_proizvodstva.php" target="">';
 							 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
-							 		echo'<div class="reload_img"><img src="/'.$main_row['img_proizv'].'" alt="Фотография производства" id="reload_img"></div><br>
-							 		<input type="hidden" value='.$main_row['id_proizvodstva'].'" name="id_proizvodstva">
-							 		<div><button class="del_butt" type="submit" value="d" name="button" onclick="confirm_delete()">
+							 		echo'<div class="reload_img">
+							 		<img src="/'.$main_row['img_proizv'].'" alt="Фотография производства" id="reload_img">';
+									echo '<div><button class="del_butt" type="submit" value="d" name="button" onclick="confirm_delete()" style="margin-top: -25px;margin-left: -5px;">
 												<img src="../img/delete.png" width="20px" height="20px">
 									</button>';
 									echo '<input type="file" name="updatefile"><br>';
-									echo '<button class="edit_but" type="submit" value="e" name="button"><img src="../img/edit.png" width="16px" height="16px"></button></div>';	
+									echo '<button class="edit_but" type="submit" value="e" name="button"><img src="../img/edit.png" width="16px" height="16px"></button></div>';
+							 		echo '</div><br><input type="hidden" value='.$main_row['id_proizvodstva'].'" name="id_proizvodstva">';
+							 			
 									echo '</form>';
 						}while($main_row = mysqli_fetch_array($sql_main));
 					}
@@ -49,10 +51,6 @@ function confirm_delete() {
 	.reload_img {
 		width: 250px;
 		overflow: hidden;
-	}
-	.del_butt {
-		margin-top: -25px;
-		margin-left: -5px;
 	}
 	#reload_img {
 		width: 100%;
