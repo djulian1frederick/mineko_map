@@ -11,26 +11,27 @@
 			<?php 
 			do {
 				echo '<label>Производство</label><br>';
-					if($main_row <> NULL) do { 
-						echo '<form method="POST" enctype="multipart/form-data" action="scripts/update_proizvodstva.php" target="">';
-					 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
-					 		echo'<div class="reload_img"><img src="/'.$main_row['img_proizv'].'" alt="Фотография производства"></div><br>
-					 		<input type="hidden" value='.$main_row['id_proizvodstva'].'" name="id_proizvodstva">
-					 		<button class="del_butt" type="submit" id="delbut" value="d" name="button" onclick="confirm_delete()">
-										<img src="../img/delete.png" width="20px" height="20px">
-									</button>';
-							echo '<input type="file" name="updatefile"><br>';
-							echo '<button class="edit_but" type="submit"><img src="../img/edit.png" width="16px" height="16px"></button>';
-							echo '</form>';
+					if($main_row <> NULL){ 
+						do { 
+								echo '<form method="POST" enctype="multipart/form-data" action="scripts/update_proizvodstva.php" target="">';
+							 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
+							 		echo'<div class="reload_img"><img src="/'.$main_row['img_proizv'].'" alt="Фотография производства"></div><br>
+							 		<input type="hidden" value='.$main_row['id_proizvodstva'].'" name="id_proizvodstva">
+							 		<button class="del_butt" type="submit" id="delbut" value="d" name="button" onclick="confirm_delete()">
+												<img src="../img/delete.png" width="20px" height="20px">
+											</button>';
+									echo '<input type="file" name="updatefile"><br>';
+									echo '<button class="edit_but" type="submit"><img src="../img/edit.png" width="16px" height="16px"></button>';
+									echo '</form>';
+						}while($main_row = mysqli_fetch_array($sql_main));
 					}
-				else {
-						echo '<form method="POST" enctype="multipart/form-data" action="scripts/add_proizvodstva.php" target="">';
-					 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
-						echo '<input type="file" name="updatefile"><br>';
-						echo '<button type="submit"><img src="../img/plus.png" width="16px" height="16px">Добавить</button><br>';
-				}
-			}
-			while($main_row = mysqli_fetch_array($sql_main));
+					else {
+							echo '<form method="POST" enctype="multipart/form-data" action="scripts/add_proizvodstva.php" target="">';
+						 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
+							echo '<input type="file" name="updatefile"><br>';
+							echo '<button type="submit"><img src="../img/plus.png" width="16px" height="16px">Добавить</button><br>';
+					}
+				
  			?>
 		</div>
 	</div>
