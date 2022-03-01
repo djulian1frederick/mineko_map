@@ -16,10 +16,10 @@
 							 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
 							 		echo'<div class="reload_img">
 							 		<img src="/'.$main_row['img_proizv'].'" alt="Фотография производства" id="reload_img">';
-									echo '<div><button class="del_butt" type="submit" value="d" name="button" onclick="confirm_delete()" style="margin-top: -25px;margin-left: -5px;">
+									echo '<div><button class="del_butt" type="submit" value="d" name="button" onclick="confirm_delete()" style="margin-top: -45px;margin-left: -5px;border: 2px double red;">
 												<img src="../img/delete.png" width="20px" height="20px">
-									</button>';
-									echo '<input type="file" name="updatefile"><br>';
+									</button></div>';
+									echo '<div><input type="file" name="updatefile"><br>';
 									echo '<button class="edit_but" type="submit" value="e" name="button"><img src="../img/edit.png" width="16px" height="16px"></button></div>';
 							 		echo '</div><br><input type="hidden" value='.$main_row['id_proizvodstva'].'" name="id_proizvodstva">';
 							 			
