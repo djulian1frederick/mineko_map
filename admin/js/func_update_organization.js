@@ -19,9 +19,7 @@ function editmaininfo(){
 		success:function(html){
 			$('#updateinfo').html(html);
 		}
-
 	})
-
 }
 
 function updaterukovod(){

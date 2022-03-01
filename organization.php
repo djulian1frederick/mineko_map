@@ -95,7 +95,7 @@
 				</div>
 			</div>';
 				
-		echo '<div class="main-info-organization" style="width: 75%; margin-left: 25%;">';
+		echo '<div class="main-info-organization" style="width: 75%; margin: auto;">';
 					if(isset($address) && $address<>NULL) { echo '<div class="block-with-image">
 						<img src="img/address.png">
 						<p>'.$address.'</p>

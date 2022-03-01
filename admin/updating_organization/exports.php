@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <script>
 	$(document).ready(function() {
     $('.js-example-basic-single').select2();
@@ -5,7 +6,13 @@
 </script>
 <?php require_once('../connection.php'); ?>
 	<?php
-		$org = $_POST['org_ident'];
+		if($_POST['org_ident'] <> NULL) {
+			$org = $_POST['org_ident'];
+			$_SESSION['org_id_tmp_exp'] = $org;
+		}
+		elseif(isset($_SESSION['org_id_tmp'])){
+			$org = $_SESSION['org_id_tmp_exp'];
+		}
 		$sql_select_main = "SELECT * from predpriyatiya where id_predpriyatiya='".$org."'";
 		$sql_main = mysqli_query($bd, $sql_select_main);
 		$main_row = mysqli_fetch_array($sql_main);
@@ -28,7 +35,7 @@
 						echo '</ul></div>';
 					}
 			?>
-		<form method="post" action="/editor/scripts/delete_export.php" target="result_frame">
+		<form method="post" action="../editor/scripts/update_exports.php" target="result_frame">
 			<select name="exports" class="js-example-basic-single"style="width: 50%;" id="exports">
 			<?php
 				$export_select = "SELECT * from country";
@@ -41,24 +48,20 @@
 		</select>
 			<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
 		<button class="edit_but" onclick="reloadform()" type="submit" name="button" value="edit"><img src="../img/edit.png" width="16px" height="16px"></button>
-		
-			<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
 			<button class="del_butt" onclick="confirm_delete()" type="submit" name="button" value="del"><img src="../img/delete.png" width="16px" height="16px"></button>
 		</form>
-		<iframe name="result_frame" style="display: none;"></iframe>
+		<iframe name="result_frame" style=""></iframe>
 		</div>
 	</div>
 </div>
 
 <script>
-	 function reloadform()	{
- 			setTimeout(function(){$('#exports-block').load('updating_organization/exports.php');},2000);
- }
+	 function reloadform()	{ setTimeout(function(){$('#exports-block').load('updating_organization/exports.php');},1000);}
 
  function confirm_delete() {
  			if(confirm('Вы уверены в удалении ЭТОГО экспортного рынка?'))
  			{
  				reloadform();
  			}
- 		
+ 		}
 </script>
