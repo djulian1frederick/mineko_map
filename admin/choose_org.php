@@ -26,6 +26,7 @@
 				<li onclick="open_menu('attach')">Дополнительно</li>
 				<li onclick="open_menu('exports')">Экспортный рынок</li>
 				<li onclick="open_menu('production')">Продукция</li>
+				<li onclick="open_menu('facilities')">Производство</li>
 			</ul>
 		</div>
 		<div id="updateinfo" style="width: 50%;margin: 0 25%;text-align: center;"></div>

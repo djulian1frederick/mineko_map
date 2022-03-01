@@ -61,6 +61,9 @@ function open_menu(id) {
 	else if(id === 'services') {
 		var url = "updating_organization/organization_services.php";	
 	}
+	else if(id === 'facilities') {
+		var url = "updating_organization/facilities.php";
+	}
 	jQuery.ajax({
 		url: url, 
 			type: "POST",
