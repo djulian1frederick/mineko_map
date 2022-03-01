@@ -40,10 +40,10 @@
 			?>
 		</select>
 			<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
-		<button class="edit_but" onclick="editexports()"><img src="../img/edit.png" width="16px" height="16px"></button>
+		<button class="edit_but" onclick="editexports()" type="submit" name="button" value="edit"><img src="../img/edit.png" width="16px" height="16px"></button>
 		
 			<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
-			<button class="del_butt" onclick="confirm_delete()" type="submit"><img src="../img/delete.png" width="16px" height="16px"></button>
+			<button class="del_butt" onclick="confirm_delete()" type="submit" name="button" value="del"><img src="../img/delete.png" width="16px" height="16px"></button>
 		</form>
 		<iframe name="result_frame" style="display: none;"></iframe>
 		</div>
