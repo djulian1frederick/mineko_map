@@ -24,25 +24,6 @@ function editmaininfo(){
 
 }
 
-function editexports() {
-	var orgid = $('#org_id').val();
-	var country=$('#exports').val();
-
-	jQuery.ajax({
-		type: "POST",
-		url: '../editor/scripts/update_exports.php',
-		dataType: "text",
-		data: {"orgid" : orgid, "country" : country},
-		success:function(html){
-			$('#updateinfo').html(html);
-			var auto_refresh = setTimeout(
-				function(){
-				$('#exports-block').load('../editor/updating_organization/exports.php');
-			}, 1000);
-		}
-	})
-}
-
 function updaterukovod(){
 	var o_fam = $('#o_fam').val();
 	var o_name = $('#o_name').val();
