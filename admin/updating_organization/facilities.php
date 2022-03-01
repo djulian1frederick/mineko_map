@@ -9,7 +9,6 @@
 	<div class="update-block">
 		<div style="margin: 0 2.5%;">
 			<?php 
-			do {
 				echo '<label>Производство</label><br>';
 					if($main_row <> NULL){ 
 						do { 
