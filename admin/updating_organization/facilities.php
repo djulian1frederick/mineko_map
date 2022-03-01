@@ -16,11 +16,11 @@
 							 	echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';
 							 		echo'<div class="reload_img"><img src="/'.$main_row['img_proizv'].'" alt="Фотография производства"></div><br>
 							 		<input type="hidden" value='.$main_row['id_proizvodstva'].'" name="id_proizvodstva">
-							 		<button class="del_butt" type="submit" id="delbut" value="d" name="button" onclick="confirm_delete()">
+							 		<div><button class="del_butt" type="submit" value="d" name="button" onclick="confirm_delete()">
 												<img src="../img/delete.png" width="20px" height="20px">
-											</button>';
+									</button>';
 									echo '<input type="file" name="updatefile"><br>';
-									echo '<button class="edit_but" type="submit"><img src="../img/edit.png" width="16px" height="16px"></button>';
+									echo '<button class="edit_but" type="submit" value="e" name="button"><img src="../img/edit.png" width="16px" height="16px"></button></div>';									
 									echo '</form>';
 						}while($main_row = mysqli_fetch_array($sql_main));
 					}
