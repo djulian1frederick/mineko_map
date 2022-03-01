@@ -10,7 +10,7 @@
 		$sql_main = mysqli_query($bd, $sql_select_main);
 		$main_row = mysqli_fetch_array($sql_main);
 	?>
-<div class="blocks_info">
+<div class="blocks_info" id="exports-block">
 	<div class="update-block">
 	<div style="margin: 0 2.5%;">
 		<p>Экспортный рынок</label>
@@ -28,7 +28,8 @@
 						echo '</ul></div>';
 					}
 			?>
-		<select name="exports" class="js-example-basic-single"style="width: 50%;" id="exports">
+		<form method="post" action="/editor/scripts/delete_export.php" target="result_frame">
+			<select name="exports" class="js-example-basic-single"style="width: 50%;" id="exports">
 			<?php
 				$export_select = "SELECT * from country";
 				$export_sql = mysqli_query($bd, $export_select);
@@ -40,7 +41,23 @@
 		</select>
 			<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
 		<button class="edit_but" onclick="editexports()"><img src="../img/edit.png" width="16px" height="16px"></button>
-		<button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
+		
+			<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
+			<button class="del_butt" onclick="confirm_delete()" type="submit"><img src="../img/delete.png" width="16px" height="16px"></button>
+		</form>
+		<iframe name="result_frame" style="display: none;"></iframe>
 		</div>
 	</div>
 </div>
+
+<script>
+	 function reloadform()	{
+ 			setTimeout(function(){$('#exports-block').load('updating_organization/exports.php');},2000);
+ }
+
+ function confirm_delete() {
+ 			if(confirm('Вы уверены в удалении ЭТОГО экспортного рынка?'))
+ 			{
+ 				reloadform();
+ 		
+</script>

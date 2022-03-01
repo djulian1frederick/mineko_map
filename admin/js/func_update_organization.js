@@ -35,6 +35,10 @@ function editexports() {
 		data: {"orgid" : orgid, "country" : country},
 		success:function(html){
 			$('#updateinfo').html(html);
+			var auto_refresh = setTimeout(
+				function(){
+				$('#exports-block').load('../editor/updating_organization/exports.php');
+			}, 1000);
 		}
 	})
 }
