@@ -47,8 +47,12 @@
 		$vid_predpr = mysqli_fetch_array($vid_sql);
 		$vid = $vid_predpr['vid_deyatelnosti'];
 
-		$contact_sql = mysqli_query($bd, "SELECT * from contacts where id_contact='".$org_row['id_contact']."'");
+		$contact_sql = mysqli_query($bd, "SELECT * from contacts where id_predpriyatiya='".$org_row['id_predpriyatiya']."'");
 		$contact = mysqli_fetch_array($contact_sql);
+		if($contact == NULL) {
+			$contact_people = mysqli_query($bd, "SELECT * from contacts join contacts_people on contacts.id_contact=contacts_people.id_contact where id_con_people='".$org_row['id_con_people']."'");
+			$contact = mysqli_fetch_array($contact_people);
+		}
 
 		$code_tn_ved_sql = mysqli_query($bd, "SELECT * from code_tn_veds where id_predpriyatiya='".$org_row['id_predpriyatiya']."'");
 		$code_tn_ved_list = mysqli_fetch_array($code_tn_ved_sql);
@@ -95,7 +99,7 @@
 				</div>
 			</div>';
 				
-		echo '<div class="main-info-organization" style="width: 75%; margin: auto;">';
+		echo '<div class="main-info-organization" style="margin: auto;">';
 					if(isset($address) && $address<>NULL) { echo '<div class="block-with-image">
 						<img src="img/address.png">
 						<p>'.$address.'</p>

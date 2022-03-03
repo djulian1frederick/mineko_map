@@ -6,6 +6,7 @@ $rotch=$_POST['otch'];
 $org_con=$_POST['org_con'];
 	$phone=$_POST['phone'];
 	$email=$_POST['organ_email'];
+	$post = $_POST['post'];
 
 $sql_query = "INSERT into rukovoditeli (first_name, second_name, last_name) values ('".$rname."','".$rfam."','".$rotch."')";
 $result = mysqli_query($bd, $sql_query);
@@ -14,23 +15,25 @@ if ($result) {
 		$takeidruk=mysqli_query($bd, $sql_select_this_ruk);
 			$idrukrow = mysqli_fetch_array($takeidruk);
 			$idruk = $idrukrow['id_rukovoditel'];
-				if ($org_con <> NULL) {
-					$sql_update = "UPDATE predpriyatiya set id_rukovoditel='".$idruk."' where id_predpriyatiya='".$org_con."'";
-					$result_update = mysqli_query($bd, $sql_update);}
-
-					if ($idruk <> NULL) {
-						$sql = "INSERT into contacts(phone1, email) values ('".$phone."','".$email."')";
-						$result = mysqli_query($bd, $sql);
-						if ($result) {
-							$select= "SELECT id_contact from contacts where phone1='".$phone."' and email='".$email."'";
-							$select_r=mysqli_query($bd, $select);
-							$id_con_arr=mysqli_fetch_array($select_r);
-							
-							$id_con=$id_con_arr['id_contact'];
-							$sql_update="UPDATE predpriyatiya set id_contact='".$id_con."' where id_predpriyatiya='".$org_con."'";
-							$update=mysqli_query($bd, $sql_update);
-						}
+					
+					if ($org_con <> NULL) {
+						$sql_update = "UPDATE predpriyatiya set id_rukovoditel='".$idruk."' where id_predpriyatiya='".$org_con."'";
+						$result_update = mysqli_query($bd, $sql_update);
 					}
+					if ($idruk <> NULL) {
+						$sql = "INSERT into contacts(phone1, email, id_predpriyatiya) values ('".$phone."','".$email."', '".$org_con."')";
+						$result = mysqli_query($bd, $sql);
+	
+					}
+				if(isset($post) && $post <> NULL) {
+					$sql = mysqli_query($bd, "INSERT into posts (name_post) values ('".$post."')");
+					if($sql){
+						$id_post = mysqli_query($bd, "SELECT from posts where name_post='".$post."'");
+						$id_post = mysqli_fetch_array($id_post);
+						$id_post = $id_post['id_post'];
+						$update = mysqli_query($bd, "UPDATE rukovoditeli set id_post='".$id_post."' where id_rukovoditel='".$idruk."'");
+					}
+				}
 }
 
 ?>

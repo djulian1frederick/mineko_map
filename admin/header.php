@@ -14,14 +14,12 @@
 		break;
 	case 3:
 		$pages = '<a href="muno"><li>Муниципальные образования</li></a>
-			<a href="organization"><li>Организации</li></a>
-			<a href="production_add"><li>Продукция</li></a>
+			<a href="organization"><li>Добавление рганизаций</li></a>
+			<a href="organization_updating"><li>Изменение организаций</li></a>
 			<a href="export_catalog"><li>Экспортный каталог</li></a>
 			<a href="history_success"><li>Истории успеха</li></a>
 			<a href="search"><li>Поиск</li></a>
-			<a href="users"><li>Пользователи системы</li></a>
-			<a href="status_check"><li>Отслеживание изменения статуса регистрации организации</li></a>
-			<a href="organization_updating"><li>Личный кабинет организации</li></a>';
+			<a href="status_check"><li>Отслеживание изменения статуса регистрации организации</li></a>';
 		break;
 	default:
 		break;	

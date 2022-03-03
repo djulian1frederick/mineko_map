@@ -18,6 +18,7 @@
 <script src="../js/func.js" type="text/javascript"></script>
 <script src="../js/select2.min.js"></script>
 <script src="js/menu.js"></script>
+<script src="../js/func_admin.js"></script>
 <script src="js/func_update_organization.js"></script>
 <link rel="stylesheet" href="../css/index.css">
 <script>

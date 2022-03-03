@@ -43,6 +43,10 @@ if ($button == 'e') {
 		}
 		}
 		elseif ($button == 'd') {
+			$old_image = mysqli_query($bd, "SELECT image_href from production where id_product='".$prod_id."'");
+			$old_image = mysqli_fetch_array($old_image);
+			$old_image = $old_image['image_href'];
+			unlink($_SERVER['DOCUMENT_ROOT']."/".$old_image);
 			$query = mysqli_query($bd, "DELETE from production where id_product='".$prod_id."'");
 			if($query) {
 				echo '<span>Данная продукция будет удалена</span>';

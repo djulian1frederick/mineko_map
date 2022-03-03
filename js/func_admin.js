@@ -1,6 +1,6 @@
 function addto()
 {	var rname = $('#r_name').val();
-	var	$rfam = $('#r_fam').val();
+	var	rfam = $('#r_fam').val();
 	var rotch =$('#r_otch').val();
 	var raion = $('#r_raion').val();
 	var phone = $('#phone1').val();
@@ -96,11 +96,12 @@ function addcontacts_to_organization(){
     var phone = $('#org_phone1').val();
     var organ_email = $('#org_email').val();
     var org_con = $('#org_con').val();
+    var post = $('#post').val();
     jQuery.ajax({
             type: "POST",
             url: '../editor/scripts/add_rukovoditel_to_organization_with_contacts.php',
             dataType: "text",
-            data: {"org_con" : org_con, "organ_email" : organ_email, "phone" : phone, "fam" : fam, "name" : name, "otch" : otch}, 
+            data: {"org_con" : org_con, "post" : post, "organ_email" : organ_email, "phone" : phone, "fam" : fam, "name" : name, "otch" : otch}, 
             success: function(html) {
                 $("#result").html(html);
                 $('#o_fam').val('');
@@ -109,7 +110,7 @@ function addcontacts_to_organization(){
                 $('#org_phone1').val('');
                 $('#org_email').val('');
                 $('#org_con').val('');
-
+                $('#post').val('');
             },
             error:function (xhr, ajaxOptions, thrownError){
                     alert(thrownError); //выводим ошибку
