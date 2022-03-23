@@ -1,0 +1,36 @@
+	.block_new {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 0 auto;
+		padding: 10px 0;
+		background: #fff;
+	}
+	.image_new {
+		width:80%; 
+		margin: 0 10%;
+		max-height: 480px;
+		overflow: hidden;
+		text-align: center;
+	}
+	.image_new img {
+		width: 100%;
+		height: auto;
+	}
+	.new_title {
+		padding: 0;
+		margin: auto;
+		text-align: center;
+		width: 80%;
+		margin: 0 10%; 
+		color: #fff;
+		background: #1c75bc;
+	}
+	.new_text {
+		width: 80%;
+		margin: 0 10%;
+	}
+	.new_date {
+		margin-left: 80%;
+		font-family: Circe ExtraLight;
+	}

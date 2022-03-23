@@ -13,6 +13,6 @@
 	}
 		$result = mysqli_query($bd, $sql);
 		if($result) {
-			echo '<span>Информация о продукции обновлена</span>';
+			echo "<script>alert('Информация о продукции обновлена');</script>";
 		}
 	?>

@@ -14,7 +14,7 @@
 	
 </div>
 <div class="blocks_info">
-	<h3>Обновление услуг, предоставленных центром</h3>
+	<h3 style="width:auto; margin-top: 25px;">Обновление услуг, предоставленных центром</h3>
 		<label for="orga_mo">Выберите организацию</label><br>
 		<select name="orga_mo" id="orga_mo" class="js-example-basic-single"  style="width: 450px;">
 			<option value="">Не выбрано</option>

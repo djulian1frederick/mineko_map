@@ -13,21 +13,11 @@
 	$row = mysqli_fetch_array($query);
  ?>
 	<div class="content">
-	<div id="result"></div>
 		<div class="blocks_info">
-			<div style="border: 1px solid #c7c7c7;">
-			   	 <form method="post" enctype="multipart/form-data" action="scripts/change_preview_img.php" target="preview" >
-					  <?php echo '<input type="hidden" name="oldphoto" value="'.$row['news_img'].'">' ?>
-					  <?php echo '<input type="hidden" name="idnew" value="'.$row['id_news'].'">' ?>
-					   <label for="upload">Выберите изображение для изменения превью</label><br>
-					   <input type="file" name="upload" id="upload"><br>	
-						<button type="submit">Обновить изображение</button>
-					</form><br><br>
-						<iframe name="preview" style="display: none;"></iframe>
-				</div><br>
 				<div>
 					<label>Редактирование публикации в категории "Истории успеха"</label><br>
 					<?php echo '<input type="text" id="news_title" value="'.$row['news_title'].'" placeholder="Введите название публикации">';?>
+					<br>
 					<label>Дата публикации</label><br>
 					<?php echo '<input type="date" id="news_date" value="'.$row['news_date'].'"><br><br>';?>
 					<?php
@@ -36,9 +26,23 @@
 						echo "<script>
 			                CKEDITOR.replace('editor1');
 			            </script>";?>
-			    	<input type="hidden" value="0" id="user_id"><br><br>
-			    	<?php echo '<input type="hidden" id="idnew" value="'.$row['id_news'].'">' ?>
-				<button onclick="edit_new()">Обновить публикацию</button>
+			    	<input type="hidden" value="0" id="user_id">
+			    	<?php echo '<input type="hidden" id="idnew" value="'.$row['id_news'].'">'; ?>
+			    <div style="border: 1px solid #c7c7c7;">
+			   	 <form method="post" enctype="multipart/form-data" action="scripts/change_preview_img.php" target="preview" >
+					<div style="background: #fff;width: 100%;padding: 15px 0;text-align: center;">
+					  		<label for="upload">Выберите изображение для создания превью</label><br>
+					  	<?php echo '<input type="hidden" name="oldphoto" value="'.$row['news_img'].'">'; ?>
+					  <?php echo '<input type="hidden" name="idnew" value="'.$row['id_news'].'">'; ?>
+					   <input type="file" name="upload" id="upload"><br>	
+						<button type="submit" style="border-radius: 0;">Обновить изображение</button>
+					</form>
+						<iframe name="preview" style="display: none;"></iframe>
+				</div>
+				<div style="text-align: center;">
+					<button onclick="edit_new()" style="border-radius: 0;font-size: 20px;border: 1px solid;">Обновить публикацию</button>
+						<div id="result"></div>
+				</div>
 			</div>
 		</div>
 	</div>

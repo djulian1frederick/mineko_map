@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<title>Общий каталог экспортеров</title>
 	<link rel="stylesheet" href="css/index.css">
 </head>
@@ -114,13 +114,13 @@
 							<img src="img/address.png">
 							<p>'.$address.'</p>
 						</div>';}
-					if(isset($contact) && $contact <> NULL) {
+					if(isset($contact) && $contact <> NULL && $_SESSION['level'] > 0) {
 						if ($contact['phone1'] <> NULL) 
 						{echo '<div class="block-with-image">
 							<img src="img/phone1.png">
 							<p>'.$contact['phone1'].'</p>
 					</div>';}
-					if ($contact['email'] <> NULL) {
+					if ($contact['email'] <> NULL && $_SESSION['level'] > 0) {
 						echo '<div class="block-with-image">
 								<img src="img/email1.png">
 								<p>'.$contact['email'].'</p>
@@ -154,5 +154,6 @@
 		?>
 	</div>
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>

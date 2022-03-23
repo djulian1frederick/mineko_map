@@ -6,6 +6,6 @@
 	$sql = "INSERT into expoc_services (name_service, id_predpriyatiya) values ('".$exp_service."','".$orga_mo."')";
 	$insert = mysqli_query($bd, $sql);
 	if($insert) {
-		echo '<span>Успешно добавлено</span>';
+		echo "<script>alert('Успешно добавлена услуга организации');</script>";
 	}	
 ?>

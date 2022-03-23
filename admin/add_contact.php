@@ -21,7 +21,7 @@ if ($rfam <> NULL) {
 		}
 	}
 	else {
-		echo "Не был выбран руководитель";
+		echo "<script>alert('Не был выбран руководитель');</script>";
 	}
 
 

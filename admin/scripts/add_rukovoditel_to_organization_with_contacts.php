@@ -1,12 +1,26 @@
 <?php require_once("../connection.php");?>
 <?php 
-$rname=$_POST['name']; 
-$rfam=$_POST['fam'];
-$rotch=$_POST['otch'];
-$org_con=$_POST['org_con'];
-	$phone=$_POST['phone'];
-	$email=$_POST['organ_email'];
-	$post = $_POST['post'];
+$rname=trim($_POST['name']);
+$rname=mysqli_real_escape_string($bd,$rname);
+
+$rfam=trim($_POST['fam']);
+$rfam=mysqli_real_escape_string($bd,$rfam);
+
+$rotch=trim($_POST['otch']);
+$rotch=mysqli_real_escape_string($bd,$rotch);
+
+$org_con=trim($_POST['org_con']);
+$org_con=mysqli_real_escape_string($bd,$org_con);
+
+$phone=trim($_POST['phone']);
+$phone=mysqli_real_escape_string($bd,$phone);
+
+$email=trim($_POST['organ_email']);
+$email=mysqli_real_escape_string($bd,$email);
+
+$post = trim($_POST['post']);
+$post=mysqli_real_escape_string($bd,$post);
+
 
 $sql_query = "INSERT into rukovoditeli (first_name, second_name, last_name) values ('".$rname."','".$rfam."','".$rotch."')";
 $result = mysqli_query($bd, $sql_query);

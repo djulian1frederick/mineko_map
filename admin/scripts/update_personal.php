@@ -2,11 +2,14 @@
 	session_start();
 	require_once("../connection.php");
 
-	$name = $_POST['firstname'];
-	$second = $_POST['second'];
-	$last = $_POST['last'];
+	$name = mysqli_real_escape_string($bd, trim($_POST['firstname']));
+	$second = mysqli_real_escape_string($bd, trim($_POST['second']));
+	$last = mysqli_real_escape_string($bd, trim($_POST['last']));
+	$login = mysqli_real_escape_string($bd, trim($_POST['login']));
+
 
 	$id_con = $_POST['id_con'];
+	
 	$id_check = $_POST['id_check'];
 
 	$success = "Ваши данные были успешно обновлены";
@@ -46,8 +49,38 @@
 		$id_con = $id_con['id_con_people'];}
 		if($id_con <> NULL) {
 			$admin = mysqli_query($bd, "UPDATE admins set id_con_people='".$id_con."' where id_user='".$_SESSION['user_id']."' and level='".$_SESSION['level']."'");
-			if($admin){ echo  "<span>".$success."</span>";}
-			else {	echo "<span>".$unsuccess."</span>";	}	
+			if($admin){ echo  "<script>alert('".$success."');</script>";}
+			else {	echo "<script>alert('".$unsuccess."');</script>";	}	
+		}
+	}
+	if(!isset($id_con)){
+		$sql_update = "update users set first_name_user='".$name."', second_name_user='".$second."', last_name_user='".$last."' where id_user='".$_SESSION['user_id']."'";
+		$query_update = mysqli_query($bd, $sql_update);
+		if($query_update) {
+			echo "<script>alert('".$success."');</script>";
+		}
+	}
+	if($login <> NULL) {
+		$checklogin = mysqli_query($bd, "SELECT user_login from users where user_login='".$login."'");
+		$checklogin = mysqli_fetch_array($checklogin);
+		if($checklogin == NULL) {
+			$updatelogin = mysqli_query($bd, "UPDATE users set user_login='".$login."' where id_user='".$_SESSION['user_id']."'");
+			if($updatelogin){
+				$email = mysqli_query($bd, "SELECT user_email from users where id_user='".$_SESSION['user_id']."'");
+				$email = mysqli_fetch_array($email);
+				if($email <> NULL) {
+					$email = $email['user_email'];
+					$date = date('d-m-Y');
+					$title = "Изменение логина";
+					$body = "<h2>Уважаемый пользователь!</h2>
+							<b>Вами был  изменен логин на платформе ".$date."  на: <br>
+							".$login."<br><br><br><br><br>";
+					include_once 'mail_to.php';
+				}
+			}
+		}
+		else {
+			echo "<script>alert('Логин не был изменен');</script>";
 		}
 	}
 

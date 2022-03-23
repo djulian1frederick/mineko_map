@@ -1,87 +1,44 @@
+<?php  session_start(); ?>
 <?php require_once("../connection.php"); ?>
 <script>
 	$(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 </script>
-<div id="result"></div>
 <div class="blocks_info">
-	<h3 style="width:75%;">Добавление организаций</h3>
-		<div style="width: 70%; background: azure;padding: 2.5%;">
+	<h3 style="width:auto; margin-top: 25px;">Добавление организаций</h3>
+		<div style="width: 100%; background: #fff;padding: 2.5%;">
 			<label for="">Название организации*</label><br>
-			<input type="text" required id="nameorg" name="nameorg" placeholder="Введите название организации" required><br>
+			<input type="text" required id="nameorg" name="nameorg" placeholder="Введите название организации" required><br><br>
 			<label for="">ИНН*</label><br>
-			<input type="text" pattern="\d*" required id="inn" name="inn" maxlength="10" placeholder="Введите ИНН" required><br>
+			<input type="text" pattern="\d*" required id="inn" name="inn" maxlength="10" placeholder="Введите ИНН" required><br><br>
 			<label for="">ОГРН*</label><br>
-			<input type="text" pattern="\d*" required id="ogrn" name="ogrn" maxlength="15" placeholder="Введите ОГРН" required><br>
-			<label>Размер предприятия</label><br>
-				<?php 
-					$sql="select * from size_predpr";
-					$size_q=mysqli_query($bd, $sql);
-					$sizes_list=mysqli_fetch_array($size_q);
-					if ($sizes_list == NULL ){ 
-						echo '<input type="text" name="sizepr_add" id="sizepradd">';
-					}
-					else {
-						echo '<select name="sizepr" id="sizepr" class="js-example-basic-single">';
-						echo '<option value="">Не выбрано</option>';
-						do {
-							echo '<option value="'.$sizes_list['id_size'].'">'.$sizes_list['name_size'].'</option>';
-						}while($sizes_list=mysqli_fetch_array($size_q));
-						echo '</select><br>';
-					}
-			
-				?>
-			
-				<label>Вид деятельности</label><br>			
-				<input type="checkbox" id="checkbox1" onclick="toggle('checkbox1','viddeyadd','viddey-block')"><label for="checkbox1" class="checkbox_label">Нажмите, если в списке отсутствует необходимый вариант</label><br>
-				
-				<?php 
-					$sql="select * from vid_deyat";
-					$viddey_q=mysqli_query($bd, $sql);
-					$viddey_list=mysqli_fetch_array($viddey_q);
-					if ($viddey_list == NULL) {
-						echo "<input type='text' name='viddeyadd' id='viddeyadd' style='display: none;'>";
-					}
-					else {
-						echo "<input type='text' name='viddeyadd' id='viddeyadd' style='display: none;'>";
-						echo '<div id="viddey-block"><select name="viddey" id="viddey" class="js-example-basic-single" style="width: 450px;">';
-						echo '<option value="">Не выбрано</option>';
-						do {
-							echo '<option value="'.$viddey_list['id_vid_deyat'].'">'.$viddey_list['vid_deyatelnosti'].'</option>';
-						}while($viddey_list=mysqli_fetch_array($viddey_q));
-					}
-					echo '</select><br></div>';
-				?>
-				
-				<label>Код продукции</label><br>
-				
-				<input type="checkbox"  id="checkbox2"  onclick="toggle('checkbox2','codeprodadd', 'codeprod-block')"><label for="checkbox2" class="checkbox_label">Нажмите, если в списке отсутствует необходимый вариант</label><br>
-				
-				<?php 
-					$sql="select * from code_product order by code";
-					$code_q=mysqli_query($bd, $sql);
-					$code_list=mysqli_fetch_array($code_q);
-						if ($code_list == NULL){
-							echo '<input type="text" id="codeprodadd" name="codeprodadd" style="display: none;">';
-						}
-						else {
-							echo '<input type="text" id="codeprodadd" name="codeprodadd" style="display: none;">';
-							echo '<div id="codeprod-block"><select name="codeprod" id="codeprod" class="js-example-basic-single" style="width: 450px;">';
-							echo '<option value="">Не выбрано</option>';
-						do {
-							echo '<option value="'.$code_list['id_code_product'].'">'.$code_list['code'].'</option>';
-
-						}while($code_list=mysqli_fetch_array($code_q));
-						echo '</select><br></div>';
-					}
-				?>
-			
-			<br>
+			<input type="text" pattern="\d*" required id="ogrn" name="ogrn" maxlength="15" placeholder="Введите ОГРН" required><br><br>
 			<label>Год начала экспортной деятельности</label><br>
 			<input type="text" pattern="\d*" name="year" id="year" placeholder="Введите год"><br>
+			<?php if($_SESSION['level'] <> '2') { echo '
+			<br><label for="ra_mo">Выберите муниципальное образование</label><br>
+			<select name="ra_mo" id="ra_mo" class="js-example-basic-single" style="width: 450px; max-width: 100%;">
+				<option value="">Не выбрано</option>';
+
+					$sql = "SELECT id_mo, raion from mo join raions where raions.id_raion=mo.id_raion";
+					$rai_q = mysqli_query($bd, $sql);
+					$rai_l = mysqli_fetch_array($rai_q);
+					do {
+						echo '<option value="'.$rai_l['id_mo'].'">'.$rai_l['raion'].'</option>';
+					}while ($rai_l=mysqli_fetch_array($rai_q));
+			echo '</select><br><br>'; } 
+			elseif($_SESSION['level'] == '2') {
+				$admin_id = mysqli_query($bd, "SELECT id_admin from admins where id_user='".$_SESSION['user_id']."'");
+				$admin_id = mysqli_fetch_array($admin_id);
+				$admin_id = $admin_id['id_admin'];
+				$id_mo = mysqli_query($bd, "SELECT id_mo from mo where id_admin='".$admin_id."'");
+				$id_mo = mysqli_fetch_array($id_mo);
+				$id_mo_l = $id_mo['id_mo'];
+				echo '<input type="hidden" value="'.$id_mo_l.'" id="ra_mo" name="ra_mo">';
+			} ?>
 			<button onclick="addorganization()" type="submit" class="add_but"><img src="../img/plus.png" width="16px" height="16px"> Добавить</button><br>
 			<p class="necess">* - Обязательное поле</p>
-			
+			<div id="result"></div>
 		</div>
 </div>

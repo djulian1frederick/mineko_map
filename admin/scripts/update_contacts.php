@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require_once("../connection.php");?>
 <?php 
-	$organization = $_POST['org_id'];
+	$org_id = $_POST['org_id'];
 	$con_id = $_POST['con_id'];
 	$org_phone1 = $_POST['org_phone1'];
 	$org_email = $_POST['org_email'];
@@ -17,11 +17,11 @@
 		$update_cont = "UPDATE contacts set contacts.phone1='".$org_phone1."', contacts.email='".$org_email."' where id_contact = '".$con_id."'";
 		$updating = mysqli_query($bd, $update_cont);
 			if ($updating) {
-				echo '<span>Контакты успешно обновлены</span>';
+				echo "<script>alert('Контакты успешно обновлены');</script>";
 			}
 	}
 	else {
-		$insert_cont = "INSERT into contacts (phone1, email) values ('".$org_phone1."','".$org_email."')";
+		$insert_cont = "INSERT into contacts (phone1, email, id_predpriyatiya) values ('".$org_phone1."','".$org_email."', ".$org_id.")";
 		$inserting = mysqli_query($bd, $insert_cont);
 			$select_cont = "SELECT id_contact from contacts where contacts.phone1='".$org_phone1."' and contacts.email ='".$org_email."'";
 			$selecting = mysqli_query($bd, $select_cont);
@@ -29,13 +29,11 @@
 			$cont_id = $select_row['id_contact'];
 				
 			if($id_con_people <> NULL) {
-				$update_cont = "UPDATE contacts_people set id_contact='".$cont_id."' where id_con_people='".$id_con_people."'";}
-				else {
-					
-				}
+				$update_cont = "UPDATE contacts_people set id_contact='".$cont_id."' where id_con_people='".$id_con_people."'" ;
 				$updating = mysqli_query($bd, $update_cont);
-					if ($updating) {
-						echo '<span>Информация о контактах обновлена</span>';
-					}
+			}
+			if ($updating || $inserting) {
+				echo "<script>alert('Информация о контактах обновлена');</script>";
+			}
 	}
 ?>

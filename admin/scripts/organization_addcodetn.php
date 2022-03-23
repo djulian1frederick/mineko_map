@@ -8,7 +8,7 @@
 	$insert_query = mysqli_query($bd, $sql);
 
 	if ($insert_query) {
-		echo '<span>Успешно добавлено</span>';
+		echo "<script>alert('Код ТН ВЭД добавлен успешно');</script>";
 	}
 
 ?>

@@ -33,7 +33,7 @@
 						$size_q=mysqli_query($bd, $sql);
 						$sizes_list=mysqli_fetch_array($size_q);
 
-						echo '<select name="sizepr" id="sizepr" class="js-example-basic-single" style="width: 450px;">';
+						echo '<select name="sizepr" id="sizepr" class="js-example-basic-single" style="width: 450px; max-width: 100%;">';
 							do {
 								if ($sizes_list['id_size'] == $main_row['id_size']) { 
 											$size_name = $sizes_list['name_size']; 
@@ -55,7 +55,7 @@
 						}
 						else {
 								echo "<input type='text' name='viddeyadd' id='viddeyadd' style='display: none;'>";
-								echo '<select name="viddey" id="viddey" class="js-example-basic-single" style="width: 450px;" >';
+								echo '<select name="viddey" id="viddey" class="js-example-basic-single" style="width: 450px; max-width: 100%;" >';
 									do {
 										if($viddey_list['id_vid_deyat'] == $main_row['id_vid_deyat']){ 
 											$vid_dey = $viddey_list['vid_deyatelnosti'];
@@ -79,7 +79,7 @@
 						}
 						else {		
 							echo '<input type="text" id="codeprodadd" name="codeprodadd" style="display: none;">';
-							echo '<select name="codeprod" id="codeprod" class="js-example-basic-single" style="width: 450px;" >';
+							echo '<select name="codeprod" id="codeprod" class="js-example-basic-single" style="width: 450px; max-width: 100%;" >';
 								do {
 									if($code_list['id_code_product'] == $main_row['id_code_product']){
 										$code = $code_list['code']; 

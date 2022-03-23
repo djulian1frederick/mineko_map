@@ -42,7 +42,7 @@
 						  	</div>';
 						echo '<input type="hidden" name="idcode" value="'.$code_tn_row['id_code_tn_ved'].'">';
 	 					echo '<input type="text" name="codetnnved" value="'.$code_tn_row['code_tn_ved'].'"><br>';
-	 					echo '<textarea name="codetnved_descr" value="'.$code_tn_row['description_code'].'" style="height: 50px;">'.$code_tn_row['description_code'].'</textarea>';
+	 					echo '<textarea name="codetnved_descr" value="'.$code_tn_row['description_code'].'" style="height: fit-content;">'.$code_tn_row['description_code'].'</textarea>';
 	 					echo '</form>';
 	 					echo '<iframe name="result_code'.$code_tn_row['id_code_tn_ved'].'" borderless style="height: 40px; width:auto;"></iframe></div>';
 	 		}while ($code_tn_row=mysqli_fetch_array($code_tn));
@@ -60,23 +60,27 @@
 						<div class="update-block">
 						<ul style="display: flex; flex-flow: row; flex-wrap: wrap; background: white;  padding: 15px;">';
 					do {
-						echo '<li style="border: 1px solid #dcdcdc; width: 100%;">
-								<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="result_production'.$production_row['id_product'].'">
+						echo '<li style="border: 1px solid #dcdcdc; width: 90%; background: #1c75bc;">
+								<form id="production_form" method="POST" enctype="multipart/form-data" action="scripts/update_upload.php" target="result_production'.$production_row['id_product'].'" style="display: flex;">
 									<input type="hidden" name="org_id" id="org_id" value="'.$org.'">
-									<input type="file" name="file" id="file" style="margin: 0 75px;background: #1c75bc;padding: 5px;color: white; border: none;">
-									<img  style="float: left;border: 1px solid #cecece;" width="150px" src="../'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">';
-								echo '<div><input type="hidden" name="prodid" id="prodid" value="'.$production_row['id_product'].'">
-									<input type="text" name="production_name" id="production_name" value="'.$production_row['name_production'].'" style="margin: 20px 75px; border: none; border-bottom: 1px solid; font-style: italic; word-break: break-word;    padding: 5px;"><br>';
-								echo "<textarea cols='40' rows='3' style='margin:0 75px; height: 60px;' name='descr' id='descr' value='".$production_row['description']."'>".$production_row['description']."</textarea>";
+									<div style="border: 1px solid #fff;">
+									<div>
+										<img  style="border: 2px solid #fff;" width="150px" src="../'.$production_row['image_href'].'" alt="'.$production_row['name_production'].'" title="'.$production_row['name_production'].'">
+										</div>
+									<div>
+											<input type="file" name="file" id="file" style="background: #1c75bc;padding: 5px;color: white; border: none;">
+									</div></div>';
+								echo '<div style="background: #fff;margin: 0;padding: 2.5%; margin-left: auto;">
+								<input type="hidden" name="prodid" id="prodid" value="'.$production_row['id_product'].'">
+									<input type="text" name="production_name" id="production_name" value="'.$production_row['name_production'].'" style="border: none; border-bottom: 1px solid; font-style: italic; word-break: break-word;    padding: 5px;"><br>';
+								echo "<textarea cols='40' rows='3' style='height: fit-content;' name='descr' id='descr' value='".$production_row['description']."'>".$production_row['description']."</textarea><br>";
 								$code_tn= mysqli_query($bd, "SELECT * from code_tn_veds where id_predpriyatiya='".$org."'");
 									$code_tn_row = mysqli_fetch_array($code_tn);
 									if ($code_tn_row <> NULL) {
-										$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds where code_tn_veds.id_product = '".$production_row['id_product']."'");
+										$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds where code_tn_veds.id_code_tn_ved = '".$production_row['id_codetnved']."'");
 										$current_code = mysqli_fetch_array($current_code);
-
-										echo '<div>';
 										echo '<label>КОД ТН ВЭД продукции</label><br>';
-										echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px;">';
+										echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px; max-width: 100%;">';
 			 								do { 	
 			 									if($current_code['code_tn_ved'] <> NULL) { $thiscode = $current_code['code_tn_ved'];} 
 			 									else {$thiscode = 'отсутствует';}
@@ -88,7 +92,7 @@
 									echo '</select>';
 									echo '</div>';
 									}
-								echo '</div><div style="margin-top: -20px; float: left"><button class="edit_but" type="submit" value="e" name="button" onclick="reloadform()" style="margin-left: 7.5px;">
+								echo '<div style="display: flex;border-radius: 15px;padding: 0;"><button class="edit_but" type="submit" value="e" name="button" onclick="reloadform()" style="margin-left: 7.5px;">
 										<img src="../img/edit.png" width="20px" height="20px">
 									</button>
 									<button class="del_butt" style="margin-left: 7.5px;" type="submit" id="delbut" value="d" name="button" onclick="confirm_delete()">
@@ -126,6 +130,9 @@
  			if(confirm('Вы уверены в удалении ЭТОЙ продукции?'))
  			{
  				reloadform();
+ 			}
+ 			else {
+ 				return false;
  			}
  }
  

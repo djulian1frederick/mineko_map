@@ -261,3 +261,15 @@ $(function(){
     }    
   });
 });
+
+function loadgraph() {
+	$('#result').load('common_rate.php');
+}
+
+function reset_radio() {
+		var obj = document.getElementsByName('param');
+		   for (var i = 0; i <= 3; i++) {
+		   	obj[i].checked=false;
+		   }
+		  document.getElementsById('searchinp').value= "";
+	}

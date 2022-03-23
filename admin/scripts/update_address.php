@@ -7,7 +7,7 @@
 	$organization = $_POST['organization'];
 
 	$fulladdress = $address.', '.$numberhouse;
-	$msg = "<span>Успешно обновлено</span>";
+	$msg = "Успешно обновлено";
 
 	explode(' ', $fulladdress);
 	$fulladdress[count($fulladdress)];
@@ -30,7 +30,7 @@
 						$sql_update = "UPDATE predpriyatiya set id_address='".$id_addr."' where id_predpriyatiya='".$organization."'";
 						$update = mysqli_query($bd, $sql_update);
 						if ($update) {
-							echo $msg;
+							echo "<script>alert('".$msg."');</script>";
 						} 
 				}
 		}

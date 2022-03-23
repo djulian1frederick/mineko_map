@@ -10,7 +10,7 @@
 if ($button == 'e') {
 
 	if (isset($codetnved_id) && $codetnved_id <> '' || $codetnved_id <> NULL) {
-		$update_code = "UPDATE code_tn_veds set id_product='".$prod_id."' where id_code_tn_ved='".$codetnved_id."'";
+		$update_code = "UPDATE production set id_codetnved='".$codetnved_id."' where id_product='".$prod_id."'";
 		$query = mysqli_query($bd, $update_code);
 	}
 
@@ -39,7 +39,7 @@ if ($button == 'e') {
 	}
 		$result = mysqli_query($bd, $sql);
 		if($result) {
-			echo '<span>Информация о продукции обновлена</span>';
+			echo "<script>alert('Информация о продукции обновлена');</script>"; 
 		}
 		}
 		elseif ($button == 'd') {
@@ -49,7 +49,7 @@ if ($button == 'e') {
 			unlink($_SERVER['DOCUMENT_ROOT']."/".$old_image);
 			$query = mysqli_query($bd, "DELETE from production where id_product='".$prod_id."'");
 			if($query) {
-				echo '<span>Данная продукция будет удалена</span>';
+				echo "<script>alert('Запись будет удалена');</script>";
 			}
 		}
 	?>

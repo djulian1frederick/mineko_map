@@ -62,6 +62,7 @@ function update_personal_info() {
 	var second = $('#second').val();
 	var last = $('#last').val();
 	var id_check = $('#id_check').val();
+	var login = $('#login').val();
 	var id_con = $('#id_con_people').val();
 	var null_var = undefined;
 	if (id_check != null_var) {
@@ -69,7 +70,7 @@ function update_personal_info() {
 			url: '../editor/scripts/update_personal.php',
 			type: "POST",
 		    dataType: "text",
-		    data: {"firstname" : firstname, "second" : second, "last" : last, "id_check" : id_check},
+		    data: {"firstname" : firstname, "second" : second, "login" : login, "last" : last, "id_check" : id_check},
 		    success: function(html) {
 		        $('#result').html(html);
 			}
@@ -80,7 +81,7 @@ function update_personal_info() {
 			url: '../editor/scripts/update_personal.php',
 			type: "POST",
 		    dataType: "text",
-		    data: {"firstname" : firstname, "second" : second, "last" : last, "id_con" : id_con},
+		    data: {"firstname" : firstname, "second" : second, "last" : last, "id_con" : id_con, "login" : login},
 		    success: function(html) {
 		        $('#result').html(html);
 			}
@@ -91,7 +92,7 @@ function update_personal_info() {
 			url: '../editor/scripts/update_personal.php',
 			type: "POST",
 		    dataType: "text",
-		    data: {"firstname" : firstname, "second" : second, "last" : last},
+		    data: {"firstname" : firstname, "second" : second, "last" : last, "login" : login},
 		    success: function(html) {
 		        $('#result').html(html);
 			}
@@ -104,6 +105,7 @@ function update_personal_contacts(){
 	var email = $('#email').val();
 	var id_check = $('#id_check').val();
 	var id_con = $('#id_con_people').val();
+	var org_id = $('#org_id').val();
 	var null_var = undefined;
 	if (id_check != null_var) {
 		$.ajax({
@@ -151,7 +153,8 @@ function update_address(){
 		dataType: "text",
 		data: {"address" : address,"numberhouse":numberhouse,"addr":addr, "organization" : organization},
 		success: function(html){
-			$('#result').html(html);
+			$('#result_operation').html(html);
+			setTimeout(function() {$('#address_block').load('../editor/updating_organization/addresses.php');}, 2000);
 		}
 	})
 

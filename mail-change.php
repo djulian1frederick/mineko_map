@@ -54,5 +54,6 @@ if (strcmp($d1, $d2) == 0) {
 	<?php echo $msg; ?>
 	</div>
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>

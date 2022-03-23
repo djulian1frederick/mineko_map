@@ -1,5 +1,5 @@
 <?php session_start();
-	if(!isset($_SESSION['user_id']) or $_SESSION['user_id'] == NULL && $_SESSION['level'] <> 3) {
+	if(!isset($_SESSION['user_id']) || $_SESSION['level'] <> 3) {
 		header('Location: ../index');
 	}
 ?>
@@ -16,17 +16,22 @@
 <script src="../libs/ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" href="../css/index.css">
 </head>
-<body>
+<body onload="open_add()">
 <?php include('header.php');?>	
 <?php require_once("connection.php");?>
 <div class="container">
-	<button class="button" onclick="open_add()">Добавление</button><button class="button" onclick="open_edit()">Редактирование</button>
+	<div class="content" style="min-height: 70px; background: #fff; padding: 1.5%;">
+		<button class="button" onclick="open_add()">Добавление*</button>
+		<button class="button" onclick="open_edit()">Редактирование</button>
+	<br><p style="font-style: italic; font-size: 10px; padding: 5px; margin: 0 auto;">* - Открыто по умолчанию</p>
+	</div>
 </div>
 <div class="container">
-	<div id="chosing">
+	<div id="chosing" style="min-height: 500px;background: #fff;margin: 0 5%;width: 90%;">
 		
 	</div>
 </div>
+<?php require_once('footer.php'); ?>
 
 <script>
 	function open_add() {

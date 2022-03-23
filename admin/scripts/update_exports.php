@@ -15,13 +15,13 @@ if($button == 'edit') {
 	 		if($insert_query) { echo '<span style="text-align: center;">запись об экспортном рынке добавлена</span>';}
 	 }
 	 else {
-	 	echo "<span class='message'>такой рынок уже добавлен</span>";
+	 	echo "<script>alert('такой рынок уже добавлен');</script>";
 	 }
 }
 else {
 	$sql_1 = "delete from exports where id_predpriyatiya = '".$orgid."' and id_country='".$country."'";
 	$query_1 = mysqli_query($bd, $sql_1);
-	echo "<span class='message'>Запись будет удалена</span>";
+	echo "<script>alert('Запись будет удалена');</script>";
 }
 
 ?>

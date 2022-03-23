@@ -14,7 +14,7 @@
 
 	$query_update = mysqli_query($bd, $sql_update);
 		if ($query_update) {
-			echo '<span>Информация о текущем руководителе обновлена</span>';
+			echo "<script>alert('Информация о текущем руководителе обновлена');</script>";
 		}
 	}
 	else {
@@ -29,7 +29,7 @@
 				$sql_update_org = "UPDATE predpriyatiya set id_rukovoditel =  '".$id_rukovoditel."' where id_predpriyatiya = '".$organization."'";
 				$update_org = mysqli_query($bd, $sql_update_org);
 					if($update_org) {
-						echo '<span>Информация о руководителе обновлена</span>';
+						echo "<script>alert('Информация о руководителе обновлена');</script>";
 					}
 	}
 ?>

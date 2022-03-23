@@ -33,8 +33,8 @@
 
 	
 <?php if($_SESSION['level'] == '3') {
-		echo '<div class="blocks_info" style="height: 400px;">
-			<select name="organization" id="organization" class="js-example-basic-single" style="width: 450px;">	
+		echo '<div class="blocks_info">
+			<select name="organization" id="organization" class="js-example-basic-single" style="width: 450px; max-width: 100%;">	
 						<option value="">Не выбрано</option>';
 							$sql = "SELECT id_predpriyatiya, name from predpriyatiya";
 							$org_q = mysqli_query($bd, $sql);
@@ -44,6 +44,28 @@
 								}while ($org_l=mysqli_fetch_array($org_q));
 			echo '</select><br>
 		<button onclick="choose_org()">Выбрать</button>';
+		echo '</div>
+	<div id="result" style="display: flex; flex-flow: wrap; width: 100%;"></div>';
+	}
+	if($_SESSION['level'] == '2') {
+		$admin_id = mysqli_query($bd, "SELECT id_admin from admins where id_user='".$_SESSION['user_id']."'");
+		$admin_id = mysqli_fetch_array($admin_id);
+		$admin_id = $admin_id['id_admin'];
+		$id_mo = mysqli_query($bd, "SELECT id_mo from mo where id_admin='".$admin_id."'");
+		$id_mo = mysqli_fetch_array($id_mo);
+		$id_mo = $id_mo['id_mo'];
+		echo '<div class="blocks_info">
+			<select name="organization" id="organization" class="js-example-basic-single" style="max-width: 450px; width: 100%;">	
+						<option value="">Не выбрано</option>';
+							$sql = "SELECT id_predpriyatiya, name from predpriyatiya where id_mo='".$id_mo."'";
+
+							$org_q = mysqli_query($bd, $sql);
+							$org_l = mysqli_fetch_array($org_q);
+								do {
+									echo '<option value="'.$org_l['id_predpriyatiya'].'">'.$org_l['name'].'</option>';
+								}while ($org_l=mysqli_fetch_array($org_q));
+			echo '</select><br>
+		<button onclick="choose_org()" class="button-choose">Выбрать</button>';
 		echo '</div>
 	<div id="result" style="display: flex; flex-flow: wrap; width: 100%;"></div>';
 	}

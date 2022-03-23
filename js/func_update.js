@@ -7,6 +7,7 @@ function choose_org() {
         data: {"org" : org},
         success: function(html) {
             $('#result').html(html);
+            open_menu('info_upd_organization');
 		}
 	})
 }

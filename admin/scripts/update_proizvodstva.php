@@ -11,6 +11,6 @@
 		$query = mysqli_query($bd, "DELETE from proizvodstva where id_proizvodstva='".$id_proizvodstva."'");
 		unlink($_SERVER['DOCUMENT_ROOT']."/".$image_href);
 			if($query) {
-				echo '<span class="message">Данное фото будет удалено</span>';
+				echo "<script>alert('Данное фото будет удалено');</script>";
 			}
 	?>

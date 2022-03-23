@@ -27,19 +27,23 @@
 });
 </script>
 </head>
-<body>
+<body onload="position('mo_rukovoditel')">
 <?php include('header.php');?>	
 <?php require_once("connection.php");?>
 <div class="container">
 
 <ul class="edit-navigation">
 			<li  onclick="position('mo_rukovoditel')">Руководители муниципальных образований</li>
-			<li onclick="position('pic_rukovoditel')">Дополнительно</li>
+			<li onclick="position('pic_rukovoditel')">Дополнительно (руководители)</li>
+			<li onclick="position('mo_responsiblies')">Ответственные за экспорт в муниципальном образовании</li>
 		</ul>	
 
-		<div id="position_result" style="width: 90%; padding: 0 5%; background: #fff;">
+		<div id="position_result" style="max-width: 90%; padding: 0 5%; background: #fff;">
 			
 		</div>
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>
+
+ @

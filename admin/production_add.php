@@ -36,7 +36,7 @@
 		<div class="blocks_info">
 			<form id="upload_production">
 			<label for="organization">Выберите организацию</label><br>
-			<select name="organization" id="organization" class="js-example-basic-single" style="width: 450px;">
+			<select name="organization" id="organization" class="js-example-basic-single" style="width: 450px; max-width: 100%;">
 				<option value="">Не выбрано</option>
 				<?php 
 					$sql = "SELECT id_predpriyatiya, name from predpriyatiya";
@@ -60,7 +60,7 @@
 	<div class="content">
 		<div class="blocks_info">
 			<label for="organization">Выберите организацию</label><br>
-			<select name="orgid" id="orgid" class="js-example-basic-single" style="width: 450px;">
+			<select name="orgid" id="orgid" class="js-example-basic-single" style="width: 450px; max-width: 100%;">
 				<option value="">Не выбрано</option>
 				<?php 
 					$sql = "SELECT id_predpriyatiya, name from predpriyatiya";

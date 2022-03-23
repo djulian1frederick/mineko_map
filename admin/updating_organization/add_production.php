@@ -24,7 +24,7 @@
 						require_once('../connection.php');
 						$current_code =mysqli_query($bd, "SELECT id_code_tn_ved, code_tn_ved from code_tn_veds");
 						$code_tn_row = mysqli_fetch_array($current_code);
-						echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px;">';
+						echo '<select name="codetnved_id" class="js-example-basic-single" style="width: 450px; max-width: 100%;">';
 							echo '<option value="0">Не выбрано</option>';
 							do {
 				 				echo '<option value="'.$code_tn_row['id_code_tn_ved'].'">'.$code_tn_row['code_tn_ved'].'</option>';

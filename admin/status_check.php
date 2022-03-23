@@ -75,6 +75,9 @@
 					while($row = mysqli_fetch_array($query));
 				echo '</table>';
 			}
+			else {
+				echo '<div style="margin: auto; text-align: center;"><span><center>На текущий момент оставленных заявок на регистрацию нет</center></span></div>';
+			}
 		}
 		?>	
 	</div>

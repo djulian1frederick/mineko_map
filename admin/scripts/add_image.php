@@ -20,11 +20,11 @@ if($rfam <> NULL) {
 	$sql_update = "UPDATE rukovoditeli set img_href='".$href_mr."' where id_rukovoditel='".$rfam."' ";
 	$result = mysqli_query($bd, $sql_update);
 	if ($result) {
-		echo "<span class='message'>Успешно добавлено фото руководителю</span>";
+		echo 'alert("Успешно добавлено фото руководителю")';
 	}
 }
 else {
-	echo "<span class='message'>Не выбран руководитель!</span>";
+	echo 'alert("Не выбран руководитель!")';
 }
 
 ?>

@@ -6,18 +6,35 @@
 <meta charset="utf-8">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta name='viewport' content='width=device-width,initial-scale=1'/>
 <script type="text/javascript" src="js/func.js"></script>
 <link rel="stylesheet" href="css/index.css">
 </head>
-<body style="overflow: hidden;">
+<body onload="loadgraph()">
 
 <?php include 'header.php'; ?>
-
+<?php require_once('admin/connection.php'); ?>
+<?php 
+$count_all_predpr = mysqli_query($bd, "SELECT count(*) from predpriyatiya");
+$count_all_predpr = mysqli_fetch_array($count_all_predpr);
+$count_all_predpr = $count_all_predpr['count(*)']; ?>
 <div class="container">
-	<div>
-  <canvas id="myChart"></canvas>
+	<div class="content" style="background: #fff;">
+		<div class="update-block" style="margin: auto; text-align: center; background: #fff; width: 100%; border: none; height: 100%;">
+			<p>Для просмотра информации по МО наведите  курсор на элемент диаграммы</p> 
+			<br>
+			<span style="font-size: 24px; font-family: Circe Light;">Рейтинг экспортеров по муниципальным образованиям Оренбургской области</span>
+			<br>
+			<span>Всего в системе - <u><?php echo $count_all_predpr; ?></u></span>
+			<canvas id="common_rate" height="250%"></canvas>
+			<div id="result"></div>
+			<!-- <span style="font-size: 24px; font-family: Circe Light;">ТОП-5 муниципальных образований Оренбургской области по количеству экспортеров</span>
+			<canvas id="rate_5" height="250%"></canvas>
+			<div id="result2"></div> -->
+		</div>
+	</div>
 </div>
-	
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>

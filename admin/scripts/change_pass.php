@@ -34,5 +34,5 @@
 	else {
 		$msg = "Текущий пароль введен неверно";
 	}
-	echo '<span class="message">'.$msg.'</span>';
+	echo "<script>alert('".$msg."');</script>";
 ?>

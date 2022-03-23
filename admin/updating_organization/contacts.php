@@ -7,6 +7,12 @@
 		$id_con_people = $main_row['id_con_people'];
 		$sql_main=mysqli_query($bd, "SELECT id_contact from contacts_people where id_con_people ='".$id_con_people."'");
 		$main_row = mysqli_fetch_array($sql_main);
+		$flag = "1";
+		if($main_row == NULL) {
+			$sql_main = mysqli_query($bd, "SELECT id_contact from contacts where id_predpriyatiya='".$org."'");
+			$main_row = mysqli_fetch_array($sql_main);
+			$flag = "0";
+		}
 ?>
 <div class="blocks_info">
 	<div style="margin: 0 2.5%;">
@@ -18,6 +24,7 @@
 						$contacts = mysqli_fetch_array($contact_sql);
 					?>
 				<?php echo '<input type="hidden" name="con_id" id="con_id" value="'.$contacts['id_contact'].'">';?>
+				<?php echo '<input type="hidden" name="flag" id="flag" value="'.$flag.'">'; ?>
 				<?php echo '<input type="hidden" name="org_id" id="org_id" value="'.$org.'">';?>
 			<label>Номер телефона</label><br>
 				<?php echo '<input type="text" name="org_phone1" id="org_phone1" maxlength="12" value="'.$contacts['phone1'].'"><br>';?>

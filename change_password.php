@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/search.css">
 </head>
 <body>
 <?php require_once('admin/connection.php');?>
@@ -44,70 +45,8 @@
 	</div>
 </div>
 </body>
+<?php require_once('footer.php'); ?>
 </html>
-<style>
-	.password {
-		position: relative;
-	}
-
-	.password input {
-		width: 70%;
-		font-family: Circe Light;
-		font-size: 16px;
-	}
-
-	.password-control {
-		position: absolute;
-		top: 5px;
-		right: 25px;
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-	}
-	.restoring {
-		width: 60%;
-		padding: 15px 0;
-		margin: 0 auto;
-	}
-	.login_form {
-		background: #fbfbfb;
-		text-align: center;
-	}
-	.error {
-		margin: 2.5% auto;
-		padding:  2.5%;
-		text-align: center;
-		background: #1c75bc;
-		color:  white;
-		font-size: 22px;
-		font-family: Circe Light;
-		display: block;
-		margin-bottom: 0;
-	}
-	.form_block p, .form_block a {
-		color:  #1c75bc;
-		margin: 0;
-		padding: 15px;
-	}
-	.form_block a {
-		font-size: 18px;
-		text-decoration: underline;
-		cursor: pointer;
-	}
-	.form_block {
-		margin: auto;
-		text-align: center;
-		background: #fbfbfb;
-		width: 70%;
-		min-height: 250px;
-	}
-	.attention {
-		background: #fff;
-		width: 70%;
-		margin: auto;
-		display: block;
-	}
-</style>
 <script>
 	$('body').on('click', '.password-control', function(){
 		if ($('#password-input').attr('type') == 'password'){	

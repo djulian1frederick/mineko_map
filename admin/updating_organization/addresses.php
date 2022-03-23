@@ -1,9 +1,17 @@
+<?php session_start(); ?>
 <?php require_once('../connection.php'); ?>
 <script src="../../js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="../../js/jquery.fias.min.js" type="text/javascript"></script>
 <script src="../../js/script.js" type="text/javascript"></script>
 	<?php
-		$org = $_POST['org_ident'];
+		if(isset($_POST['org_ident'])){
+			$org = $_POST['org_ident'];
+			$_SESSION['org_addr'] = $org;
+		}
+		else
+			{ 
+		$org = $_SESSION['org_addr'];
+			}
 		$sql_select_main = "SELECT id_address from predpriyatiya where id_predpriyatiya='".$org."'";
 		$sql_main = mysqli_query($bd, $sql_select_main);
 		$main_row = mysqli_fetch_array($sql_main);
@@ -14,10 +22,8 @@
 	?>
 
 
-<div class="blocks_info">
-	<div id="result">
-		
-	</div>
+<div class="blocks_info" id="address_block">
+	
 	<div class="update-block">
 		<h3>Обновление адреса организации</h3>
 			<?php echo '<input type="hidden" id="addr" value="'.$id_address.'">'; ?>
@@ -30,4 +36,5 @@
 			<button class="del_butt"><img src="../img/delete.png" width="16px" height="16px"></button>
 			<p>* - при вводе адреса не может быть указан номер дома</p>
 	</div>
+	<div id="result_operation"></div>
 </div>

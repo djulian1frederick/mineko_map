@@ -8,7 +8,7 @@
 	if($button == "del") {
 		$query = mysqli_query($bd, "delete from code_tn_veds where id_code_tn_ved='".$idcode."'");
 		if($query) {
-			echo '<span>Запись будет удалена</span>';
+			echo "<script>alert('Запись будет удалена');</script>";
 		}
 	}
 	else {
@@ -16,7 +16,7 @@
 		$update_query = mysqli_query($bd, $sql);
 
 		if ($update_query) {
-			echo '<span>Успешно обновлено</span>';
+			echo "<script>alert('Успешно обновлена информация о КОД ТН ВЭД');</script>";
 		}
 	}
 

@@ -17,5 +17,6 @@
 		<?php if(!isset($_SESSION['user_id'])) {include('login_form.php');} ?>
 	</div>
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>

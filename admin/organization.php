@@ -27,7 +27,7 @@
 });
 </script>
 </head>
-<body>
+<body onload="position('info')">
 <?php include('header.php');?>	
 <?php require_once("connection.php");?>
 
@@ -38,16 +38,16 @@
 			<li  onclick="position('info')">Основная информация об организациях</li>
 			<li onclick="position('rukovoditeli')">Руководители организаций</li>
 			<li onclick="position('addresses')">Адреса организаций</li>
-			<li onclick="position('mo')">Принадлежность к муниципальному образованию</li>
-			<li><span onclick="position('services')">Услуги, выданные организациям</span>
-				<ul><li onclick="open_menu('services')">Отредактировать услуги</li></ul>
-			</li>
+		<?php if($_SESSION['level'] == '3') {echo '<li><span onclick="position(`services`)">Услуги, выданные организациям</span>
+				<ul><li onclick="open_menu(`services`)">Отредактировать услуги</li></ul>
+			</li>';}?>
 		</ul>	
 
 		<div id="position_result" style="width: 90%; padding: 0 5%; background: #fff;">
 			
 		</div>
 </div>
+<?php require_once('footer.php'); ?>
 
 </body>
 </html>

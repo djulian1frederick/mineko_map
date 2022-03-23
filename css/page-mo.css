@@ -1,0 +1,48 @@
+
+	.responsiblie-row {
+		width:  auto;padding: 2px; text-align: center; margin-top:  2.5%;
+	}
+	.contacts-block {
+		padding: 10px;background: #fbfbfb; width: 60%;margin: 0 auto; text-align: left;margin-top: 10px;
+	}
+	.blockinfo {
+		min-width: 49%;
+		max-width: 100%;
+		width: fit-content;
+		padding: 5px;
+		margin: 3px;
+		font-family: Circe;
+	}
+	.blockinfo h3 {
+		font-size: 18px;
+		font-family: Circe Light;
+		padding: 5px;
+		margin: 5px;
+	}
+	.info_mo {
+		flex-flow: row;
+	}
+	.rukovoditel {
+		width: auto;
+	}
+	.blockherb {
+		width: 100%;
+		padding: 10px;
+	}
+	.expo_count {
+		display: block;
+		text-align: right;
+		font-family: Circe Light;
+		text-transform: lowercase;
+		padding: 25px;
+		padding-top: 0; 
+		text-decoration: underline;
+	}
+	.column-con {
+		padding: 10px;
+	}
+	.post-name {
+		width: 50%;
+		margin: 0 auto;
+		text-align: center;
+	}

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('../connection.php'); ?>
 <script>
 	$(document).ready(function() {
@@ -5,8 +6,8 @@
 });
 </script>
 <div class="blocks_info">
-	<div style="width: 500px; background: azure;">
-		<h3>Добавление руководителя района</h3>
+	<div style="width: auto; background: #fff; margin: 10px;">
+		<h3>Добавление или изменения руководителя района</h3>
 		<div style="margin: 10px 15px;">
 			<label>Фамилия *</label>
 			<br>
@@ -20,21 +21,34 @@
 			<br>
 			<input type="text" name="r_otch" id="r_otch" placeholder="Введите отчество руководителя МО">
 			<br>
-			<label for="r_raion">Муниципальное образование *</label>
-			<br>
-			<select name="raion" id="r_raion" class="js-example-basic-single" style="width: 450px;">
-				<option value="NULL">Не выбрано</option>
-				<?php 
-					$sql = "SELECT id_raion, raion from raions";
+			
+		<?php if($_SESSION['level'] == '3')  { echo 
+			'<label for="r_raion">Муниципальное образование *</label>
+				<br>
+				<select name="raion" id="r_raion" class="js-example-basic-single" style="width: 450px; max-width: 100%;">
+				<option value="NULL">Не выбрано</option>';
+				 
+					$sql = "SELECT id_mo, raion from raions join mo on raions.id_raion = mo.id_raion";
 					$raion_list_q = mysqli_query($bd, $sql);
 					$raion_list = mysqli_fetch_array($raion_list_q);
 					do {
-						echo '<option value="'.$raion_list['id_raion'].'">'.$raion_list['raion'].'</option>';
+						echo '<option value="'.$raion_list['id_mo'].'">'.$raion_list['raion'].'</option>';
 					}while ($raion_list=mysqli_fetch_array($raion_list_q));
-				?>
-			</select>
-			<br>
-			<span>Контактные данные:</span>
+			echo 
+			'</select>
+			<br>';}
+			elseif ($_SESSION['level'] == '2') {
+				$admin_id = mysqli_query($bd, "SELECT id_admin from admins where id_user='".$_SESSION['user_id']."'");
+				$admin_id = mysqli_fetch_array($admin_id);
+				$admin_id = $admin_id['id_admin'];
+				$id_mo = mysqli_query($bd, "SELECT id_mo from mo where id_admin='".$admin_id."'");
+				$id_mo = mysqli_fetch_array($id_mo);
+				$id_mo_l = $id_mo['id_mo'];
+				echo '<input type="hidden" value="'.$id_mo_l.'" id="r_raion" name="raion">';
+			}?>
+			<label>Должность (при наличии)</label><br>
+			<input type="text" name="post" id="post" placeholder="Введите название должности"><br>
+			<label>Контактные данные:</label>
 			<br>
 			<label>Номер телефона</label>
 			<br>

@@ -23,3 +23,9 @@ function restore_password() {
 		            }
 		});
 }
+
+function hide_modal() {
+		setTimeout(function() {
+	        $('#search_result').css("display", 'none');
+		}, 1000);
+}

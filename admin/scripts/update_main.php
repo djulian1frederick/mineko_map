@@ -34,5 +34,5 @@
 	$update_sql = "UPDATE predpriyatiya set predpriyatiya.name = '".$nameorg."', predpriyatiya.descr_organization = '".$descr_organization."', predpriyatiya.inn = '".$inn."', predpriyatiya.ogrn='".$ogrn."', predpriyatiya.id_size = '".$sizepr."', predpriyatiya.id_vid_deyat = '".$viddey."', predpriyatiya.id_code_product = '".$codeprod."', predpriyatiya.yearstart = '".$year."' where id_predpriyatiya='".$orgid."'";
 
 	$update_query = mysqli_query($bd, $update_sql);
-		echo "<span><center>Обновлено.</center></span>";
+		echo "<script>alert('Обновлена основная информация о предприятии');</script>";
 ?>

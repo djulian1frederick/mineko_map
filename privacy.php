@@ -130,6 +130,7 @@
 14.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://orbexport.ru/privacy.</p>
 	</div>
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>
 

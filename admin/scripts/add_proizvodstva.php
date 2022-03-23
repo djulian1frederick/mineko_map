@@ -23,6 +23,6 @@
 		}
 			$result = mysqli_query($bd, $sql);
 			if($result) {
-				echo '<span class="message">Информация о производстве Добавлена</span>';
+				echo "<script>alert('Успешное добавление фотографии производства');</script>";
 		}
 	?>

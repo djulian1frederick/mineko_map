@@ -18,7 +18,7 @@
 						$sql_update = "UPDATE predpriyatiya set id_address='".$id_addr."' where id_predpriyatiya='".$organization."'";
 						$update = mysqli_query($bd, $sql_update);
 						if ($update) {
-							echo "Успешно обновлен адрес!";
+							echo "<script>alert('Успешно добавлен адрес');</script>";
 						} 
 				}
 		}

@@ -14,7 +14,7 @@
 	<?php include('header.php');?>	
 <div class="container">
 	<div class="content">
-        шлюшка-заглушка
+        Создание каталога в формате xlsx
         <button onclick="initiate_request()">Экспорт каталога</button>
 	</div>
 </div>
@@ -27,7 +27,7 @@ function initiate_request(){
 
 function send_request(){
 
-fetch('http://localhost:8090/get_excel')
+fetch('https://mineko.okeit.edu:8090/get_excel')
     .then(response => {
         document.body.style.cursor = 'default'
         if(!response.ok){
@@ -40,7 +40,7 @@ fetch('http://localhost:8090/get_excel')
 
             var lnk = document.createElement('a'), e
             lnk.download = 'Экспорт_каталога.xlsx'
-            lnk.href = `http://localhost/ex_data/${data.path}`
+            lnk.href = `https://mineko.okeit.edu/ex_data/${data.path}`
             console.log(lnk.href)
             if (document.createEvent){
                 e = document.createEvent('MouseEvents')

@@ -1,0 +1,137 @@
+#searchinp {
+		min-width: fit-content;
+		width: 100%;
+		background: #fff;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+		height: 40px;
+		margin: 0;
+		padding: 5px;
+		font-family: Circe Light;
+		font-size: 18px;
+	}
+	#searchbut {
+		width: 60px; 
+		height: 40px;
+		margin: 0;
+		padding: 0;
+		background-color: #1c7ebc;
+		border-top-right-radius: 25px;
+		border-bottom-right-radius: 25px;
+	}
+	.block-inline {
+		display: block; height: 40px;
+		margin: auto;
+		text-align: center;
+		width: 80%;
+	}
+	#search_all {
+		font-family: Circe Light;
+		font-size: 18px;
+	}
+	.align-center {
+		margin: auto;
+		text-align: center;
+	}
+	.forma {
+		width: 80%;
+		margin: 0 10%;
+	}
+	#search_result {
+		width: 80%;
+		margin: 0 auto;
+		height: auto;
+		min-height: 400px;
+		max-height: 100%;
+	}
+	.ressearch {
+		text-align: center;
+		margin: 0 auto;
+		font-size: 26px;
+		color: #1c75bc;
+		font-family: Circe;
+		display: block;
+		width: 100%;
+		border-bottom: 2px solid #1c75bc;
+	}
+	.ololo {
+		display: inline-block;
+		padding: 0;
+		color: #1f1f11;
+		font-family: Circe Light;
+		list-style: decimal;
+		margin: auto;
+		background: #fff;
+		width: 100%;
+	}
+	.ololo li {
+		margin:5px 25px;
+		width: 80%;
+		font-size: 16px;
+		border-bottom: 1px solid #1c75bc;
+	}
+	.ololo li a {
+		color: inherit;
+		text-decoration: none;
+	}
+	.password {
+		position: relative;
+	}
+
+	.password input {
+		width: 70%;
+		font-family: Circe Light;
+		font-size: 16px;
+	}
+
+	.password-control {
+		position: absolute;
+		top: 5px;
+		right: 25px;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+	}
+	.restoring {
+		width: 60%;
+		padding: 15px 0;
+		margin: 0 auto;
+	}
+	.login_form {
+		background: #fbfbfb;
+		text-align: center;
+	}
+	.error {
+		margin: 2.5% auto;
+		padding:  2.5%;
+		text-align: center;
+		background: #1c75bc;
+		color:  white;
+		font-size: 22px;
+		font-family: Circe Light;
+		display: block;
+		margin-bottom: 0;
+	}
+	.form_block p, .form_block a {
+		color:  #1c75bc;
+		margin: 0;
+		padding: 15px;
+	}
+	.form_block a {
+		font-size: 18px;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.form_block {
+		margin: auto;
+		text-align: center;
+		background: #fbfbfb;
+		width: 70%;
+		min-height: 250px;
+	}
+	.attention {
+		background: #fff;
+		width: 70%;
+		margin: auto;
+		display: block;
+	}

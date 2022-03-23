@@ -7,9 +7,9 @@
 		
 
 <?php require_once("connection.php");?>
-<div class="container">
+<div class="container" style="background: #fff;">
 	<div id="res"></div>
-	<div class="content" style="min-width: 640px;">
+	<div class="content" style="width: fit-content; margin-left: auto; background: #fff; padding: 15px; border: 0.5px dotted;">
 		<p>Нажмите на название публикации, чтобы открыть редактор</p>
 			<?php 
 				$select = "SELECT news_title, id_news from news";

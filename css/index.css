@@ -3,10 +3,14 @@
 		font-family: Circe, OpenSans, Ubuntu, Arial, sans-serif;
 		width: 100%;
 		margin: 0; padding: 0;
-		color: #1f1f1f;
+		color: #14375d;
 		/*background: #e6e6e6;*/
 		background: #F1F3F5;
-		word-break: break-word
+		/*word-break: break-word;*/
+		font-size:  18px;
+	}
+	body input {
+		font-family: Circe Light;
 	}
 	.raion {
 		fill: Skyblue;
@@ -335,7 +339,7 @@
 
 	.blocks_info h3 {
 		 	background: #1c75bc;
-			width: 500px;
+			width: auto;
 			margin: 0;
 			font-size: 18px;
 			font-family: Circe ExtraLight;
@@ -345,6 +349,7 @@
 
 	.blocks_info input[type="text"], input[type="email"], input[type="date"], input[type="number"]{
 		    width: 450px;
+		    max-width: 100%;
 		    background: none;
 		    height: 30px;
 		    margin: 2px;
@@ -558,7 +563,8 @@
 	}
 
 	.middle-org input {
-		width: 500px;
+		max-width: 500px;
+		width: 100%;
 	}
 	.middle-org label {
 		width: 300px;
@@ -642,7 +648,7 @@
 		width: 100%;
 	}
 	.nice_navigation li {
-		color:  #1c75bc;
+		margin-top: 5px;
 		font-weight: bold;
 		padding: 15px;
 		text-align: center;
@@ -651,6 +657,8 @@
 	.nice_navigation a {
 		text-decoration: none;
 		font-family: Circe Light;
+		text-transform: uppercase;
+		font-size: 14px
 	}
 
 	.nice_navigation li:hover {
@@ -894,6 +902,9 @@
 	.edit-navigation::-webkit-scrollbar { 
         display: none; 
     }
+
+  
+
 	.edit-navigation {
 		padding: 0;
 		margin:  0;
@@ -977,13 +988,13 @@
 	}
 
 	.login {
-		width: 650px;
 		margin: auto;
 		text-align: center;
 	}
 
 	.login input{
-		width: 450px;
+		max-width: 450px;
+		width: 100%;
 		border:  none;
 		border-bottom: 1px solid black;
 		background: none;
@@ -994,7 +1005,8 @@
 		margin: 50px 0;
 	}
 	.login {
-		width: 650px;
+		max-width: 950px;
+		width: 100%;
 		margin: auto;
 		text-align: center;
 		background: #fff;
@@ -1030,6 +1042,9 @@
 		text-decoration: underline;
 		font-style: italic;
 		
+	}
+	.button {
+		 font-size: 16px;
 	}
 
 	.login input {
@@ -1176,13 +1191,15 @@
 	}
 
 	#org_info_form_reg {
-		width: 450px;
+		max-width: 450px;
+		width: 100%;
 		margin: 0 10px 0 0;
 		padding: 10px;
 	}
 
 	#org_info_form_reg input {
-		width: 400px;
+		max-width: 400px;
+		width: 100%;
 		margin: 2.5px 10px;
 		padding: 5px;
 		font-family: Circe Light;
@@ -1190,7 +1207,8 @@
 	}
 
 	#org_info_form_reg select {
-		width: 400px;
+		max-width: 400px;
+		width: 100%;
 		margin: 2.5px 10px;
 		padding: 5px;
 		font-family: Circe Light;
@@ -1201,13 +1219,15 @@
 	}
 
 	#man_info_form_reg {
-		width: 400px;
+		max-width: 400px;
+		width: 100%;
 		margin: 2.5px 10px;
 		padding: 10px;
 	}
 
 	#man_info_form_reg input {
-		width: 350px;
+		max-width: 350px;
+		width: 100%;
 		margin: 5px 10px;
 		font-family: Circe Light;
 		font-size: 16px;
@@ -1216,13 +1236,16 @@
 
 	.registrate {
 		background: white;
-		width: 950px;
+		max-width: 950px;
+		width: 100%;
 		min-height: 500px;
 		margin: auto;
 		text-align: center;
 		border: 1px solid #c7c7c7;
 	}
 	.registrate input {
+		max-width: 450px;
+		width: 100%;
 		background: none;
 		border: none;
 		border-bottom: 1px solid;
@@ -1233,7 +1256,8 @@
 		margin: 0 10px;
 	}
 	.name-otch input {
-		width: fit-content;
+		max-width: fit-content;
+		width: 100%;
 		margin: 0 2.5%;
 	}
 
@@ -1317,13 +1341,149 @@
 		color: #000; font-size: 16px; font-family: Circe Light; width: 80%; margin: 15px auto;
 	}
 	.message {
-		font-family: Circe Light; font-size: 18px; color: #11436a;
+		font-family: Circe Light; font-size: 18px; color: #11436a; min-height: 650px; height: 100%;
 	}
 	.necess{
-		margin: 5px 0; padding: 2px; border-top: 3px solid #000; font-family: Circe; width: 450px; color: #1c75bc; font-weight: bold; text-align: end;
+		margin: 5px 0; padding: 2px; border-top: 3px solid #000; font-family: Circe; width: 100%; color: #1c75bc; font-weight: bold; text-align: end;
 	}
 
-	.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}
+	.prefooter {
+		position: relative;
+		width: 90%;
+		padding: 0;
+		margin: 0 5%;
+	}
+	.footer {
+		bottom: 0;
+		height: fit-content;
+		background: #14375d;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 2.5% 0;
+	}
+	.logo_footer {
+		padding: 15px;
+		margin: 15px;
+		width: 150px;
+		height: auto;
+	}
+	.logo_footer img {
+		width: 100%;
+	}
+	.icons_descript {
+		/*height: 50px;*/
+	}
+	.prefooter details {
+		width: 100%;
+		color:  #fff;
+		text-align: left;
+	}
+	.prefooter details a {
+		color: #fff;
+	}
+	.row_footer {
+		position: relative;
+		width: 100%;
+		max-width: 300px;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		flex: 0 0 30%;
+		color: #fff;
+		margin: 0.5% 2.5%;
+	}
+	.row_footer span {
+		margin-bottom: 1%;
+		text-transform: uppercase;
+	}
+	.row_footer a {
+		color:  #fff;
+		font-family: Circe ExtraLight;
+		/*text-decoration: none;*/
+	}
+		.row-start {
+			margin-left: 10%;
+		}
+		.spoiler {
+			margin: auto;
+			text-align: center;
+		}
+
+	.submenu {
+		display: none;
+		width: 100%;
+		margin: auto;
+		margin-top: auto;
+		text-align: center;
+		background: #00386a;
+		margin-top: 15px;
+		position: absolute;
+		right: 0;
+		top: auto;
+		left: 0;
+		padding: 0px;
+	}
+
+	.submenu li {
+		border-bottom: #fff;
+		width: 100%;
+		padding: 5px 0;
+		cursor: pointer;
+		margin: 0;
+	}
+	.down {
+		width: fit-content;
+		margin: 0;
+		border-bottom: 1px solid;
+		position: relative;
+	}
+
+	.down:hover > .submenu {
+		display: block;
+		z-index: 555;
+	}
+	.down:hover {
+		background: #fff;
+		color: white;
+	}
+	.down:hover > .submenu li {
+		background: #00386a;
+		color:  #fff;
+		border-bottom: 1px solid #fff;
+
+	}
+	.submenu a {
+		color:  #fff;
+	}
+	#right_side {
+		list-style: none;
+		display: flex;
+		margin-left: auto;
+	}
+	.you-have-unread {
+		width: 250px;
+		height: 100px;
+		z-index: 555;
+		position: fixed;
+		bottom: 25;
+		right: 20;
+		background: #436e90;
+		border-radius: 10px;
+		color: #fff;
+		font-size: 20px;
+		font-family: Circe ExtraLight;
+	}
+	.you-have-unread span {
+		padding: 5px 25px;
+		text-align: center;
+		margin: 0 auto;
+		display: block;
+	}
+	.you-have-unread span a {
+		color:  white;
+	}
+
+	.select2-container{box-sizing:border-box; max-width: 100%; display:inline-block;margin:0;position:relative;vertical-align:middle}
 	.select2-container .select2-selection--single{box-sizing:border-box;cursor:pointer;display:block;height:28px;user-select:none;-webkit-user-select:none}
 	.select2-container .select2-selection--single .select2-selection__rendered{display:block;padding-left:8px;padding-right:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 	.select2-container .select2-selection--single .select2-selection__clear{background-color:transparent;border:none;font-size:1em}
@@ -1427,3 +1587,19 @@
 	.select2-container--classic .select2-results__option--highlighted.select2-results__option--selectable{background-color:#3875d7;color:#fff}
 	.select2-container--classic .select2-results__group{cursor:default;display:block;padding:6px}
 	.select2-container--classic.select2-container--open .select2-dropdown{border-color:#5897fb}
+
+@media screen and (orientation: portrait) { 
+  .container { flex-flow: column; }
+  table { display: flex; flex-flow: column; flex-wrap: wrap; width: 100%; }
+  .edit-navigation { display: inline-flex; width: 96%; margin: 0; flex-flow: row; word-break: break-all; }
+  .navigation-horizontal { display: flex; width: 100%; margin: 0 auto; flex-flow: row; flex-wrap: wrap;}
+  .navigation-horizontal li {width: 25%; margin: 1%; padding: 1%;}
+  .edit-navigation li { border-right: 2px solid #fff; }
+  .edit-navigation li ul li{ border-top: 2px solid #fff; }
+  .blocks_info { width: 100%; margin: 5px; padding: 0; }
+  .blocks_info button { border-radius: 0; display: block; margin: 0 auto; margin-top: 5px;}
+  .map {display: none;}
+  .navigation-div {width: 100%;}
+  .navigation-div ul, .map-navigation-div {width: 100%;}
+
+}

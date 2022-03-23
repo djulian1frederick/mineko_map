@@ -19,7 +19,7 @@
 
 		<div style="margin: auto; text-align: center; border-bottom: 2px solid #0e0e73;">
 			<ul class="navigation-horizontal">
-				<li  onclick="open_menu('info_upd_organization')">Основная информация об организации</li>
+				<li onclick="open_menu('info_upd_organization')">Основная информация об организации</li>
 				<li onclick="open_menu('rukovoditeli')">Руководители организаций</li>
 				<li onclick="open_menu('contacts')">Контакты</li>
 				<li onclick="open_menu('addresses')">Адрес</li>

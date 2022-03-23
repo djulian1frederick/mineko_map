@@ -11,6 +11,9 @@ function position(id) {
 		else if (id === 'mo') {
 			var url = "adding_organization/organization_mo.php";
 		}
+		else if (id === 'mo_responsiblies') {
+			var url = "mo/mo_responsiblies.php";
+		}
 		else if(id === 'mo_rukovoditel') {
 			var url = "mo/mo_rukovoditel.php";
 		}

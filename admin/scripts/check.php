@@ -45,7 +45,7 @@
 			}
 			else {
 				header('Refresh: 5, url: "/editor/status_check"');
-				$msg ='<span>Произошла непридвиденная ошибка.</span>';
+				$msg ='Произошла непридвиденная ошибка.';
 			}
 		}
 
@@ -77,7 +77,7 @@
 <div class="container">
 	<div class="content">
 		<div class="block_info_load">
-			<?php echo $msg; ?>
+			<?php echo "<script>alert(".$msg."');</script>"; ?>
 		</div>
 	</div>
 </div>

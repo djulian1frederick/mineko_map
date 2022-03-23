@@ -14,6 +14,6 @@
 
 	$sql = "update news set news_title='".$news_title."', news_text='".$news_text."', news_date='".$news_date."', id_user='".$user_id."' where id_news = '".$idnew."'";
 	$result = mysqli_query($bd, $sql);
-	if ($result) { echo "<span>Публикация обновлена</span>";} else {mysqli_error();}
+	if ($result) { echo "<script>alert('Обновлено успешно');</script>";} else {mysqli_error();}
 
 ?>

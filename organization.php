@@ -5,24 +5,27 @@
 		$sql_info_org = "SELECT * from predpriyatiya where id_predpriyatiya='".$id."'";
 		$this_org = mysqli_query($bd, $sql_info_org);
 		$org_row = mysqli_fetch_array($this_org);
-		if($org_row == NULL) {
-			header('Location: 404.html');
-		}
+		
 ?>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<title>Организация <?php echo $org_row['name'];?></title>
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <?php include 'header.php'; ?>
-<div class="container"><div class="content">
+<div class="container">
+	<div class="content">
 	<?php 
+		if($org_row == NULL) {
+			include '404.php';
+		}
 		#подключение к бд
 		#полученый номер района с карты
-		do {
+		else {
+			do {
 		$size_sql = mysqli_query($bd, "SELECT name_size from size_predpr where id_size='".$org_row['id_size']."'");
 		$size_predpr = mysqli_fetch_array($size_sql);
 		$size = $size_predpr['name_size'];
@@ -104,13 +107,13 @@
 						<img src="img/address.png">
 						<p>'.$address.'</p>
 					</div>';}
-		if(isset($contact) && $contact <> NULL) {
+		if(isset($contact) && $contact <> NULL && $_SESSION['level'] > 0) {
 			if ($contact['phone1'] <> NULL) 
 					{echo '<div class="block-with-image">
 						<img src="img/phone1.png">
 						<p>'.$contact['phone1'].'</p>
 					</div>';}
-			if ($contact['email'] <> NULL) {
+			if ($contact['email'] <> NULL  && $_SESSION['level'] > 0) {
 					echo '<div class="block-with-image">
 						<img src="img/email1.png">
 						<p>'.$contact['email'].'</p>
@@ -132,7 +135,7 @@
 			if (count($code_tn_ved_list) > 1) { $word = "Коды"; } else { $word = "Код";}
 			echo '<div class="down-right"><h5>'.$word.' ТН ВЭД ЕАЭС</h5><ul class="export_list">';
 			do { echo '<li>'.$code_tn_ved_list['code_tn_ved'].'</li>'; }while($code_tn_ved_list=mysqli_fetch_array($code_tn_ved_sql)); }
-			echo '</ul></div>';
+			echo '</ul>';
 		}
 		while($org_row = mysqli_fetch_array($this_org));			
 	
@@ -166,6 +169,7 @@
 							echo '
 					</div>';		
 				}
+			}
 			?>		
 		<?php
 			$export_select = "SELECT * from country join exports on exports.id_country=country.id_country and exports.id_predpriyatiya='".$id."'";
@@ -204,8 +208,11 @@
 			}}
 
 		?>
+			</div>
+		</div>
 	</div>
 </div>
+<?php require_once('footer.php'); ?>
 </body>
 </html>
 

@@ -1,4 +1,7 @@
 <?php session_start(); ?>
+<script src="../js/script.js" type="text/javascript"></script>
+<script src="../js/func.js" type="text/javascript"></script>
+<script src="../js/select2.min.js"></script>
 <script>
 	$(document).ready(function() {
     $('.js-example-basic-single').select2();
