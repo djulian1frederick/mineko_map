@@ -52,8 +52,8 @@
 								echo'<h2>'.$row_info_mo['second_name'].' '.$row_info_mo['first_name'].' '.$row_info_mo['last_name'].'</h2>';
 									if($row_info_mo['phone1'] <> NULL || $row_info_mo['email'] <> NULL && isset($_SESSION['level']) && $_SESSION['level'] >= '1'){
 									echo '<div class="contacts-block">';
-									if($row_info_mo['phone1'] <> NULL){echo'<p><img src="img/phone-call.png" style="width: 20px; height: 20px; border: none; margin: -5px 0; padding: 0 5px;">'.$row_info_mo['phone1'].'</p>';}
-									if($row_info_mo['email'] <> NULL){echo'<p><img src="img/email.png" style="width: 20px; height: 20px; padding: 0 5px; border: none; margin: -6px 0;"><a href="mailto:'.$row_info_mo['email'].'">'.$row_info_mo['email'].'</a></p>';}
+									if($row_info_mo['phone1'] <> NULL){echo'<p><img src="img/phone-call.png">'.$row_info_mo['phone1'].'</p>';}
+									if($row_info_mo['email'] <> NULL){echo'<p><img src="img/email.png"><a href="mailto:'.$row_info_mo['email'].'">'.$row_info_mo['email'].'</a></p>';}
 									echo '</div>';}
 							echo	'</div>
 								';
@@ -74,8 +74,8 @@
 								<h2>'.$responsiblies_row['second_name_resp'].' '.$responsiblies_row['first_name_resp'].' '.$responsiblies_row['last_name_resp'].'</h2>
 								<h2 class="post-name">'.$responsiblies_row['name_post'].'</h2>';
 								if($contact_respons_row <> NULL && isset($_SESSION['level']) && $_SESSION['level'] >= '1') {
-								echo '<div class="contacts-block"><p><img src="img/phone-call.png" style="width: 20px; height: 20px; border: none; margin: -5px 0; padding: 0 5px;">'.$contact_respons_row['phone1'].'</p>
-									<p><img src="img/email.png" style="width: 20px; height: 20px; padding: 0 5px; border: none; margin: -6px 0;"><a href="mailto:'.$contact_respons_row['email'].'">'.$contact_respons_row['email'].'</a></p></div>';}
+								echo '<div class="contacts-block"><p><img src="img/phone-call.png">'.$contact_respons_row['phone1'].'</p>
+									<p><img src="img/email.png"><a href="mailto:'.$contact_respons_row['email'].'">'.$contact_respons_row['email'].'</a></p></div>';}
 								
 							}while($responsiblies_row = mysqli_fetch_array($sql_responsible));
 						echo '</div>

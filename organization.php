@@ -98,12 +98,7 @@
 					echo '<div class="block-with-image">
 					<img src="img/team.png">';
 					echo '<p>'.$vid.'</p></div>';}
-				echo '
-				</div>
-			</div>';
-				
-		echo '<div class="main-info-organization" style="margin: auto;">';
-					if(isset($address) && $address<>NULL) { echo '<div class="block-with-image">
+		if(isset($address) && $address<>NULL) { echo '<div class="block-with-image">
 						<img src="img/address.png">
 						<p>'.$address.'</p>
 					</div>';}
@@ -130,6 +125,7 @@
 						<p><i>Руководитель:</i> '.$rukovoditel.'</p>
 					</div>
 				</div>';}
+				echo '</div>';
 
 		if($code_tn_ved_list <> NULL) {
 			if (count($code_tn_ved_list) > 1) { $word = "Коды"; } else { $word = "Код";}

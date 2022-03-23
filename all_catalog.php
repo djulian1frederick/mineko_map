@@ -88,7 +88,7 @@
 							while($code_tn_ved_list=mysqli_fetch_array($code_tn_ved_sql)); }
 							echo '</ul><br>';
 						echo '</div>';
-						
+						echo '</div>';
 
 			echo '<div class="main-info-organization">';
 				if (isset($org_row['yearstart']) && $org_row['yearstart'] <> NULL) {
@@ -106,9 +106,6 @@
 					echo '<div class="block-with-image">
 					<img src="img/team.png">';
 					echo '<p>'.$vid.'</p></div>';}
-				echo '</div>
-			</div>';
-			echo '<div class="main-info-organization" style="width: 75%; margin-left: 25%;">';
 					if(isset($address) && $address<>NULL) { 
 						echo '<div class="block-with-image">
 							<img src="img/address.png">
@@ -132,8 +129,9 @@
 								<img src="img/manager.png">
 								<p><i>Руководитель:</i> '.$rukovoditel.'</p>
 							</div>';}
+					echo '</div>';
 					
-			echo '</div></div>';			
+			echo '</div>';			
 		}
 		// дальше выводим ссылки на страницы:
 		$q="SELECT count(*) FROM predpriyatiya";

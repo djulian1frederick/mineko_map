@@ -28,9 +28,11 @@ $count_all_predpr = $count_all_predpr['count(*)']; ?>
 			<span>Всего в системе - <u><?php echo $count_all_predpr; ?></u></span>
 			<canvas id="common_rate" height="250%"></canvas>
 			<div id="result"></div>
-			<!-- <span style="font-size: 24px; font-family: Circe Light;">ТОП-5 муниципальных образований Оренбургской области по количеству экспортеров</span>
-			<canvas id="rate_5" height="250%"></canvas>
-			<div id="result2"></div> -->
+			<div class="infoaboutrate" id="notice_aboutrate">
+			<span onclick="hide_notice()">x</span>
+			При просмотре с мобильного устройства отображается не вся легенда!
+			</div>
+			
 		</div>
 	</div>
 </div>
@@ -38,3 +40,8 @@ $count_all_predpr = $count_all_predpr['count(*)']; ?>
 <?php require_once('footer.php'); ?>
 </body>
 </html>
+<script>
+	function hide_notice() {
+		$('#notice_aboutrate').hide();
+	}
+</script>

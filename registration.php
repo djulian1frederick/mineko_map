@@ -15,7 +15,7 @@
 	<div class="content">
 	<?php if(!isset($_SESSION['id'])) { echo '<div class="registrate">
 			<div class="login_form">	
-				<img src="img/logo.png" alt="Логотип сайта" style="margin: 25px 0;padding: 0 0 15px 0;"><br>
+				<img src="img/logo.png" alt="Логотип сайта" class="login_form_img"><br>
 					<span>Подача заявки  на регистрацию личного кабинета организации</span><br><br>';
 					include('reg_form.php'); 
 			echo '</div>

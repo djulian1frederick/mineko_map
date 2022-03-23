@@ -1482,6 +1482,10 @@
 	.you-have-unread span a {
 		color:  white;
 	}
+	.infoaboutrate {display: none; position: absolute; top: 20%; font-size: 20px; z-index: 555; height: auto; width: 50%; background: #fff; border:  2px double red; padding: 15px;}
+	.infoaboutrate span { color: red; text-align: right; z-index: 555; cursor: pointer;}
+
+
 
 	.select2-container{box-sizing:border-box; max-width: 100%; display:inline-block;margin:0;position:relative;vertical-align:middle}
 	.select2-container .select2-selection--single{box-sizing:border-box;cursor:pointer;display:block;height:28px;user-select:none;-webkit-user-select:none}
@@ -1587,6 +1591,7 @@
 	.select2-container--classic .select2-results__option--highlighted.select2-results__option--selectable{background-color:#3875d7;color:#fff}
 	.select2-container--classic .select2-results__group{cursor:default;display:block;padding:6px}
 	.select2-container--classic.select2-container--open .select2-dropdown{border-color:#5897fb}
+.login_form_img {margin: 25px 0;padding: 0 0 15px 0;}
 
 @media screen and (orientation: portrait) { 
   .container { flex-flow: column; }
@@ -1601,5 +1606,36 @@
   .map {display: none;}
   .navigation-div {width: 100%;}
   .navigation-div ul, .map-navigation-div {width: 100%;}
-
+  body {font-size: 14px;}
+  .contacts-block p img { padding: 5px 25px; border: none; margin: 10px 0;}
+  .rukovoditel img {width: 70%; height: auto;}
+ #form_reg {flex-wrap:wrap;}
+ #org_info_form_reg input, #man_info_form_reg input  { width: 90%; margin: 2.5px 10px; padding: 5px; text-align: left;}
+ #org_info_form_reg select {width: 90%;}
+ #man_info_form_reg { margin: 0 auto; width: 96%; padding: 10px; } 
+ .login_form_img {
+ 	width: 100%;
+ 	height: auto;
+ }
+ .login {
+ 	width: 90%;
+ 	max-width: 100%;
+ }
+ .login input {
+ 	margin-top: 0;
+ }
+ .login label {
+ 	text-align: left;
+ 	margin: 0;
+ }
+ .main-info-organization { 	width: 80%;margin: 0 5%;padding: 5%;
+ }
+ .block_organization { width: 90%; margin: 15px 5%;  }
+ .prod-elem { margin: 5px auto; }
+ .info-product { width: 50%; margin: auto; min-height: 450px;}
+ .info-product blockquote { width: fit-content; padding-right: 2%; }
+ .infoaboutrate {display: block;}
+ .message-list { width: 50%; max-width: 50%; font-size: 12px; }
+ .message-list img { display: none; }
+ .message-list p { padding: 1px 5px; margin: 5px; text-align: left;}
 }

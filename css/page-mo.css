@@ -1,14 +1,22 @@
 
 	.responsiblie-row {
-		width:  auto;padding: 2px; text-align: center; margin-top:  2.5%;
+		width:  auto;padding: 2px; text-align: center; margin-top:  2.5%; border-top:  1px solid;
 	}
 	.contacts-block {
 		padding: 10px;background: #fbfbfb; width: 60%;margin: 0 auto; text-align: left;margin-top: 10px;
 	}
+	.contacts-block p {
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+	.contacts-block img {
+		width: 20px; height: 20px; padding: 1px 25px; border: none; margin: -6px 0;
+	}
 	.blockinfo {
-		min-width: 49%;
+		/*min-width: 49%;*/
 		max-width: 100%;
-		width: fit-content;
+		width: 50%;
 		padding: 5px;
 		margin: 3px;
 		font-family: Circe;
@@ -17,7 +25,12 @@
 		font-size: 18px;
 		font-family: Circe Light;
 		padding: 5px;
-		margin: 5px;
+		display: block;
+		text-align: center;
+		margin: 5px auto;
+	}
+	.blockinfo h2 {
+		margin-top: 5px;
 	}
 	.info_mo {
 		flex-flow: row;
@@ -31,7 +44,7 @@
 	}
 	.expo_count {
 		display: block;
-		text-align: right;
+		text-align: center;
 		font-family: Circe Light;
 		text-transform: lowercase;
 		padding: 25px;
